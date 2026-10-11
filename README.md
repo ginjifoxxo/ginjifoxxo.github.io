@@ -6,7 +6,7 @@ Website cá nhân của Ginji (CoCo), viết bằng HTML, CSS và JavaScript thu
 
 - `public/index.html`: nội dung trang.
 - `public/styles.css`: giao diện và bố cục responsive.
-- `public/navigation-start.js`: xử lý reload về Hero trước khi trang render; deep link mới vẫn được giữ.
+- `public/navigation-start.js`: xóa hash cũ trước khi render và xử lý reload về Hero.
 - `public/app.js`: chuyển ngôn ngữ, ánh sao và tương tác khi cuộn.
 - `public/assets/`: ảnh và tài nguyên tĩnh.
 - `.github/workflows/pages.yml`: triển khai trực tiếp lên GitHub Pages.
@@ -24,9 +24,9 @@ node --check public/navigation-start.js
 
 ## GitHub Pages
 
-URL mặc định dự kiến: https://ceococo.github.io/ginji-portfolio/
+URL production: https://ginjifoxxo.github.io/
 
-Thiết lập một lần tại repository `CeoCoCo/ginji-portfolio`:
+Repository hiện tại: `ginjifoxxo/ginjifoxxo.github.io`. Nếu cần kiểm tra thiết lập Pages:
 
 1. Mở **Settings → Pages → Build and deployment**.
 2. Chọn **Source: GitHub Actions**.
@@ -34,7 +34,9 @@ Thiết lập một lần tại repository `CeoCoCo/ginji-portfolio`:
 
 Workflow kiểm tra cú pháp JavaScript, đóng gói riêng thư mục `public` và triển khai bằng các GitHub Pages actions chính thức. Không có bước build, dependency bên ngoài hay token triển khai thủ công; dùng `GITHUB_TOKEN` của workflow.
 
-CSS, JavaScript và ảnh dùng đường dẫn tương đối (`styles.css`, `app.js`, `assets/...`) nên hoạt động dưới `/ginji-portfolio/`. Khi thêm asset, tránh đường dẫn bắt đầu bằng `/` vì nó trỏ tới gốc tên miền thay vì thư mục repository.
+CSS, JavaScript và ảnh dùng đường dẫn tương đối (`styles.css`, `app.js`, `assets/...`), hoạt động ở domain gốc và cả khi xem dưới thư mục con. Các button điều hướng section không thay đổi URL; hash cũ được xóa mà không tạo history entry mới. Reload trở về Hero.
+
+Music gacha có danh sách `musicTracks` trong `public/app.js`, hiện để trống vì chưa có bài hát được duyệt. Chỉ thêm track được người dùng cung cấp với `title`, `artist` và `url` tùy chọn. Track được chọn ngẫu nhiên, tránh lặp ngay bài trước; URL chỉ mở từ thao tác bấm trực tiếp. Khi danh sách rỗng, control hiển thị thông báo VI/EN và không gửi request nhạc.
 
 Mỗi lần push lên `main` sẽ cập nhật website. Chờ workflow thành công trước khi kiểm tra bản mới.
 

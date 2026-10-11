@@ -7,14 +7,12 @@
       heroLead: 'Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~',
       navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
       introAlt: 'Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch.', socialNav: 'Mạng xã hội', newTab: 'mở trong tab mới', fursonaLabel: 'FURSONA', galleryLabel: 'THƯ VIỆN',
-      aboutLabel: 'VỀ MÌNH', aboutHeadline1: 'Hơi ít nói lúc đầu.', aboutHeadline2: 'Thân rồi thì… để xem.',
-      aboutP1: 'Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.',
-      aboutP2: 'Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.',
-      tagShy: 'Thân thiện, hơi rụt rè', tagWeather: 'Thích trời âm u', tagJapanese: 'Đang học tiếng Nhật',
-      interestsTitle: 'Mấy điều mình thích.',
-      gameTitle: 'Thêm một ván nữa.', gameText: 'Từ game âm nhạc đến những trận Guilty Gear Strive. Đôi khi chơi để thử thách bản thân, đôi khi chỉ để chill.', gameMeta: 'Game / Anji Mito',
-      musicTitle: 'Nhạc hay, trời âm u.', musicText: 'Một playlist hợp tâm trạng và thời tiết hơi xám một chút. Vậy là đủ cho một khoảng nghỉ mình thích.', musicMeta: 'Âm nhạc / Những phút thảnh thơi',
-      japaneseTitle: 'Từng chút tiếng Nhật.', japaneseText: 'Học thêm vài từ, hiểu thêm một câu. Mình thích cảm giác dần chạm đến một ngôn ngữ khác.', japaneseMeta: 'Ngôn ngữ / Từng bước nhỏ',
+      aboutLabel: 'VỀ MÌNH', aboutHeadline1: "Mình hơi hướng nội một chút.", aboutHeadline2: "Nhưng không khó để làm quen đâu :3",
+      aboutP1: "Bạn có thể gọi mình là Ginji. Hiện mình đã ăn được 22 nồi bánh chưng, đang học tập cũng như sinh sống tại TP. Hồ Chí Minh.",
+      aboutP2: "Mình khá dễ gần và hoà đồng, nhưng cũng hơi hướng nội. Có lúc mình nói rất nhiều, có lúc lại khép kín và trở nên trầm tính. Nhưng đừng vì những điều đó mà ngại ngùng trò chuyện với mình nhé. Nếu muốn bắt chuyện thì cứ thử chủ động trò chuyện cùng mình uwu.",
+      interestsTitle: "Những điều mình thích làm",
+      gameTitle: "Chơi \"gem\"", gameText: "Đây là điều hiển nhiên mà? Ai mà chẳng thích chơi game chứ? Liệu bạn có chơi những game mình hay chơi không?",
+      musicTitle: 'Nhạc hay, trời âm u.', musicText: "Mình thường nghe nhiều thể loại nhạc, liệu có bài hát nào trong số này khiến bạn thích nghe giống mình không?",
       fursonaHeadline: "Ginji - Kitsune 9 cái \"đui\"",
       fursonaText: "Đúng vậy, bạn không có nghe nhầm đâu. Đó là một cậu cáo trắng chín đuôi, nhưng trong hình dạng thường ngày cậu ấy sẽ xuất hiện với hai chiếc đuôi, cũng chính là mascot của mình.",
       galleryTitle: "Một chút thế giới nhỏ của mình :3", refCaption: 'Refsheet nhân vật', refView: 'Xem ảnh đầy đủ',
@@ -25,6 +23,12 @@
       helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
       backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
+      gameList: "Danh sách game mình thường chơi",
+      musicTry: "Thử vận may xem",
+      musicNotConfigured: "Danh sách nhạc chưa được thiết lập.",
+      musicSelected: "Bài hát được chọn:",
+      sleepTitle: "Đi ngủ",
+      sleepText: "Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời",
     },
     en: {
       description: 'Ginji (CoCo) — a law student into games, music and cloudy days.',
@@ -32,14 +36,12 @@
       heroLead: 'Hewwooo, I’m Ginji — a chill lil fox who loves wandering around. Welcome to my profileee~',
       navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
       introAlt: 'Ginji, a white and blue fox with a playful smile.', socialNav: 'Social links', newTab: 'opens in a new tab', fursonaLabel: 'FURSONA', galleryLabel: 'GALLERY',
-      aboutLabel: 'ABOUT ME', aboutHeadline1: 'A little quiet at first.', aboutHeadline2: 'Once we’re friends… we’ll see.',
-      aboutP1: 'You can call me Ginji, CoCo or Ceo. I’m currently studying law. Outside of class, you’ll usually find me playing games, listening to music or just taking things slow.',
-      aboutP2: 'I’m pretty easygoing, just not always the first to start a conversation. Feel free to say hi if you’d like to get to know me.',
-      tagShy: 'Friendly, but shy', tagWeather: 'Cloudy-day enjoyer', tagJapanese: 'Learning Japanese',
-      interestsTitle: 'A few things I like.',
-      gameTitle: 'Just one more round.', gameText: 'From rhythm games to Guilty Gear Strive matches. Sometimes I’m up for a challenge; sometimes I just want to chill.', gameMeta: 'Games / Anji Mito',
-      musicTitle: 'Good music, grey skies.', musicText: 'A playlist that fits the mood and a slightly overcast sky. That’s my kind of little break.', musicMeta: 'Music / Slow moments',
-      japaneseTitle: 'Japanese, bit by bit.', japaneseText: 'A few more words, one more sentence understood. I like the feeling of slowly finding my way into another language.', japaneseMeta: 'Language / Small steps',
+      aboutLabel: 'ABOUT ME', aboutHeadline1: "I'm a little introverted.", aboutHeadline2: "But I'm not that hard to get to know :3",
+      aboutP1: "You can call me Ginji. I've made it through 22 pots of bánh chưng so far, and I'm currently studying and living in Ho Chi Minh City.",
+      aboutP2: "I'm pretty easy to get along with and sociable, though I'm also a bit introverted. Sometimes I talk a lot; other times I close myself off and get quiet. But don't let that make you hesitate to talk to me. If you want to start a conversation, just give it a try and come chat with me uwu.",
+      interestsTitle: "Things I like to do",
+      gameTitle: "Playing \"gem\"", gameText: "I mean, isn't it obvious? Who doesn't like playing games? Do you play any of the games I usually play?",
+      musicTitle: 'Good music, grey skies.', musicText: "I listen to lots of different genres. Is there a song in here that you might end up liking as much as I do?",
       fursonaHeadline: "Ginji - a Kitsune with 9 lil' tails",
       fursonaText: "Yep, you heard that right. He's a white nine-tailed fox, but in his everyday form he usually appears with just two tails — and he's also my mascot.",
       galleryTitle: "A little world of my own :3", refCaption: 'Character reference sheet', refView: 'View full image',
@@ -50,6 +52,12 @@
       helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
       backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
+      gameList: "Games I usually play",
+      musicTry: "Try your luck",
+      musicNotConfigured: "The song list is not configured yet.",
+      musicSelected: "Selected song:",
+      sleepTitle: "Sleep",
+      sleepText: "What did you think? Of course I have to sleep. I'm kind of obsessed with it, seriously.",
     }
   };
   const languageToggle = document.querySelector('.language-toggle');
@@ -58,26 +66,26 @@
   const overview = document.getElementById('overview');
   const starLayer = document.querySelector('.starlight');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const sectionLinks = Array.from(document.querySelectorAll('.navlinks a'));
-  const sections = sectionLinks.map(link => document.querySelector(link.hash));
+  const sectionControls = Array.from(document.querySelectorAll('.navlinks button'));
+  const sections = sectionControls.map(control => document.getElementById(control.dataset.scrollTarget));
   const navlinks = document.querySelector('.navlinks');
   const navIndicator = document.querySelector('.nav-indicator');
-  let activeLink = null, navigationTarget = null, indicatorFrame = null;
+  let activeControl = null, navigationTarget = null, indicatorFrame = null;
   function updateIndicator() {
     indicatorFrame = null;
-    navIndicator.style.width = activeLink ? activeLink.offsetWidth + 'px' : '0px';
-    navIndicator.style.transform = 'translateX(' + (activeLink ? activeLink.offsetLeft : 0) + 'px)';
-    navIndicator.classList.toggle('is-visible', !!activeLink);
+    navIndicator.style.width = activeControl ? activeControl.offsetWidth + 'px' : '0px';
+    navIndicator.style.transform = 'translateX(' + (activeControl ? activeControl.offsetLeft : 0) + 'px)';
+    navIndicator.classList.toggle('is-visible', !!activeControl);
   }
   function scheduleIndicator() {
     if (indicatorFrame === null) indicatorFrame = requestAnimationFrame(updateIndicator);
   }
   function setActiveSection(id) {
-    const next = sectionLinks.find(link => link.hash === '#' + id) || null;
-    if (next === activeLink) return;
-    activeLink = next;
-    for (const link of sectionLinks) {
-      if (link === activeLink) link.setAttribute('aria-current', 'location');
+    const next = sectionControls.find(control => control.dataset.scrollTarget === id) || null;
+    if (next === activeControl) return;
+    activeControl = next;
+    for (const link of sectionControls) {
+      if (link === activeControl) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     }
     scheduleIndicator();
@@ -102,6 +110,7 @@
     backToTop.title = text.backToTop;
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
     updateRefLabels();
+    updateMusicStatus();
     scheduleIndicator();
     scheduleScrollUpdate();
   }
@@ -112,7 +121,7 @@
     const width = document.querySelector('main').clientWidth;
     if (!force && width === languageLayoutWidth) return;
     languageLayoutWidth = width;
-    const blocks = document.querySelectorAll('main h2, main h3, main h4, main p:not(.sr-only), main small, .tags, .refsheet-toolbar');
+    const blocks = document.querySelectorAll('main h2, main h3, main h4, main p:not(.sr-only), .card-chip, .refsheet-toolbar');
     for (const block of blocks) {
       if (!block.matches('[data-i18n]') && !block.querySelector('[data-i18n]')) continue;
       block.style.minHeight = '';
@@ -243,15 +252,11 @@
     }
     scrollRaf = requestAnimationFrame(step);
   }
-  // Real anchors remain usable without JavaScript and support modified clicks.
   document.addEventListener('click', event => {
-    const link = event.target.closest('a[href^="#"]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    const target = document.getElementById(link.hash.slice(1));
-    if (!target) return;
-    event.preventDefault();
-    history.pushState(null, '', link.hash);
-    scrollToSection(target);
+    const control = event.target.closest('button[data-scroll-target]');
+    if (!control || event.defaultPrevented) return;
+    const target = document.getElementById(control.dataset.scrollTarget);
+    if (target) scrollToSection(target);
   });
   window.addEventListener('wheel', cancelScroll, { passive: true });
   window.addEventListener('touchstart', cancelScroll, { passive: true });
@@ -260,12 +265,6 @@
   });
   reducedMotion.addEventListener('change', cancelScroll);
   window.addEventListener('popstate', cancelScroll);
-  window.addEventListener('hashchange', () => {
-    const target = document.getElementById(location.hash.slice(1));
-    if (target) scrollToSection(target);
-  });
-  const hashTarget = document.getElementById(location.hash.slice(1));
-  if (hashTarget) requestAnimationFrame(() => scrollToSection(hashTarget));
 
   const refViewer = document.querySelector('.refsheet-viewer');
   const refImage = document.getElementById('refsheet-image');
@@ -351,6 +350,36 @@
   reducedMotion.addEventListener('change', resetPortrait);
   finePointer.addEventListener('change', resetPortrait);
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPortrait(); });
+  // Add only user-approved tracks: { title, artist, url (optional) }.
+  // An optional URL opens synchronously from the button click, never on load.
+  const musicTracks = [];
+  const musicStatus = document.getElementById('music-status');
+  let lastMusicIndex = -1;
+  function pickMusicIndex(tracks, previous, random = Math.random) {
+    if (!tracks.length) return -1;
+    if (tracks.length === 1) return 0;
+    const hasPrevious = previous >= 0 && previous < tracks.length;
+    let index = Math.floor(random() * (tracks.length - (hasPrevious ? 1 : 0)));
+    if (hasPrevious && index >= previous) index++;
+    return index;
+  }
+  function updateMusicStatus() {
+    const track = musicTracks[lastMusicIndex];
+    musicStatus.textContent = track
+      ? copy[currentLanguage].musicSelected + ' ' + track.title + (track.artist ? ' — ' + track.artist : '')
+      : copy[currentLanguage].musicNotConfigured;
+  }
+  document.querySelector('.music-gacha').addEventListener('click', () => {
+    lastMusicIndex = pickMusicIndex(musicTracks, lastMusicIndex);
+    updateMusicStatus();
+    const track = musicTracks[lastMusicIndex];
+    if (!track?.url) return;
+    try {
+      const url = new URL(track.url, document.baseURI);
+      if (url.protocol === 'https:' || url.protocol === 'http:') window.open(url.href, '_blank', 'noopener,noreferrer');
+    } catch { /* Invalid configured URLs leave the selected result visible. */ }
+  });
+
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
   desiredLanguage = currentLanguage;

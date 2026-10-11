@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <script src="navigation-start.js?v=20261009-motion"></script>
+  <script src="navigation-start.js?v=20261012-clean"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ginji's Card ✦</title>
   <meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.">
@@ -11,20 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261009-motion">
-  <script src="app.js?v=20261009-motion" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261012-clean">
+  <script src="app.js?v=20261012-clean" defer></script>
   <noscript><style>.site-header { opacity: 1; visibility: visible; pointer-events: auto; } #overview { padding-top: 150px; }</style></noscript>
 </head>
 <body id="top">
-  <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
+  <button type="button" class="skip-link" data-scroll-target="main" data-i18n="skip">Đến nội dung chính</button>
   <div class="starlight" aria-hidden="true"><canvas id="star-canvas"></canvas></div>
   <header class="site-header glass">
     <nav class="navigation" aria-label="Điều hướng chính" data-i18n-aria="navigation">
       <div class="navlinks">
         <span class="nav-indicator" aria-hidden="true"></span>
-        <a href="#about" data-i18n="navAbout">Về mình</a>
-        <a href="#fursona" data-i18n="navFursona">Fursona</a>
-        <a href="#gallery" data-i18n="navGallery">Thư viện</a>
+        <button type="button" data-scroll-target="about" data-i18n="navAbout">Về mình</button>
+        <button type="button" data-scroll-target="fursona" data-i18n="navFursona">Fursona</button>
+        <button type="button" data-scroll-target="gallery" data-i18n="navGallery">Thư viện</button>
       </div>
     </nav>
   </header>
@@ -55,18 +55,17 @@
         <div class="section-grid">
           <h2 class="section-heading" id="about-title"><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
           <div class="about">
-            <h3><span data-i18n="aboutHeadline1">Hơi ít nói lúc đầu.</span><br><em data-i18n="aboutHeadline2">Thân rồi thì… để xem.</em></h3>
-            <p data-i18n="aboutP1">Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.</p>
-            <p data-i18n="aboutP2">Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.</p>
-            <div class="tags"><span class="tag" data-i18n="tagShy">Thân thiện, hơi rụt rè</span><span class="tag" data-i18n="tagWeather">Thích trời âm u</span><span class="tag" data-i18n="tagJapanese">Đang học tiếng Nhật</span></div>
+            <h3><span data-i18n="aboutHeadline1">Mình hơi hướng nội một chút.</span><br><em data-i18n="aboutHeadline2">Nhưng không khó để làm quen đâu :3</em></h3>
+            <p data-i18n="aboutP1">Bạn có thể gọi mình là Ginji. Hiện mình đã ăn được 22 nồi bánh chưng, đang học tập cũng như sinh sống tại TP. Hồ Chí Minh.</p>
+            <p data-i18n="aboutP2">Mình khá dễ gần và hoà đồng, nhưng cũng hơi hướng nội. Có lúc mình nói rất nhiều, có lúc lại khép kín và trở nên trầm tính. Nhưng đừng vì những điều đó mà ngại ngùng trò chuyện với mình nhé. Nếu muốn bắt chuyện thì cứ thử chủ động trò chuyện cùng mình uwu.</p>
           </div>
         </div>
         <div class="interests">
-          <div class="interests-head"><h3 data-i18n="interestsTitle">Mấy điều mình thích.</h3></div>
+          <div class="interests-head"><h3 data-i18n="interestsTitle">Những điều mình thích làm</h3></div>
           <div class="cards">
-            <article class="card"><span class="symbol" aria-hidden="true">↗</span><h4 data-i18n="gameTitle">Thêm một ván nữa.</h4><p data-i18n="gameText">Từ game âm nhạc đến những trận Guilty Gear Strive. Đôi khi chơi để thử thách bản thân, đôi khi chỉ để chill.</p><small data-i18n="gameMeta">Game / Anji Mito</small></article>
-            <article class="card"><span class="symbol" aria-hidden="true">♫</span><h4 data-i18n="musicTitle">Nhạc hay, trời âm u.</h4><p data-i18n="musicText">Một playlist hợp tâm trạng và thời tiết hơi xám một chút. Vậy là đủ cho một khoảng nghỉ mình thích.</p><small data-i18n="musicMeta">Âm nhạc / Những phút thảnh thơi</small></article>
-            <article class="card"><span class="symbol" aria-hidden="true">あ</span><h4 data-i18n="japaneseTitle">Từng chút tiếng Nhật.</h4><p data-i18n="japaneseText">Học thêm vài từ, hiểu thêm một câu. Mình thích cảm giác dần chạm đến một ngôn ngữ khác.</p><small data-i18n="japaneseMeta">Ngôn ngữ / Từng bước nhỏ</small></article>
+            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a4 4 0 0 1 4 3l1 6a2.5 2.5 0 0 1-4.2 2.3L15 16H9l-2.8 2.3A2.5 2.5 0 0 1 2 16l1-6a4 4 0 0 1 4-3Z"/><path d="M6 12h4m-2-2v4"/><circle cx="16" cy="11" r=".65" fill="currentColor" stroke="none"/><circle cx="18" cy="13" r=".65" fill="currentColor" stroke="none"/></svg><h4 data-i18n="gameTitle">Chơi "gem"</h4><p data-i18n="gameText">Đây là điều hiển nhiên mà? Ai mà chẳng thích chơi game chứ? Liệu bạn có chơi những game mình hay chơi không?</p><span class="card-chip" data-i18n="gameList">Danh sách game mình thường chơi</span></article>
+            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg><h4 data-i18n="musicTitle">Nhạc hay, trời âm u.</h4><p data-i18n="musicText">Mình thường nghe nhiều thể loại nhạc, liệu có bài hát nào trong số này khiến bạn thích nghe giống mình không?</p><button class="card-chip music-gacha" type="button" aria-describedby="music-status" data-i18n="musicTry">Thử vận may xem</button><p class="music-status" id="music-status" role="status" aria-live="polite" aria-atomic="true" data-i18n="musicNotConfigured">Danh sách nhạc chưa được thiết lập.</p></article>
+            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A9 9 0 0 1 9.5 3.5a9 9 0 1 0 11 11Z"/></svg><h4 data-i18n="sleepTitle">Đi ngủ</h4><p data-i18n="sleepText">Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời</p></article>
           </div>
         </div>
       </section>
@@ -93,7 +92,7 @@
     </main>
     <footer>Copyright © 2026 by Ginji.</footer>
   </div>
-  <a class="back-to-top glass" href="#overview" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></a>
+  <button type="button" class="back-to-top glass" data-scroll-target="overview" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
   <div class="sr-only" id="language-announcement" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
