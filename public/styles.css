@@ -105,14 +105,16 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: .81
 @keyframes orbit { to { transform: rotate(360deg); } }
 .social-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
 .social-links a { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 10px 16px; border: 1px solid #bacfe5; border-radius: 999px; background: #ffffff80; font-size: .875rem; transition: background .2s, box-shadow .2s, transform .2s; }
-.social-icon { display: block; flex: 0 0 20px; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--social-logo) center / contain no-repeat; mask: var(--social-logo) center / contain no-repeat; }
+.social-icon { display: block; flex: 0 0 20px; width: 20px; height: 20px; }
+.icon-facebook, .icon-tiktok, .icon-discord, .icon-telegram, .icon-x { background: currentColor; -webkit-mask: var(--social-logo) center / contain no-repeat; mask: var(--social-logo) center / contain no-repeat; }
 .icon-facebook { --social-logo: url("assets/social/facebook.svg"); }
 .icon-tiktok { --social-logo: url("assets/social/tiktok.svg"); }
 .icon-discord { --social-logo: url("assets/social/discord.svg"); -webkit-mask-size: 19px auto; mask-size: 19px auto; }
 .icon-telegram { --social-logo: url("assets/social/telegram.svg"); }
 .icon-x { --social-logo: url("assets/social/x.svg"); }
-.icon-barq { --social-logo: url("assets/social/barq.svg?v=20261009"); }
-.icon-bump { --social-logo: url("assets/social/bump.svg"); }
+/* Compensate for the supplied BARQ artwork's transparent margins. */
+.icon-barq { background: url("assets/social/barq.png") center / 150% auto no-repeat; }
+.icon-bump { background: url("assets/social/bump.png") center / contain no-repeat; }
 .social-links a:hover, .social-links a:focus-visible { background: #f4fcff; box-shadow: 0 0 22px #90cdfb70; transform: translateY(-2px); }
 .section-heading { font-size: clamp(2.8rem, 7vw, 6rem); line-height: 1.12; font-weight: 800; letter-spacing: -.045em; margin: 0 0 28px; overflow-wrap: anywhere; }
 .section-grid .about { width: min(100%, 740px); margin-left: auto; }
