@@ -112,8 +112,8 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: .81
 .icon-discord { --social-logo: url("assets/social/discord.svg"); -webkit-mask-size: 19px auto; mask-size: 19px auto; }
 .icon-telegram { --social-logo: url("assets/social/telegram.svg"); }
 .icon-x { --social-logo: url("assets/social/x.svg"); }
-/* Compensate for the supplied BARQ artwork's transparent margins. */
-.icon-barq { background: url("assets/social/barq.png") center / 150% auto no-repeat; }
+/* Give the wide BARQ wordmark equal visual weight and offset transparent margins. */
+.icon-barq { flex-basis: 28px; width: 28px; height: 24px; background: url("assets/social/barq.png") center / 150% auto no-repeat; }
 .icon-bump { background: url("assets/social/bump.png") center / contain no-repeat; }
 .social-links a:hover, .social-links a:focus-visible { background: #f4fcff; box-shadow: 0 0 22px #90cdfb70; transform: translateY(-2px); }
 .section-heading { font-size: clamp(2.8rem, 7vw, 6rem); line-height: 1.12; font-weight: 800; letter-spacing: -.045em; margin: 0 0 28px; overflow-wrap: anywhere; }
