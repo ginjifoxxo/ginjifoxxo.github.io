@@ -11,13 +11,14 @@ class Node {
   constructor() {
     this.children = []; this.dataset = {}; this.style = {}; this.listeners = {};
     this.offsetLeft = 0; this.offsetWidth = 180; this.clientWidth = 800;
-    this.textContent = ''; this.hidden = false;
+    this.textContent = ''; this.hidden = false; this.style.setProperty = () => {}; this.classList = { add() {}, remove() {} };
   }
   append(...nodes) { this.children.push(...nodes); }
   replaceChildren(...nodes) { this.children = nodes; nodes.forEach((node, i) => node.offsetLeft = i * 192); }
   addEventListener(name, fn) { this.listeners[name] = fn; }
   setAttribute(name, value) { this[name] = value; }
   removeAttribute(name) { delete this[name]; }
+  removeEventListener(name, fn) { if (this.listeners[name] === fn) delete this.listeners[name]; }
   querySelectorAll() { return []; }
   focus() { this.focused = true; }
   showModal() { this.open = true; }
@@ -37,15 +38,19 @@ function harness(mode, reduced = true) {
   const nodes = Object.fromEntries(names.map(name => [name, new Node()]));
   nodes['#music-dialog'].querySelector = name => nodes[name];
   nodes['#music-result-dialog'].querySelector = name => nodes[name];
-  const env = { module: { exports: {} }, window: {},
+  const timers = new Map(); let timerId = 0;
+  const motion = { matches: reduced, addEventListener() {}, removeEventListener() {} };
+  const env = { module: { exports: {} }, window: {}, AbortController,
+    setTimeout: (fn, ms) => { const id = ++timerId; timers.set(id, { fn, ms }); return id; },
+    clearTimeout: id => timers.delete(id),
     document: { getElementById: id => nodes['#' + id], querySelector: name => nodes[name], createElement: () => new Node() },
     fetch: async () => ({ ok: mode !== 'failure', status: 503, json: async () => ({ tracks: mode === 'empty' ? [] : data.tracks }) }),
   };
   vm.createContext(env); vm.runInContext(source, env);
-  env.module.exports.init({ getLanguage: () => 'en', reducedMotion: { matches: reduced, addEventListener() {} } });
-  return { nodes };
+  env.module.exports.init({ getLanguage: () => 'en', reducedMotion: motion });
+  return { nodes, timers, motion };
 }
-const settle = async () => { for (let i = 0; i < 5; i++) await Promise.resolve(); };
+const settle = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 test('reduced motion hands off immediately to a separate result dialog', async () => {
   const { nodes } = harness('loaded');
   await nodes['.music-gacha'].listeners.click(); await settle();
@@ -58,21 +63,46 @@ test('reduced motion hands off immediately to a separate result dialog', async (
 });
 for (const mode of ['empty', 'failure']) test(mode + ' dataset reports a friendly status and supports emergency close', async () => {
   const { nodes } = harness(mode);
-  await nodes['.music-gacha'].listeners.click();
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  nodes['#music-dialog'].listeners.animationend?.({ target: nodes['#music-dialog'], animationName: 'gacha-enter' });
+  await opening;
   assert.notEqual(nodes['#music-result-dialog'].open, true);
   assert.match(nodes['.gacha-status'].textContent, mode === 'empty' ? /No available/ : /could not load/);
   nodes['#music-dialog'].close(); await settle();
   assert.equal(nodes['.music-gacha'].focused, true);
 });
-test('roll uses 8500ms and two continuous frames; cancel removes temporary cards', async () => {
-  const { nodes } = harness('loaded', false);
-  await nodes['.music-gacha'].listeners.click();
+test('reel waits for entrance and pause, then uses a valid random duration', async () => {
+  const { nodes, timers } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
   assert.equal(nodes['.reel-track'].children.length, 21);
-  assert.equal(nodes['.reel-track'].options.duration, 8500);
+  assert.equal(nodes['.reel-track'].animated, undefined);
+  nodes['#music-dialog'].listeners.animationend({ target: nodes['#music-dialog'], animationName: 'gacha-enter' });
+  await settle();
+  assert.equal(nodes['.reel-track'].animated, undefined);
+  assert.equal([...timers.values()][0].ms, 120);
+  [...timers.values()][0].fn(); await opening;
+  const duration = nodes['.reel-track'].options.duration;
+  assert.ok(duration >= 7000 && duration <= 9000 && duration % 100 === 0);
   assert.equal(nodes['.reel-track'].frames.length, 2);
   nodes['#music-dialog'].close(); await settle();
   assert.notEqual(nodes['#music-result-dialog'].open, true);
   assert.equal(nodes['.reel-track'].children.length, 0);
+});
+test('cancelling opening prevents stale spin even after entrance would complete', async () => {
+  const { nodes, timers } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  nodes['#music-dialog'].close(); await settle(); await opening;
+  assert.equal(nodes['.reel-track'].animated, undefined);
+  assert.notEqual(nodes['#music-result-dialog'].open, true);
+  assert.equal(timers.size, 0);
+});
+test('double-click during opening only prepares one reel', async () => {
+  const { nodes } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  const before = nodes['.reel-track'].children;
+  await nodes['.music-gacha'].listeners.click();
+  assert.ok(nodes['.reel-track'].children === before);
+  nodes['#music-dialog'].close(); await settle(); await opening;
 });
 test('outside click closes result; inside padding does not', async () => {
   const { nodes } = harness('loaded');
@@ -85,4 +115,26 @@ test('outside click closes result; inside padding does not', async () => {
   dialog.listeners.pointerdown(outside); dialog.listeners.click(outside); await settle();
   assert.equal(dialog.open, false);
   assert.equal(nodes['.music-gacha'].focused, true);
+});
+
+test('missing animationend uses the documented safe fallback before the pause', async () => {
+  const { nodes, timers } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  assert.equal([...timers.values()][0].ms, 500);
+  [...timers.values()][0].fn(); await settle();
+  assert.equal(nodes['.reel-track'].animated, undefined);
+  assert.equal([...timers.values()][0].ms, 120);
+  [...timers.values()][0].fn(); await opening;
+  assert.equal(nodes['.reel-track'].animated, true);
+  nodes['#music-dialog'].close(); await settle();
+});
+test('closing during the post-entrance pause cancels its pending start', async () => {
+  const { nodes, timers } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  nodes['#music-dialog'].listeners.animationend({ target: nodes['#music-dialog'], animationName: 'gacha-enter' });
+  await settle();
+  nodes['#music-dialog'].close(); await settle(); await opening;
+  assert.equal(timers.size, 0);
+  assert.equal(nodes['.reel-track'].animated, undefined);
+  assert.notEqual(nodes['#music-result-dialog'].open, true);
 });

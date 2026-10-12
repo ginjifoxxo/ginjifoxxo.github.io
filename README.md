@@ -36,7 +36,7 @@ Workflow kiểm tra cú pháp JavaScript, đóng gói riêng thư mục `public`
 
 CSS, JavaScript và ảnh dùng đường dẫn tương đối (`styles.css`, `app.js`, `assets/...`), hoạt động ở domain gốc và cả khi xem dưới thư mục con. Các button điều hướng section không thay đổi URL; hash cũ được xóa mà không tạo history entry mới. Reload trở về Hero.
 
-Music Gacha tải metadata từ `public/data/music.json`, chọn đều ngẫu nhiên giữa các track, tránh lặp liên tiếp. Mỗi lần quay dựng 21 card tạm trong popup gọn, chạy 8,5 giây rồi tự chuyển sang popup kết quả riêng. Không có rarity/NEW/collection trên UI. Nhạc không được autoplay/nhúng: người dùng tự bấm link YouTube sau kết quả.
+Music Gacha tải metadata từ `public/data/music.json`, chọn đều ngẫu nhiên giữa các track, tránh lặp liên tiếp. Mỗi lần quay dựng 21 card tạm trong popup gọn, chạy ngẫu nhiên 7,0–9,0 giây theo bước 0,1 giây rồi tự chuyển sang popup kết quả riêng. Không có rarity/NEW/collection trên UI. Nhạc không được autoplay/nhúng: người dùng tự bấm link YouTube sau kết quả.
 
 Mỗi lần push lên `main` sẽ cập nhật website. Chờ workflow thành công trước khi kiểm tra bản mới.
 
@@ -71,3 +71,5 @@ Kiểm tra logic:
 node --test tests/*.test.cjs
 python tests/test_music_sync.py
 ```
+
+Popup quay có entrance 400 ms (backdrop 350 ms), chờ animationend với fallback 500 ms rồi nghỉ 120 ms trước khi reel chạy. Đóng popup sẽ hủy pending start. Reduced motion bỏ entrance/pause và trả kết quả ngay.

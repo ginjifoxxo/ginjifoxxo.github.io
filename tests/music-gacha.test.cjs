@@ -37,3 +37,13 @@ test('imported tracks are unique, preserve source titles and real video URLs', (
     assert.deepEqual(track.tags, []);
   }
 });
+
+test('duration has exactly 21 uniformly distributed integer steps from 7000 to 9000', () => {
+  const counts = new Map();
+  for (let i = 0; i < 210; i++) {
+    const duration = picker.pickDuration(() => (i + .5) / 210);
+    counts.set(duration, (counts.get(duration) || 0) + 1);
+  }
+  assert.deepEqual([...counts.keys()], Array.from({ length: 21 }, (_, i) => 7000 + i * 100));
+  assert.ok([...counts.values()].every(count => count === 10));
+});

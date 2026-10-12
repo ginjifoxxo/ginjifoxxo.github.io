@@ -4,6 +4,8 @@
   else root.GinjiMusic = api;
 })(typeof window === 'undefined' ? globalThis : window, function () {
   'use strict';
+  const entranceTiming = { popup: 400, fallbackSlack: 100, pause: 120 };
+  function pickDuration(random = Math.random) { return (70 + Math.floor(random() * 21)) * 100; }
   function pickTrack(tracks, previousId, random = Math.random) {
     const candidates = tracks.length > 1 ? tracks.filter(track => track.id !== previousId) : tracks;
     return candidates.length ? candidates[Math.floor(random() * candidates.length)] : null;
@@ -28,7 +30,7 @@
     const result = resultDialog.querySelector('.gacha-result');
     const status = dialog.querySelector('.gacha-status');
     let tracks = [], state = 'loading', loadPromise = null, generation = 0;
-    let previousId = null, winner = null, animation = null, winnerIndex = null;
+    let previousId = null, winner = null, animation = null, winnerIndex = null, openingController = null;
     const text = () => copy[getLanguage() === 'en' ? 'en' : 'vi'];
     const element = (tag, className, content) => {
       const node = document.createElement(tag);
@@ -66,9 +68,9 @@
     function updateCopy() {
       dialog.querySelector('h2').textContent = text().rolling;
       close.setAttribute('aria-label', text().close);
-      status.hidden = state === 'rolling' || state === 'ready' || state === 'result';
+      status.hidden = ['opening', 'rolling', 'ready', 'result'].includes(state);
       status.textContent = status.hidden ? '' : text()[state];
-      viewport.hidden = state !== 'rolling';
+      viewport.hidden = !['opening', 'rolling'].includes(state);
       if (resultDialog.open) renderResult();
     }
     localize = () => { if (dialog.open || resultDialog.open) updateCopy(); };
@@ -101,23 +103,49 @@
       await loadPromise;
       loadPromise = null;
     }
-    async function roll() {
-      if (!tracks.length || state === 'rolling' || !dialog.open) return;
-      const token = ++generation;
+    function waitOpening(signal, pause = false) {
+      if (reducedMotion.matches || signal.aborted) return Promise.resolve();
+      return new Promise(resolve => {
+        const duration = pause ? entranceTiming.pause : entranceTiming.popup + entranceTiming.fallbackSlack;
+        const timer = setTimeout(finish, duration);
+        function finish() {
+          clearTimeout(timer);
+          dialog.removeEventListener('animationend', ended);
+          signal.removeEventListener('abort', finish);
+          reducedMotion.removeEventListener('change', motionChanged);
+          if (!pause) dialog.classList.remove('is-entering');
+          resolve();
+        }
+        function ended(event) { if (event.target === dialog && event.animationName === 'gacha-enter') finish(); }
+        function motionChanged() { if (reducedMotion.matches) finish(); }
+        signal.addEventListener('abort', finish, { once: true });
+        reducedMotion.addEventListener('change', motionChanged);
+        if (!pause) {
+          dialog.addEventListener('animationend', ended);
+          dialog.style.setProperty('--gacha-enter-duration', entranceTiming.popup + 'ms');
+          dialog.classList.add('is-entering');
+        }
+      });
+    }
+    function prepareReel() {
       winner = pickTrack(tracks, previousId);
       const sequence = buildReel(tracks, winner);
       winnerIndex = sequence.winnerIndex;
-      state = 'rolling'; updateCopy();
+      state = 'opening'; updateCopy();
       reel.replaceChildren(...sequence.cards.map(card));
-      viewport.hidden = false;
       viewportWidth = viewport.clientWidth;
+      reel.style.transform = 'translate3d(' + center(2) + 'px,0,0)';
+    }
+    async function roll() {
+      if (!tracks.length || state !== 'opening' || !dialog.open) return;
+      const token = ++generation;
+      state = 'rolling'; updateCopy();
       const from = center(2), to = center(winnerIndex);
-      reel.style.transform = 'translate3d(' + from + 'px,0,0)';
       if (!reducedMotion.matches && typeof reel.animate === 'function') {
         animation = reel.animate([
           { transform: 'translate3d(' + from + 'px,0,0)', offset: 0 },
           { transform: 'translate3d(' + to + 'px,0,0)', offset: 1 },
-        ], { duration: 8500, easing: 'cubic-bezier(.12,.62,.24,1)', fill: 'forwards' });
+        ], { duration: pickDuration(), easing: 'cubic-bezier(.12,.62,.24,1)', fill: 'forwards' });
         await animation.finished.catch(() => {});
       }
       if (token !== generation || !dialog.open) return;
@@ -133,9 +161,20 @@
     }
     opener.addEventListener('click', async () => {
       if (dialog.open || resultDialog.open) return;
+      const token = ++generation;
+      openingController = new AbortController();
+      const signal = openingController.signal;
+      const active = () => token === generation && dialog.open && !signal.aborted;
+      state = tracks.length ? 'ready' : 'loading'; updateCopy();
       dialog.showModal();
-      if (tracks.length) { state = 'ready'; updateCopy(); roll(); }
-      else { await load(); if (dialog.open && tracks.length) roll(); }
+      const entrance = waitOpening(signal);
+      if (!tracks.length) await load();
+      if (!active()) return;
+      if (tracks.length) prepareReel();
+      await entrance;
+      if (!active() || !tracks.length) return;
+      await waitOpening(signal, true);
+      if (active()) roll();
     });
     close.addEventListener('click', () => resultDialog.close());
     // Both dialogs retain an invisible escape route via the backdrop.
@@ -152,9 +191,12 @@
       });
     }
     dialog.addEventListener('close', () => {
+      if (dialog.open) return; // Ignore a queued close event from a previous opening.
       reel.replaceChildren(); winnerIndex = null;
       if (resultDialog.open) return; // Automatic handoff must not restore background focus.
       generation++;
+      if (openingController) openingController.abort();
+      dialog.classList.remove('is-entering');
       if (animation) animation.cancel();
       animation = null;
       opener.focus({ preventScroll: true });
@@ -173,8 +215,9 @@
       viewportWidth = nextWidth;
       if (!wasSized) return;
       if (animation) animation.finish();
+      else if (state === 'opening' && reel.children.length) reel.style.transform = 'translate3d(' + center(2) + 'px,0,0)';
       else centerWinner();
     }).observe(viewport);
   }
-  return { pickTrack, buildReel, init, localize: () => localize() };
+  return { pickDuration, pickTrack, buildReel, init, localize: () => localize() };
 });
