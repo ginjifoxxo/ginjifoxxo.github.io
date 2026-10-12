@@ -156,43 +156,32 @@ h1, h2, h3, h4, .lead, .section-title, .hello .note { font-family: 'Nunito', Ari
 @media(max-width: 760px) { .refsheet-toolbar { padding: 12px; flex-wrap: wrap; } }
 @media(prefers-reduced-motion: reduce) { .portrait img { transform: none; } }
 
-/* Music discovery: a small temporary reel, never the whole playlist. */
-.music-dialog { width: min(900px, calc(100% - 24px)); max-width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 28px; border-radius: 28px; color: var(--ink); background: #f2f9fff5; overflow: auto; }
-.music-dialog::backdrop { background: #26345f55; backdrop-filter: blur(7px); }
-.gacha-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.gacha-heading h2 { margin: 0; font-size: 1.8rem; }
-.gacha-close { flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: #ffffffaa; font-size: 1.6rem; }
-.gacha-intro { margin: 10px 0 22px; color: var(--muted); }
-.reel-viewport { position: relative; overflow: hidden; border: 1px solid #b7cbe3; border-radius: 22px; background: #e3edfa; padding: 24px 0; }
-.reel-track { position: relative; display: flex; gap: 12px; width: max-content; will-change: transform; }
-.reel-marker { position: absolute; z-index: 2; left: 50%; top: 0; bottom: 0; width: 3px; background: #536da288; pointer-events: none; }
-.reel-marker::before, .reel-marker::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); border-left: 9px solid transparent; border-right: 9px solid transparent; }
-.reel-marker::before { top: 0; border-top: 12px solid var(--indigo); }
-.reel-marker::after { bottom: 0; border-bottom: 12px solid var(--indigo); }
-.reel-card { flex: 0 0 180px; width: 180px; padding: 12px; border: 2px solid var(--rarity-border, #a3b6ce); border-radius: 18px; background: var(--rarity-bg, #f7faff); color: var(--ink); }
-.gacha-thumbnail { display: block; width: 100%; height: auto; aspect-ratio: 336 / 188; object-fit: cover; border-radius: 9px; background: #cbdff0; }
-.reel-card h3 { font-size: .9375rem; line-height: 1.4; margin: 8px 0; overflow-wrap: anywhere; }
-.reel-card p { margin: 0; color: var(--muted); font-size: .8125rem; overflow-wrap: anywhere; }
-[data-rarity="common"] { --rarity-border: #a3b6ce; --rarity-bg: #f0f4fb; }
-[data-rarity="rare"] { --rarity-border: #7dbedc; --rarity-bg: #e9f9ff; }
-[data-rarity="legendary"] { --rarity-border: #a29cd8; --rarity-bg: #f0edff; }
-[data-rarity="epic"] { --rarity-border: #626cae; --rarity-bg: #e9eeff; box-shadow: 0 0 18px #829ed844; }
-.rarity-label { display: inline-block; margin-top: 9px; padding: 3px 8px; border-radius: 999px; background: #ffffffb3; border: 1px solid var(--rarity-border, #a3b6ce); color: var(--indigo); font-size: .75rem; font-weight: 700; }
-.gacha-status { min-height: 1.7em; margin: 18px 0; color: var(--muted); overflow-wrap: anywhere; }
-.gacha-result { display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: 20px; padding: 18px; border: 2px solid var(--rarity-border); border-radius: 20px; background: var(--rarity-bg); }
-.result-info { min-width: 0; }
-.result-info h3 { margin: 12px 0 6px; font-size: 1.25rem; overflow-wrap: anywhere; }
-.result-info p { margin: 0 0 16px; color: var(--muted); overflow-wrap: anywhere; }
-.result-info .rarity-label { margin-top: 0; }
-.new-badge { display: inline-block; margin-left: 10px; padding: 3px 8px; color: #394473; background: #cceefb; border-radius: 8px; font-size: .75rem; font-weight: 800; }
-.gacha-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 20px; }
-.gacha-progress { margin: 0; color: var(--muted); }
-.gacha-roll:disabled { opacity: .55; cursor: default; transform: none; box-shadow: none; }
-@media(max-width: 760px) {
-  .music-dialog { padding: 18px; border-radius: 22px; }
-  .gacha-heading h2 { font-size: 1.5rem; }
-  .reel-card { flex-basis: 154px; width: 154px; padding: 10px; }
-  .gacha-result { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
-  .gacha-result > img { width: min(100%, 280px); }
-  .gacha-footer { flex-direction: column; align-items: stretch; }
+/* Two focused dialogs: temporary roll, then the compact song result. */
+.music-dialog { max-width: calc(100% - 24px); margin: auto; border-radius: 22px; color: var(--ink); background: #eff7fff2; overflow: hidden; }
+.music-dialog::backdrop { background: #15213bd4; backdrop-filter: blur(8px); }
+.music-roll-dialog { width: min(740px, calc(100% - 24px)); padding: 12px; }
+.reel-viewport { position: relative; overflow: hidden; border: 1px solid #b7cbe3; border-radius: 15px; background: #dfebf8; padding: 12px 0; }
+.reel-track { position: relative; display: flex; align-items: flex-start; gap: 10px; width: max-content; will-change: transform; }
+.reel-marker { position: absolute; z-index: 2; left: 50%; top: 0; bottom: 0; width: 2px; background: #536da25c; pointer-events: none; }
+.reel-marker::before, .reel-marker::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; }
+.reel-marker::before { top: 0; border-top: 9px solid var(--indigo); }
+.reel-marker::after { bottom: 0; border-bottom: 9px solid var(--indigo); }
+.reel-card { flex: 0 0 146px; width: 146px; padding: 9px; border: 1px solid #b1c4df; border-radius: 13px; background: #f6faff; color: var(--ink); }
+.gacha-thumbnail { display: block; width: 100%; aspect-ratio: 1; height: auto; object-fit: cover; border-radius: 8px; background: #cbdff0; }
+.reel-card h3 { font-size: .875rem; line-height: 1.35; margin: 9px 0 5px; overflow-wrap: anywhere; min-height: 2.7em; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.reel-card p { margin: 0; color: var(--muted); font-size: .75rem; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gacha-status { margin: 10px; color: var(--muted); overflow-wrap: anywhere; }
+.music-result-dialog { width: min(540px, calc(100% - 24px)); padding: 18px; }
+.gacha-close { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: #f8fcff; font-size: 1.4rem; z-index: 1; }
+.gacha-result { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; gap: 16px; }
+.result-info { min-width: 0; padding-top: 20px; }
+.result-info h3 { margin: 0 0 6px; font-size: 1.125rem; line-height: 1.35; overflow-wrap: anywhere; }
+.result-info p { margin: 0 0 14px; color: var(--muted); font-size: .875rem; line-height: 1.4; overflow-wrap: anywhere; }
+@media(max-width: 540px) {
+  .music-roll-dialog { padding: 8px; border-radius: 18px; }
+  .reel-card { flex-basis: 126px; width: 126px; padding: 8px; }
+  .music-result-dialog { padding: 14px; border-radius: 18px; }
+  .gacha-result { grid-template-columns: 88px minmax(0, 1fr); gap: 12px; }
+  .result-info h3 { font-size: 1rem; }
+  .result-info .card-action { padding: 8px 10px; }
 }

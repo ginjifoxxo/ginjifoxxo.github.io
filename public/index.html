@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261012-gacha">
-  <script src="music-gacha.js?v=20261012-gacha" defer></script>
-  <script src="app.js?v=20261012-gacha" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261012-gacha-compact">
+  <script src="music-gacha.js?v=20261012-gacha-compact" defer></script>
+  <script src="app.js?v=20261012-gacha-compact" defer></script>
   <noscript><style>.site-header { opacity: 1; visibility: visible; pointer-events: auto; } #overview { padding-top: 150px; }</style></noscript>
 </head>
 <body id="top">
@@ -94,13 +94,14 @@
     <footer>Copyright © 2026 by Ginji.</footer>
   </div>
   <button type="button" class="back-to-top glass" data-scroll-target="overview" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
-  <dialog class="music-dialog glass" id="music-dialog" aria-labelledby="music-dialog-title">
-    <div class="gacha-heading"><h2 id="music-dialog-title">Music Gacha</h2><button type="button" class="gacha-close" aria-label="Đóng" autofocus>×</button></div>
-    <p class="gacha-intro"></p>
+  <dialog class="music-dialog music-roll-dialog glass" id="music-dialog" aria-labelledby="music-roll-title">
+    <h2 class="sr-only" id="music-roll-title">Đang chọn một bài nhạc</h2>
     <div class="reel-viewport" aria-hidden="true"><div class="reel-track"></div><span class="reel-marker"></span></div>
     <p class="gacha-status" role="status" aria-live="polite" aria-atomic="true"></p>
-    <div class="gacha-result" hidden></div>
-    <div class="gacha-footer"><p class="gacha-progress"></p><button class="card-action gacha-roll" type="button"></button></div>
+  </dialog>
+  <dialog class="music-dialog music-result-dialog glass" id="music-result-dialog" aria-labelledby="music-result-title" aria-describedby="music-result-author">
+    <button type="button" class="gacha-close" aria-label="Đóng kết quả" autofocus>×</button>
+    <div class="gacha-result" aria-live="polite"></div>
   </dialog>
   <div class="sr-only" id="language-announcement" aria-live="polite" aria-atomic="true"></div>
 </body>

@@ -21,52 +21,68 @@ class Node {
   querySelectorAll() { return []; }
   focus() { this.focused = true; }
   showModal() { this.open = true; }
-  close() { this.open = false; this.listeners.close?.(); }
-  animate() {
+  close() { this.open = false; queueMicrotask(() => this.listeners.close?.()); }
+  getBoundingClientRect() { return { left: 100, right: 600, top: 100, bottom: 300 }; }
+  animate(frames, options) {
+    this.frames = frames; this.options = options;
     let resolve;
     const finished = new Promise(done => resolve = done);
     this.animated = true;
-    return { finished, cancel: resolve, finish: resolve };
+    this.animation = { finished, cancel: resolve, finish: resolve };
+    return this.animation;
   }
 }
 function harness(mode, reduced = true) {
-  const names = ['#music-dialog', '.music-gacha', '.gacha-close', '.reel-viewport', '.reel-track',
-    '.gacha-result', '.gacha-status', '.gacha-roll', '.gacha-progress', 'h2', '.gacha-intro'];
+  const names = ['#music-dialog', '#music-result-dialog', '.music-gacha', '.gacha-close', '.reel-viewport', '.reel-track', '.gacha-result', '.gacha-status', 'h2'];
   const nodes = Object.fromEntries(names.map(name => [name, new Node()]));
   nodes['#music-dialog'].querySelector = name => nodes[name];
+  nodes['#music-result-dialog'].querySelector = name => nodes[name];
   const env = { module: { exports: {} }, window: {},
-    document: { getElementById: () => nodes['#music-dialog'], querySelector: name => nodes[name], createElement: () => new Node() },
+    document: { getElementById: id => nodes['#' + id], querySelector: name => nodes[name], createElement: () => new Node() },
     fetch: async () => ({ ok: mode !== 'failure', status: 503, json: async () => ({ tracks: mode === 'empty' ? [] : data.tracks }) }),
   };
   vm.createContext(env); vm.runInContext(source, env);
-  let saved = null;
-  env.module.exports.init({ getLanguage: () => 'en', reducedMotion: { matches: reduced, addEventListener() {} },
-    readPreference: () => '{corrupt', savePreference: (_, value) => saved = value });
-  return { nodes, saved: () => saved };
+  env.module.exports.init({ getLanguage: () => 'en', reducedMotion: { matches: reduced, addEventListener() {} } });
+  return { nodes };
 }
-test('reduced motion reveals a real result immediately and handles corrupt storage', async () => {
-  const { nodes, saved } = harness('loaded');
-  await nodes['.music-gacha'].listeners.click();
+const settle = async () => { for (let i = 0; i < 5; i++) await Promise.resolve(); };
+test('reduced motion hands off immediately to a separate result dialog', async () => {
+  const { nodes } = harness('loaded');
+  await nodes['.music-gacha'].listeners.click(); await settle();
   assert.equal(nodes['.reel-track'].animated, undefined);
-  assert.equal(nodes['.reel-track'].children.length, 21);
-  assert.match(nodes['.gacha-status'].textContent, /You got:/);
-  assert.equal(nodes['.gacha-progress'].textContent, 'Discovered: 1 / ' + data.tracks.length);
-  assert.equal(JSON.parse(saved()).length, 1);
+  assert.equal(nodes['#music-dialog'].open, false);
+  assert.equal(nodes['#music-result-dialog'].open, true);
+  assert.equal(nodes['.gacha-close'].focused, true);
+  assert.equal(nodes['.reel-track'].children.length, 0);
+  assert.equal(nodes['.gacha-result'].children.length, 2);
 });
-for (const mode of ['empty', 'failure']) test(mode + ' dataset disables rolling and restores focus on close', async () => {
+for (const mode of ['empty', 'failure']) test(mode + ' dataset reports a friendly status and supports emergency close', async () => {
   const { nodes } = harness(mode);
   await nodes['.music-gacha'].listeners.click();
-  assert.equal(nodes['.gacha-roll'].disabled, true);
+  assert.notEqual(nodes['#music-result-dialog'].open, true);
   assert.match(nodes['.gacha-status'].textContent, mode === 'empty' ? /No available/ : /could not load/);
-  nodes['#music-dialog'].close();
+  nodes['#music-dialog'].close(); await settle();
   assert.equal(nodes['.music-gacha'].focused, true);
 });
-test('closing during a roll cancels discovery and removes temporary cards', async () => {
-  const { nodes, saved } = harness('loaded', false);
+test('roll uses 8500ms and two continuous frames; cancel removes temporary cards', async () => {
+  const { nodes } = harness('loaded', false);
   await nodes['.music-gacha'].listeners.click();
-  assert.equal(nodes['.reel-track'].animated, true);
-  nodes['#music-dialog'].close();
-  await Promise.resolve(); await Promise.resolve();
-  assert.equal(saved(), null);
+  assert.equal(nodes['.reel-track'].children.length, 21);
+  assert.equal(nodes['.reel-track'].options.duration, 8500);
+  assert.equal(nodes['.reel-track'].frames.length, 2);
+  nodes['#music-dialog'].close(); await settle();
+  assert.notEqual(nodes['#music-result-dialog'].open, true);
   assert.equal(nodes['.reel-track'].children.length, 0);
+});
+test('outside click closes result; inside padding does not', async () => {
+  const { nodes } = harness('loaded');
+  await nodes['.music-gacha'].listeners.click(); await settle();
+  const dialog = nodes['#music-result-dialog'];
+  const inside = { target: dialog, clientX: 150, clientY: 150 };
+  dialog.listeners.pointerdown(inside); dialog.listeners.click(inside);
+  assert.equal(dialog.open, true);
+  const outside = { target: dialog, clientX: 20, clientY: 20 };
+  dialog.listeners.pointerdown(outside); dialog.listeners.click(outside); await settle();
+  assert.equal(dialog.open, false);
+  assert.equal(nodes['.music-gacha'].focused, true);
 });

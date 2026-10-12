@@ -351,7 +351,7 @@
   document.querySelector('.game-list').addEventListener('click', () => {
     document.getElementById('game-status').hidden = false;
   });
-  window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion, readPreference, savePreference });
+  window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion });
 
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
