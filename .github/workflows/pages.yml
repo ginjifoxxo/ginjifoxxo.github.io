@@ -27,6 +27,9 @@ jobs:
         run: |
           node --check public/app.js
           node --check public/navigation-start.js
+          node --check public/music-gacha.js
+          node --test tests/*.test.cjs
+          python3 tests/test_music_sync.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static website

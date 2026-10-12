@@ -24,9 +24,8 @@
       backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
       gameList: "Danh sách game mình thường chơi",
-      musicTry: "Thử vận may xem",
-      musicNotConfigured: "Danh sách nhạc chưa được thiết lập.",
-      musicSelected: "Bài hát được chọn:",
+      gamePending: "Danh sách game đang được cập nhật.",
+      musicTry: "Nghe thử một bài nhạc không?",
       sleepTitle: "Đi ngủ",
       sleepText: "Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời",
     },
@@ -53,9 +52,8 @@
       backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
       gameList: "Games I usually play",
-      musicTry: "Try your luck",
-      musicNotConfigured: "The song list is not configured yet.",
-      musicSelected: "Selected song:",
+      gamePending: "The game list is being updated.",
+      musicTry: "Wanna hear a song?",
       sleepTitle: "Sleep",
       sleepText: "What did you think? Of course I have to sleep. I'm kind of obsessed with it, seriously.",
     }
@@ -110,7 +108,7 @@
     backToTop.title = text.backToTop;
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
     updateRefLabels();
-    updateMusicStatus();
+    window.GinjiMusic.localize();
     scheduleIndicator();
     scheduleScrollUpdate();
   }
@@ -121,7 +119,7 @@
     const width = document.querySelector('main').clientWidth;
     if (!force && width === languageLayoutWidth) return;
     languageLayoutWidth = width;
-    const blocks = document.querySelectorAll('main h2, main h3, main h4, main p:not(.sr-only), .card-chip, .refsheet-toolbar');
+    const blocks = document.querySelectorAll('main h2, main h3, main h4, main p:not(.sr-only), .card-action, .refsheet-toolbar');
     for (const block of blocks) {
       if (!block.matches('[data-i18n]') && !block.querySelector('[data-i18n]')) continue;
       block.style.minHeight = '';
@@ -350,35 +348,10 @@
   reducedMotion.addEventListener('change', resetPortrait);
   finePointer.addEventListener('change', resetPortrait);
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPortrait(); });
-  // Add only user-approved tracks: { title, artist, url (optional) }.
-  // An optional URL opens synchronously from the button click, never on load.
-  const musicTracks = [];
-  const musicStatus = document.getElementById('music-status');
-  let lastMusicIndex = -1;
-  function pickMusicIndex(tracks, previous, random = Math.random) {
-    if (!tracks.length) return -1;
-    if (tracks.length === 1) return 0;
-    const hasPrevious = previous >= 0 && previous < tracks.length;
-    let index = Math.floor(random() * (tracks.length - (hasPrevious ? 1 : 0)));
-    if (hasPrevious && index >= previous) index++;
-    return index;
-  }
-  function updateMusicStatus() {
-    const track = musicTracks[lastMusicIndex];
-    musicStatus.textContent = track
-      ? copy[currentLanguage].musicSelected + ' ' + track.title + (track.artist ? ' — ' + track.artist : '')
-      : copy[currentLanguage].musicNotConfigured;
-  }
-  document.querySelector('.music-gacha').addEventListener('click', () => {
-    lastMusicIndex = pickMusicIndex(musicTracks, lastMusicIndex);
-    updateMusicStatus();
-    const track = musicTracks[lastMusicIndex];
-    if (!track?.url) return;
-    try {
-      const url = new URL(track.url, document.baseURI);
-      if (url.protocol === 'https:' || url.protocol === 'http:') window.open(url.href, '_blank', 'noopener,noreferrer');
-    } catch { /* Invalid configured URLs leave the selected result visible. */ }
+  document.querySelector('.game-list').addEventListener('click', () => {
+    document.getElementById('game-status').hidden = false;
   });
+  window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion, readPreference, savePreference });
 
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
