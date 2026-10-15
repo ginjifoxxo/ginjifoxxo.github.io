@@ -98,3 +98,19 @@ commit `chore: sync music playlist` bằng GITHUB_TOKEN. Sau push, workflow gọ
 workflow Pages dùng chung để deploy main mới nhất, vì push bằng GITHUB_TOKEN
 không tự kích hoạt push workflow. Branch protection có thể chặn bot push;
 workflow khi đó báo lỗi và không force push. Lịch GitHub có thể chạy trễ.
+
+
+## Nhạc nền và refsheet
+
+Nhạc nền duy nhất: Chocolate Lemon, `public/audio/chocolate-lemon.mp3`
+(192 kbps stereo, 5.237.612 byte, khoảng 3:38). Chuyển từ WAV người dùng
+cung cấp; WAV gốc giữ ngoài repository, không deploy. Không autoplay hoặc
+nhớ trạng thái tự phát. Nút glass góc dưới trái phát/tạm dừng, có nhãn VI/EN,
+loop, fade-in 800 ms tới volume 0,35; pause ngay, lỗi tải vô hiệu hóa nút.
+Trên mobile ẩn tên track, giữ icon và chữ Play/Pause. Một số hệ điều hành
+mobile quản lý âm lượng media bằng volume hệ thống thay vì HTMLMediaElement.volume.
+
+Ref. A/B vẫn dùng mapping hiện có. Ảnh inline là button mở native dialog,
+object-fit contain, backdrop tối/blur và animation nhẹ 240 ms (reduced motion
+bỏ animation). Đóng bằng ×, backdrop hoặc Escape, trả focus mà không cuộn.
+Đã bỏ caption dưới refsheet và toàn bộ section Một lời chào; Gallery nối footer.

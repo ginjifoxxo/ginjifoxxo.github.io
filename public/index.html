@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <script src="navigation-start.js?v=20261015-reveal"></script>
+  <script src="navigation-start.js?v=20261015-refsheet-audio"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ginji's Card ✦</title>
   <meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.">
@@ -11,10 +11,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261015-reveal">
-  <script src="music-gacha.js?v=20261015-reveal" defer></script>
-  <script src="reveal.js?v=20261015-reveal" defer></script>
-  <script src="app.js?v=20261015-reveal" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261015-refsheet-audio">
+  <script src="music-gacha.js?v=20261015-refsheet-audio" defer></script>
+  <script src="reveal.js?v=20261015-refsheet-audio" defer></script>
+  <script src="background-music.js?v=20261015-refsheet-audio" defer></script>
+  <script src="app.js?v=20261015-refsheet-audio" defer></script>
   <noscript><style>.site-header { opacity: 1; visibility: visible; pointer-events: auto; } #overview { padding-top: 150px; }</style></noscript>
 </head>
 <body id="top">
@@ -78,8 +79,7 @@
         </div>
         <figure data-reveal="section" class="refsheet-viewer" aria-label="Refsheet Ginji" data-i18n-aria="refViewer">
           <div class="refsheet-toolbar"><strong data-i18n="refCaption">Refsheet nhân vật</strong><div class="ref-selector" role="group" aria-label="Chọn refsheet" data-i18n-aria="refSelector" hidden><span class="ref-indicator" aria-hidden="true"></span><button type="button" data-ref="a" aria-pressed="true">Ref. A</button><button type="button" data-ref="b" aria-pressed="false">Ref. B</button></div></div>
-          <div class="refsheet-image"><img id="refsheet-image" src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế."></div>
-          <figcaption><span class="ref-current">Ref. A</span><a class="refsheet-full-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener noreferrer"><span data-i18n="refView">Xem ảnh đầy đủ</span><span aria-hidden="true">↗</span></a></figcaption>
+          <button type="button" class="refsheet-image" aria-haspopup="dialog" aria-controls="ref-lightbox" aria-label="Phóng to refsheet hiện tại" data-i18n-aria="refOpen"><img id="refsheet-image" src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế."></button>
           <p class="sr-only" id="ref-announcement" aria-live="polite"></p>
         </figure>
       </section>
@@ -88,13 +88,19 @@
         <p data-reveal="section" class="gallery-intro" data-i18n="galleryTitle">Một chút thế giới nhỏ của mình :3</p>
         <div data-reveal="section" class="gallery-empty"><span aria-hidden="true">✧</span><p data-i18n="galleryEmpty">Một góc dành cho những artwork sắp tới của Ginji.</p></div>
       </section>
-      <section data-reveal="section" class="hello" aria-labelledby="hello-title">
-        <div><p class="section-title" data-i18n="helloLabel">MỘT LỜI CHÀO</p><h2 id="hello-title"><span data-i18n="helloHeadline">Đừng ngại nói</span> <em>hi.</em></h2><p data-i18n="helloText">Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.</p></div><p class="note" data-i18n="helloNote">Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.</p>
-      </section>
     </main>
     <footer data-reveal="section">Copyright © 2026 by Ginji.</footer>
   </div>
   <button type="button" class="back-to-top glass" data-scroll-target="overview" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+  <audio id="background-audio" src="audio/chocolate-lemon.mp3" preload="metadata" loop></audio>
+  <button type="button" class="background-music glass" aria-label="Phát nhạc — Chocolate Lemon" aria-pressed="false" hidden>
+    <svg class="music-note" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg>
+    <span class="music-action">Phát nhạc</span><span class="background-track">Chocolate Lemon</span>
+  </button>
+  <dialog class="ref-lightbox" id="ref-lightbox" aria-label="Refsheet phóng to" data-i18n-aria="refLightbox">
+    <button type="button" class="ref-lightbox-close glass" aria-label="Đóng ảnh" data-i18n-aria="refClose" autofocus>×</button>
+    <img alt="">
+  </dialog>
   <dialog class="music-dialog music-roll-dialog glass" id="music-dialog" aria-labelledby="music-roll-title">
     <h2 class="sr-only" id="music-roll-title">Đang chọn một bài nhạc</h2>
     <div class="reel-viewport" aria-hidden="true"><div class="reel-track"></div><span class="reel-marker"></span></div>

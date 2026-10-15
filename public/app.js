@@ -15,12 +15,10 @@
       musicTitle: 'Nghe nhạc', musicText: "Mình thường nghe nhiều thể loại nhạc, liệu có bài hát nào trong số này khiến bạn thích nghe giống mình không?",
       fursonaHeadline: 'Ginji - Kitsune "9 đui"',
       fursonaText: "Đúng vậy, bạn không có nghe nhầm đâu. Đó là một cậu cáo trắng chín đuôi, nhưng trong hình dạng thường ngày cậu ấy sẽ xuất hiện với hai chiếc đuôi, cũng chính là mascot của mình.",
-      galleryTitle: "Một chút thế giới nhỏ của mình :3", refCaption: 'Refsheet nhân vật', refView: 'Xem ảnh đầy đủ',
+      galleryTitle: "Một chút thế giới nhỏ của mình :3", refCaption: 'Refsheet nhân vật',
+      refOpen: 'Phóng to refsheet hiện tại', refClose: 'Đóng ảnh', refLightbox: 'Refsheet phóng to',
       refAltA: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
       refViewer: 'Refsheet Ginji', refSelector: 'Chọn refsheet', refAltB: 'Refsheet Ginji B: cáo trắng xanh với nhiều đuôi, bảng màu và các biểu cảm đeo kính.', refUnavailable: 'Ảnh này chưa khả dụng. Vẫn hiển thị refsheet hiện tại.', refChanged: 'Đang hiển thị', galleryEmpty: 'Một góc dành cho những artwork sắp tới của Ginji.',
-      helloLabel: 'MỘT LỜI CHÀO', helloHeadline: 'Đừng ngại nói',
-      helloText: 'Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.',
-      helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
       backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
       gameList: "Danh sách game mình thường chơi",
@@ -43,12 +41,10 @@
       musicTitle: 'Listen to music', musicText: "I listen to lots of different genres. Is there a song in here that you might end up liking as much as I do?",
       fursonaHeadline: "Ginji - Kitsune with \"9 lil' tails\"",
       fursonaText: "Yep, you heard that right. He's a white nine-tailed fox, but in his everyday form he usually appears with just two tails — and he's also my mascot.",
-      galleryTitle: "A little world of my own :3", refCaption: 'Character reference sheet', refView: 'View full image',
+      galleryTitle: "A little world of my own :3", refCaption: 'Character reference sheet',
+      refOpen: 'Enlarge current refsheet', refClose: 'Close image', refLightbox: 'Full reference sheet',
       refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
       refViewer: 'Ginji reference sheets', refSelector: 'Choose a reference sheet', refAltB: 'Ginji reference sheet B: a white and blue fox with multiple tails, a colour palette and expressions wearing glasses.', refUnavailable: 'This image is unavailable. Keeping the current reference sheet.', refChanged: 'Showing', galleryEmpty: 'A little space for Ginji’s upcoming artwork.',
-      helloLabel: 'A LITTLE HELLO', helloHeadline: 'Feel free to say',
-      helloText: 'If you’re into games, music or just a little conversation, we might have a few stories to share.',
-      helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
       backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
       gameList: "Games I usually play",
@@ -109,6 +105,7 @@
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
     updateRefLabels();
     window.GinjiMusic.localize();
+    window.GinjiBackgroundMusic.localize();
     scheduleIndicator();
     scheduleScrollUpdate();
   }
@@ -266,14 +263,37 @@
 
   const refViewer = document.querySelector('.refsheet-viewer');
   const refImage = document.getElementById('refsheet-image');
-  const refFullLink = document.querySelector('.refsheet-full-link');
   const refSelector = document.querySelector('.ref-selector');
   const refIndicator = document.querySelector('.ref-indicator');
   const refButtons = Array.from(document.querySelectorAll('[data-ref]'));
   const refs = { a: { src: 'assets/ginji-refsheet.png', alt: 'refAltA' }, b: { src: 'assets/ginji-refsheet-b.png', alt: 'refAltB' } };
   let currentRef = 'a', refRequest = 0;
+  const refTrigger = document.querySelector('.refsheet-image');
+  const refLightbox = document.getElementById('ref-lightbox');
+  const fullRefImage = refLightbox.querySelector('img');
+  refTrigger.addEventListener('click', () => {
+    if (refLightbox.open) return;
+    fullRefImage.src = refs[currentRef].src;
+    fullRefImage.alt = copy[currentLanguage][refs[currentRef].alt];
+    refLightbox.showModal();
+  });
+  refLightbox.querySelector('button').addEventListener('click', () => refLightbox.close());
+  let refBackdropPointer = false;
+  refLightbox.addEventListener('pointerdown', event => { refBackdropPointer = event.target === refLightbox; });
+  refLightbox.addEventListener('click', event => {
+    if (refBackdropPointer && event.target === refLightbox) refLightbox.close();
+    refBackdropPointer = false;
+  });
+  refLightbox.addEventListener('close', () => {
+    refBackdropPointer = false;
+    refTrigger.focus({ preventScroll: true });
+  });
   function updateRefLabels() {
     refImage.alt = copy[currentLanguage][refs[currentRef].alt];
+    if (refLightbox.open) {
+      fullRefImage.src = refs[currentRef].src;
+      fullRefImage.alt = refImage.alt;
+    }
   }
   function updateRefIndicator() {
     const button = refButtons.find(el => el.dataset.ref === currentRef);
@@ -307,10 +327,8 @@
       currentRef = key;
       refImage.src = next.src;
       updateRefLabels();
-      refFullLink.href = refs[key].src;
       for (const button of refButtons) button.setAttribute('aria-pressed', String(button.dataset.ref === key));
       updateRefIndicator();
-      refViewer.querySelector('.ref-current').textContent = 'Ref. ' + key.toUpperCase();
       document.getElementById('ref-announcement').textContent = copy[currentLanguage].refChanged + ' Ref. ' + key.toUpperCase();
     } catch {
       if (request === refRequest) {
@@ -352,6 +370,8 @@
     document.getElementById('game-status').hidden = false;
   });
   window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion });
+
+  window.GinjiBackgroundMusic.init({ getLanguage: () => currentLanguage });
 
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
