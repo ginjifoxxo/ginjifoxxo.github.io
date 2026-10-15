@@ -15,7 +15,10 @@
   }
   function collection(items, filter) {
     const matches = filter === 'all' ? items : items.filter(item => item.category === filter);
-    return { items: matches, preview: matches.slice(0, 5), remaining: Math.max(0, matches.length - 5) };
+    const preview = filter === 'all'
+      ? matches.filter(item => Number.isInteger(item.featuredOrder)).sort((a, b) => a.featuredOrder - b.featuredOrder).slice(0, 5)
+      : matches.slice(0, 5);
+    return { items: matches, preview, remaining: Math.max(0, matches.length - preview.length) };
   }
   let localize = () => {};
   function init({ getLanguage }) {
@@ -61,12 +64,12 @@
     }
     function render() {
       const group = collection(items, filter);
+      preview.classList.toggle('gallery-collage', group.preview.length === 5 && group.items.length > 5);
       preview.replaceChildren(...group.preview.map(tile));
       empty.hidden = group.items.length > 0;
-      if (group.remaining) {
+      if (group.items.length > 5) {
         const more = make('button', 'gallery-more'); more.type = 'button'; more.setAttribute('aria-haspopup', 'dialog');
-        const number = make('strong', ''); number.textContent = '+' + group.remaining;
-        const label = make('span', 'gallery-more-label'); more.append(number, label);
+        const label = make('span', 'gallery-more-label'); more.append(label);
         more.addEventListener('click', () => {
           triggers.set(dialog, more);
           full.replaceChildren(...group.items.map(tile)); labels(); dialog.showModal();

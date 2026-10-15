@@ -2,7 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { normalize, collection } = require('../public/gallery.js');
 // Metadata-only fixtures; no gallery images are fabricated or committed.
-const records = Array.from({length:26},(_,i)=>({src:'assets/gallery/'+(i<18?'art':'fursuit')+'/'+i+'.webp', category:i<18?'art':'fursuit',alt:'',width:1200,height:i%2?1600:800}));
+const records = Array.from({length:26},(_,i)=>({src:'assets/gallery/'+(i<18?'art':'fursuit')+'/'+i+'.webp', category:i<18?'art':'fursuit',alt:'',width:1200,height:i%2?1600:800,...(i<5?{featuredOrder:i+1}:{})}));
 test('filters give five previews with correct continuation counts',()=>{
   const items=normalize(records);for(const [filter,total,remaining] of [['all',26,21],['art',18,13],['fursuit',8,3]]){
     const group=collection(items,filter);assert.equal(group.items.length,total);assert.equal(group.preview.length,5);assert.equal(group.remaining,remaining);
@@ -26,4 +26,17 @@ test('published gallery records point to real supplied files with valid dimensio
     assert.ok(Number.isInteger(item.height)&&item.height>0);
     assert.ok(item.alt.trim().length>0);
   }
+});
+test('All preview follows the exact curated five while full collection remains complete and ordered',()=>{
+  const data=require('../public/data/gallery.json');
+  const expected=['assets/gallery/fursuit/f444739072.jpg','assets/gallery/art/1D0B7C4632D45BF540CB873C7D2F38CA.png','assets/gallery/fursuit/1-10.jpg','assets/gallery/art/2025-04-23-19-28-25-019.jpg','assets/gallery/art/98270F26C29495430D81591E6AB18146.png'];
+  assert.deepEqual(collection(data,'all').preview.map(i=>i.src),expected);
+  assert.deepEqual(collection(data,'all').items,data);
+  assert.deepEqual(collection([...data,{src:'assets/gallery/art/later.webp',category:'art'}],'all').preview.map(i=>i.src),expected);
+  for(const category of ['art','fursuit'])assert.deepEqual(collection(data,category).preview,data.filter(i=>i.category===category).slice(0,5));
+  assert.deepEqual(data.filter(i=>i.featuredOrder).map(i=>i.featuredOrder).sort(),[1,2,3,4,5]);
+});
+test('a missing featured record is not replaced by an arbitrary image',()=>{
+  const data=require('../public/data/gallery.json');const subset=data.filter(i=>i.featuredOrder!==3);
+  assert.equal(collection(subset,'all').preview.length,4);
 });

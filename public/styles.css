@@ -196,14 +196,15 @@ h1, h2, h3, h4, .lead { font-family: 'Nunito', Arial, sans-serif; }
 
 /* A paused CSS timeline retains the exact disc angle between toggles. */
 .music-player { position: fixed; z-index: 15; left: max(22px, env(safe-area-inset-left)); bottom: max(20px, env(safe-area-inset-bottom)); }
-.music-disc { display: block; position: relative; width: 72px; height: 72px; padding: 5px; border-radius: 50%; background: #d6e1f7c9; box-shadow: 0 6px 24px #39447326; }
-.disc-face { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: repeating-radial-gradient(circle, #6475ac 0 2px, #7587ba 3px 4px, #596b9d 5px 6px); animation: disc-turn 10s linear infinite; animation-play-state: paused; }
-.disc-face img { width: 72%; height: 72%; object-fit: cover; border: 2px solid #d5edff; border-radius: 50%; }
+.music-disc { display: block; position: relative; width: 72px; height: 72px; padding: 5px; border-radius: 50%; background: #33343c; border-color: #777a89; box-shadow: 0 6px 24px #15182040, inset 0 1px 2px #ffffff30; }
+.disc-face { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(from 25deg, #0000 0deg 80deg, #ffffff10 100deg, #0000 125deg 260deg, #ffffff0d 285deg, #0000 310deg), repeating-radial-gradient(circle, #111216 0 2px, #292a30 3px, #15161a 4px 5px); animation: disc-turn 10s linear infinite; animation-play-state: paused; }
+.disc-face img { width: 72%; height: 72%; object-fit: cover; border: 2px solid #9296a8; border-radius: 50%; }
 .music-disc[data-playing="true"] .disc-face { animation-play-state: running; }
 .music-disc[data-playing="true"] { box-shadow: 0 0 22px #a3c3d580; }
 .disc-state { position: absolute; bottom: 1px; right: 0; display: grid; place-items: center; width: 23px; height: 23px; background: #edf7ff; border: 1px solid #adbfdf; border-radius: 50%; font-size: .65rem; }
-.disc-state::before { content: '▶'; }
-.music-disc[data-playing="true"] .disc-state::before { content: 'Ⅱ'; }
+.disc-state svg { display: block; }
+.disc-state .disc-pause, .music-disc[data-action="pause"] .disc-play { display: none; }
+.music-disc[data-action="pause"] .disc-pause { display: block; }
 .music-disc:disabled { opacity: .45; cursor: default; }
 .music-info { position: absolute; left: calc(100% + 12px); bottom: 6px; width: max-content; max-width: calc(100vw - 130px); padding: 10px 16px; border-radius: 16px; color: var(--ink); background-color: #edf7fff2; opacity: 0; visibility: hidden; pointer-events: none; transform: scale(.98); transform-origin: bottom left; transition: opacity .2s, transform .2s, visibility .2s; }
 .music-info strong, .music-info span { display: block; }
@@ -231,8 +232,7 @@ h1, h2, h3, h4, .lead { font-family: 'Nunito', Arial, sans-serif; }
 .gallery-item img { display: block; width: 100%; height: auto; }
 .gallery-item:hover { box-shadow: 0 8px 30px #586ca526; }
 .gallery-more { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 5; break-inside: avoid; margin: 0 0 24px; border: 1px solid #afc9df; border-radius: 45% 45% 12px 12px; background: radial-gradient(ellipse at 25% 30%, #c5ecf9, #dddff3 65%, #edf7ff); color: var(--indigo); }
-.gallery-more strong { font: 700 clamp(3rem, 7vw, 5rem)/1.2 'Nunito', sans-serif; }
-.gallery-more-label { font-size: .875rem; margin-top: 10px; }
+.gallery-more-label { position: relative; z-index: 1; font: 700 clamp(1.25rem, 2.4vw, 2rem)/1.2 'Nunito', sans-serif; }
 .gallery-dialog { width: min(1120px, calc(100% - 24px)); max-width: calc(100% - 24px); height: min(90dvh, 1000px); max-height: calc(100dvh - 24px); padding: max(68px, calc(env(safe-area-inset-top) + 50px)) 24px max(24px, env(safe-area-inset-bottom)); border-radius: 22px; overflow-y: auto; overscroll-behavior: contain; background-color: #edf7fff5; animation: ref-enter 240ms cubic-bezier(.22,.61,.36,1); }
 .gallery-dialog::backdrop { background: #15213bdc; backdrop-filter: blur(8px); }
 .gallery-close { position: sticky; z-index: 2; top: 0; float: right; width: 44px; height: 44px; margin-top: -52px; border-radius: 50%; background: #eff7ff; font-size: 1.75rem; }
@@ -240,3 +240,29 @@ html:has(dialog[open]) { overflow-y: hidden; }
 @media(hover: hover) and (pointer: fine) { html { scrollbar-gutter: stable; } }
 @media(max-width: 760px) { .gallery-grid { columns: 2; column-gap: 14px; } .gallery-item { margin-bottom: 14px; } .gallery-dialog { padding-inline: 16px; } }
 @media(max-width: 420px) { .gallery-grid { columns: 1; } .gallery-item:nth-child(3n + 2) { width: 100%; margin-inline: 0; } .gallery-more { aspect-ratio: 5 / 3; } }
+
+/* Six deliberate areas on the front; the full collection remains natural masonry. */
+#gallery-preview.gallery-collage { display: grid; columns: auto; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: clamp(260px, 32vw, 366px) clamp(230px, 26vw, 300px); grid-template-areas: "one one one one one one two two two three three three" "four four four four five five five five five more more more"; gap: 14px; }
+.gallery-collage .gallery-item { position: relative; width: 100%; height: 100%; min-width: 0; min-height: 0; margin: 0; border-radius: 16px; }
+.gallery-collage .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.gallery-collage .gallery-item:nth-child(1) { grid-area: one; }
+.gallery-collage .gallery-item:nth-child(2) { grid-area: two; }
+.gallery-collage .gallery-item:nth-child(3) { grid-area: three; }
+.gallery-collage .gallery-item:nth-child(4) { grid-area: four; }
+.gallery-collage .gallery-item:nth-child(5) { grid-area: five; }
+.gallery-more { position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 4 / 3; }
+.gallery-collage .gallery-more { grid-area: more; height: 100%; margin: 0; aspect-ratio: auto; }
+.gallery-more::before, .gallery-more::after { content: ''; position: absolute; width: 180px; height: 180px; border: 1px solid #ffffffaa; border-radius: 50%; pointer-events: none; }
+.gallery-more::before { top: -65px; right: -65px; }
+.gallery-more::after { bottom: -100px; left: -55px; width: 240px; height: 240px; }
+.gallery-more:hover { box-shadow: inset 0 0 35px #ffffff66; }
+@media(min-width: 600px) and (max-width: 900px) {
+  #gallery-preview.gallery-collage { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 250px 190px 120px; grid-template-areas: "one one one one two two" "three three four four five five" "three three more more more more"; gap: 12px; }
+}
+@media(max-width: 599px) {
+  #gallery-preview.gallery-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto auto 120px; grid-template-areas: "one one" "two three" "four four" "five five" "more more"; gap: 10px; }
+  .gallery-collage .gallery-item { height: auto; aspect-ratio: 3 / 2; }
+  .gallery-collage .gallery-item img { position: absolute; inset: 0; }
+  .gallery-collage .gallery-item:nth-child(2), .gallery-collage .gallery-item:nth-child(3) { height: 100%; min-height: clamp(210px, 62vw, 340px); aspect-ratio: auto; }
+  .gallery-collage .gallery-item:nth-child(4) { aspect-ratio: 1.15; }
+}

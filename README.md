@@ -112,7 +112,10 @@ keyboard focus hoặc 2,8 giây sau touch. Đĩa dùng CSS timeline 10 giây/vò
 chỉ đổi animation-play-state để pause/resume không reset góc hay thời gian nhạc.
 Reduced motion bỏ chuyển động đĩa. Không có prev/next hoặc playlist player.
 
-Autoplay thử một lần ở volume 0,15. Nếu bị chặn, chỉ thử lại tại tương tác thật
+Đĩa vinyl đen có rãnh và highlight nhẹ, badge Play/Pause dùng inline SVG.
+Autoplay thử một lần ở volume 0; khi nhận trạng thái playing, fade trong 1,2 giây
+lên đúng 0,15. Buffering dừng đĩa và tạm ngưng fade; pause/error hủy fade.
+Nếu bị chặn, chỉ thử lại tại tương tác thật
 đầu tiên (disc tự xử lý click để không double-toggle). Từ chối autoplay không
 báo lỗi. Lỗi media vô hiệu hóa control. Loop giữ nguyên. Không autoplay muted,
 không tự unmute, không retry loop. Một số OS mobile quản lý âm lượng bằng
@@ -134,13 +137,16 @@ cùng scrollRaf với navbar: phản hồi ngay 18%, tail time-based tau 80 ms (
 inertia; không bắt wheel của dialog hoặc container cuộn riêng. Scrollbar desktop
 thin khoảng 9px, palette xanh xám; không đổi overlay scrollbar mobile.
 
-Gallery dùng `public/data/gallery.json` (hiện 23 Art + 8 Fursuit), xem
+Gallery dùng `public/data/gallery.json` (hiện 23 Art + 17 Fursuit = 40 ảnh), xem
 `public/assets/gallery/README.md`. Hai thư mục upload riêng:
 - `public/assets/gallery/art/`: drawings/illustrations/commissions/fanart.
 - `public/assets/gallery/fursuit/`: real fursuit/event/portrait photos.
 
-Filter All/Art/Fursuit, tối đa 5 preview + tile +N nếu còn ảnh, overlay masonry
-scrollable cho filter hiện tại, lightbox contain riêng cho từng ảnh. Native
+Filter All/Art/Fursuit, 5 preview trong collage CSS Grid bất đối xứng và một ô
+Xem thêm/View more nếu có hơn 5 ảnh, không hiển thị số còn lại. All dùng
+`featuredOrder` 1–5 trong JSON; Art/Fursuit lấy 5 ảnh đầu theo thứ tự dữ liệu.
+Thêm ảnh mới không thay thế ảnh featured. Preview có crop bảo toàn chủ thể;
+overlay masonry giữ tỷ lệ tự nhiên, lightbox contain riêng cho từng ảnh. Native
 dialog giữ focus, hỗ trợ ×/backdrop/Escape. Lazy/async loading, dimensions nếu
 có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation
 và alt mô tả nội dung. Giữ nguyên tên và file gốc; fixture kiểm thử không nằm trong dữ liệu production.

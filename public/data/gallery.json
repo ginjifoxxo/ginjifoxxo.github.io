@@ -11,14 +11,16 @@
     "category": "art",
     "alt": "A white and blue fox character in a dark futuristic outfit amid angular light effects.",
     "width": 2000,
-    "height": 2829
+    "height": 2829,
+    "featuredOrder": 2
   },
   {
     "src": "assets/gallery/art/2025-04-23-19-28-25-019.jpg",
     "category": "art",
     "alt": "A smiling white fox character hugging a black and blue robotic character.",
     "width": 1280,
-    "height": 1280
+    "height": 1280,
+    "featuredOrder": 4
   },
   {
     "src": "assets/gallery/art/486995934_626312330320504_7868608711666537376_n.jpg",
@@ -46,7 +48,8 @@
     "category": "art",
     "alt": "A white and blue fox character in shorts leaning over a table.",
     "width": 2124,
-    "height": 1404
+    "height": 1404,
+    "featuredOrder": 5
   },
   {
     "src": "assets/gallery/art/AF1D8EA6830A2BC5B7BA8E108FD5744E.png",
@@ -207,7 +210,8 @@
     "category": "fursuit",
     "alt": "A fox fursuit seated on a yellow balustrade with city buildings behind.",
     "width": 6240,
-    "height": 4160
+    "height": 4160,
+    "featuredOrder": 1
   },
   {
     "src": "assets/gallery/fursuit/IMG_6209.JPG",
@@ -215,5 +219,69 @@
     "alt": "Close-up of a white and blue fox fursuit with a blue and white neck accessory indoors.",
     "width": 2912,
     "height": 5184
+  },
+  {
+    "src": "assets/gallery/fursuit/1-10.jpg",
+    "category": "fursuit",
+    "width": 3840,
+    "height": 5760,
+    "alt": "A white and blue fox fursuit standing with folded paws beside a graffiti-covered wall.",
+    "featuredOrder": 3
+  },
+  {
+    "src": "assets/gallery/fursuit/1-7.jpg",
+    "category": "fursuit",
+    "width": 3840,
+    "height": 5760,
+    "alt": "A white and blue fox fursuit tilting its head and raising a paw beside a graffiti-covered wall."
+  },
+  {
+    "src": "assets/gallery/fursuit/DSC00346.JPG",
+    "category": "fursuit",
+    "width": 6000,
+    "height": 4000,
+    "alt": "A close-up selfie of a white and blue fox fursuit beside an indoor escalator."
+  },
+  {
+    "src": "assets/gallery/fursuit/DSC09709.jpg",
+    "category": "fursuit",
+    "width": 4000,
+    "height": 6000,
+    "alt": "Two white and blue fursuit characters posing together at an indoor event."
+  },
+  {
+    "src": "assets/gallery/fursuit/DSC09760a.jpg",
+    "category": "fursuit",
+    "width": 5595,
+    "height": 3886,
+    "alt": "Two fursuit characters posing together indoors, one wearing a peaked cap."
+  },
+  {
+    "src": "assets/gallery/fursuit/f442952192.jpg",
+    "category": "fursuit",
+    "width": 4160,
+    "height": 6240,
+    "alt": "A white and blue fox fursuit posing beside a lamp post and yellow balustrade."
+  },
+  {
+    "src": "assets/gallery/fursuit/IMG_6218.JPG",
+    "category": "fursuit",
+    "width": 5184,
+    "height": 2912,
+    "alt": "Two white and blue fursuit characters posing beside flowering branches."
+  },
+  {
+    "src": "assets/gallery/fursuit/IMG_6244.JPG",
+    "category": "fursuit",
+    "width": 5184,
+    "height": 2912,
+    "alt": "Two fursuit characters sitting together outside a wooden building."
+  },
+  {
+    "src": "assets/gallery/fursuit/IMG_6261.JPG",
+    "category": "fursuit",
+    "width": 5184,
+    "height": 2912,
+    "alt": "Two white and blue fursuit characters posing among large green leaves."
   }
 ]
