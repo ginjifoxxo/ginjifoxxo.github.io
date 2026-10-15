@@ -15,10 +15,14 @@
   }
   function collection(items, filter) {
     const matches = filter === 'all' ? items : items.filter(item => item.category === filter);
+    const featured = items.filter(item => Number.isInteger(item.featuredOrder)).sort((a, b) => a.featuredOrder - b.featuredOrder).slice(0, 5);
+    const excluded = new Set(featured.map(item => item.src));
     const preview = filter === 'all'
-      ? matches.filter(item => Number.isInteger(item.featuredOrder)).sort((a, b) => a.featuredOrder - b.featuredOrder).slice(0, 5)
-      : matches.slice(0, 5);
-    return { items: matches, preview, remaining: Math.max(0, matches.length - preview.length) };
+      ? featured
+      : matches.filter(item => !excluded.has(item.src) && Number.isInteger(item.categoryPreviewOrder)).sort((a, b) => a.categoryPreviewOrder - b.categoryPreviewOrder).slice(0, 5);
+    const visible = new Set(preview.map(item => item.src));
+    const more = matches.filter(item => !visible.has(item.src) && Number.isInteger(item.moreOrder?.[filter])).sort((a, b) => a.moreOrder[filter] - b.moreOrder[filter]).slice(0, 4);
+    return { items: matches, preview, more, remaining: Math.max(0, matches.length - preview.length) };
   }
   let localize = () => {};
   function init({ getLanguage }) {
@@ -48,31 +52,39 @@
       image.src = item.src; image.alt = item.alt;
       lightbox.showModal();
     }
-    function tile(item, index) {
-      const button = make('button', 'gallery-item');
-      button.type = 'button'; button.dataset.number = String(index + 1);
-      button.setAttribute('aria-haspopup', 'dialog');
+    function thumbnail(item, cropped = false) {
       const img = make('img', ''); img.loading = 'lazy'; img.decoding = 'async'; img.alt = item.alt;
       const thumb = item.previewSrc;
       img.src = typeof thumb === 'string' && thumb.startsWith('assets/gallery/' + item.category + '/') && !thumb.split('/').includes('..') ? thumb : item.src;
       if (Number.isInteger(item.width) && item.width > 0 && Number.isInteger(item.height) && item.height > 0) {
         img.width = item.width; img.height = item.height;
       }
-      button.append(img);
+      if (cropped && /^\d{1,3}% \d{1,3}%$/.test(item.previewPosition || '')) img.style.objectPosition = item.previewPosition;
+      return img;
+    }
+    function tile(item, index, cropped = false) {
+      const button = make('button', 'gallery-item');
+      button.type = 'button'; button.dataset.number = String(index + 1);
+      button.setAttribute('aria-haspopup', 'dialog');
+      button.append(thumbnail(item, cropped));
       button.addEventListener('click', () => openImage(item, button));
       return button;
     }
     function render() {
       const group = collection(items, filter);
       preview.classList.toggle('gallery-collage', group.preview.length === 5 && group.items.length > 5);
-      preview.replaceChildren(...group.preview.map(tile));
+      for (const name of ['all', 'art', 'fursuit']) preview.classList.toggle('gallery-layout-' + name, name === filter);
+      preview.replaceChildren(...group.preview.map((item, index) => tile(item, index, true)));
       empty.hidden = group.items.length > 0;
       if (group.items.length > 5) {
         const more = make('button', 'gallery-more'); more.type = 'button'; more.setAttribute('aria-haspopup', 'dialog');
+        const collage = make('span', 'gallery-more-images'); collage.setAttribute('aria-hidden', 'true');
+        for (const item of group.more) { const img = thumbnail(item, true); img.alt = ''; collage.append(img); }
+        more.append(collage);
         const label = make('span', 'gallery-more-label'); more.append(label);
         more.addEventListener('click', () => {
           triggers.set(dialog, more);
-          full.replaceChildren(...group.items.map(tile)); labels(); dialog.showModal();
+          full.replaceChildren(...group.items.map((item, index) => tile(item, index))); labels(); dialog.showModal();
         });
         preview.append(more);
       }

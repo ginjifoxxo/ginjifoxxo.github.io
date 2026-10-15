@@ -74,13 +74,15 @@ python tests/test_music_sync.py
 
 Popup quay có entrance 400 ms (backdrop 350 ms), chờ animationend với fallback 500 ms rồi nghỉ 120 ms trước khi reel chạy. Đóng popup sẽ hủy pending start. Reduced motion bỏ entrance/pause và trả kết quả ngay.
 
-Bốn section Hero/About/Fursona/Gallery là scene đảo chiều. Mỗi lần cuộn,
-JS đo bốn layout box trong một RAF khi cần, dùng dải vào 16%/ra 8% viewport
-để tránh flicker, giữ scene dài đọc được và không thay đổi document flow.
-Scene vào scale .975/opacity 0/blur 4px → rõ; scene rời phía trên scale 1.025.
-Transition 600 ms; Hero lần đầu stagger nhóm 100 ms, không translateY.
-Bootstrap trước paint có fallback 1,8 giây; reduced motion luôn hiện nội dung.
-Scene không nhìn thấy dùng inert để tránh focus/click vô hình.
+Reveal dùng 19 khối `data-scroll-reveal` bên trong Hero/About/Fursona/Gallery.
+Section giữ nguyên layout, không opacity/scale/blur và không inert. Mỗi RAF khi
+scroll/resize/focus đo layout chưa transform (cộng chuỗi offsetParent), rồi cập
+nhật trạng thái hai chiều. Dải vào 14–86%, giữ đến 10–90% (hysteresis 4% đối xứng).
+Khối vào .97/opacity 0/blur 4px → rõ; rời phía trên scale 1.02, phía dưới .97.
+Transition 500 ms; ba interest card stagger 0/60/120 ms chỉ khi vào, không queue.
+Focus keyboard luôn hiện khối tương ứng. ResizeObserver theo dõi thay đổi kích
+thước nội dung; reduced motion hiện toàn bộ, bỏ blur/scale/stagger/transition.
+Bootstrap trước paint vẫn có fallback 1,8 giây khi module không chạy.
 
 Landing point được chọn độc lập sau winner: `0.10 + Math.random() * 0.80`,
 dùng đúng một giá trị mỗi lượt cho animation và căn lại khi resize/kết thúc.
@@ -144,8 +146,13 @@ Gallery dùng `public/data/gallery.json` (hiện 23 Art + 17 Fursuit = 40 ảnh)
 
 Filter All/Art/Fursuit, 5 preview trong collage CSS Grid bất đối xứng và một ô
 Xem thêm/View more nếu có hơn 5 ảnh, không hiển thị số còn lại. All dùng
-`featuredOrder` 1–5 trong JSON; Art/Fursuit lấy 5 ảnh đầu theo thứ tự dữ liệu.
-Thêm ảnh mới không thay thế ảnh featured. Preview có crop bảo toàn chủ thể;
+`featuredOrder` 1–5 trong JSON; Art/Fursuit có `categoryPreviewOrder` 1–5 riêng,
+loại ảnh All featured khỏi preview nhưng giữ trong full collection. Metadata
+`moreOrder` chọn bốn mini-image riêng cho từng filter, không trùng preview.
+Ba layout có template riêng; View more dùng 2×2 ảnh thật dưới overlay indigo,
+không đếm ảnh. `previewPosition` chỉ điều chỉnh crop preview/mini; xem danh sách
+curation trong README gallery. Thêm ảnh mới không thay ảnh đã curate.
+Preview có crop bảo toàn chủ thể;
 overlay masonry giữ tỷ lệ tự nhiên, lightbox contain riêng cho từng ảnh. Native
 dialog giữ focus, hỗ trợ ×/backdrop/Escape. Lazy/async loading, dimensions nếu
 có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation

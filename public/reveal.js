@@ -4,49 +4,60 @@
   else { root.GinjiScenes = api; api.init(); }
 })(typeof window === 'undefined' ? globalThis : window, function () {
   'use strict';
-  // Different entry/exit bands give long sections a stable, readable viewing area.
+  // Mirrored boundaries and a small 4% hysteresis work in either direction.
   function isVisible(rect, height, active) {
-    const margin = height * (active ? .08 : .16);
+    const margin = height * (active ? .10 : .14);
     return rect.bottom > margin && rect.top < height - margin;
+  }
+  function layoutTop(element) {
+    let top = 0;
+    for (let node = element; node; node = node.offsetParent) top += node.offsetTop;
+    return top;
   }
   function init() {
     const root = document.documentElement;
-    const scenes = [...document.querySelectorAll('.scene')];
+    const blocks = [...document.querySelectorAll('[data-scroll-reveal]')];
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     let frame = null;
     function showAll() {
-      root.classList.remove('reveal-enabled', 'intro-running');
+      root.classList.remove('reveal-enabled');
       clearTimeout(window.GinjiRevealFallback);
       if (frame !== null) cancelAnimationFrame(frame);
       frame = null;
-      for (const scene of scenes) scene.inert = false;
     }
     function update() {
       frame = null;
       if (motion.matches || !root.classList.contains('reveal-enabled')) return;
       try {
-        for (const scene of scenes) {
-          // Offset geometry is unaffected by our scale/filter animation.
-          const rect = { top: scene.offsetTop - scrollY, bottom: scene.offsetTop + scene.offsetHeight - scrollY };
-          const visible = isVisible(rect, innerHeight, scene.classList.contains('is-visible'));
-          scene.classList.toggle('is-passed', rect.bottom <= innerHeight * .16);
-          scene.classList.toggle('is-visible', visible);
-          scene.inert = !visible;
+        // Read all untransformed layout boxes before writing visual states.
+        const measurements = blocks.map(block => {
+          const top = layoutTop(block) - scrollY;
+          return { block, top, bottom: top + block.offsetHeight };
+        });
+        for (const rect of measurements) {
+          const block = rect.block;
+          const visible = block.contains(document.activeElement) || isVisible(rect, innerHeight, block.classList.contains('is-visible'));
+          block.classList.toggle('is-passed', rect.bottom <= innerHeight * .14);
+          block.classList.toggle('is-visible', visible);
         }
         clearTimeout(window.GinjiRevealFallback);
       } catch { showAll(); }
     }
     function schedule() { if (frame === null) frame = requestAnimationFrame(update); }
     try {
-      if (motion.matches) { showAll(); return; }
-      root.classList.add('intro-running');
-      requestAnimationFrame(() => requestAnimationFrame(update));
-      setTimeout(() => root.classList.remove('intro-running'), 1200);
+      if (motion.matches) showAll();
+      else { root.classList.add('reveal-enabled'); requestAnimationFrame(() => requestAnimationFrame(update)); }
       window.addEventListener('scroll', schedule, { passive: true });
       window.addEventListener('resize', schedule, { passive: true });
-      if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.querySelector('main'));
+      document.addEventListener('focusin', schedule);
+      document.addEventListener('focusout', schedule);
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(schedule);
+        observer.observe(document.querySelector('main'));
+        for (const block of blocks) observer.observe(block);
+      }
       motion.addEventListener('change', () => { if (motion.matches) showAll(); else { root.classList.add('reveal-enabled'); schedule(); } });
-      window.addEventListener('pageshow', event => { if (event.persisted) { root.classList.remove('intro-running'); schedule(); } });
+      window.addEventListener('pageshow', schedule);
     } catch { showAll(); }
   }
   return { isVisible, init };

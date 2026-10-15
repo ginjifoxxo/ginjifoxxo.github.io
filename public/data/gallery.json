@@ -4,7 +4,9 @@
     "category": "art",
     "alt": "A white and blue fox character with a paw near its face against a blue background.",
     "width": 1000,
-    "height": 1000
+    "height": 1000,
+    "categoryPreviewOrder": 2,
+    "previewPosition": "50% 28%"
   },
   {
     "src": "assets/gallery/art/1D0B7C4632D45BF540CB873C7D2F38CA.png",
@@ -27,7 +29,11 @@
     "category": "art",
     "alt": "Chibi fox characters tumbling and playing together on a white background.",
     "width": 2048,
-    "height": 2048
+    "height": 2048,
+    "moreOrder": {
+      "art": 1
+    },
+    "previewPosition": "50% 50%"
   },
   {
     "src": "assets/gallery/art/4870fa58-d457-4618-8c8e-426db12548de.jpg",
@@ -41,7 +47,9 @@
     "category": "art",
     "alt": "Two fox characters relaxing together under a blanket beside a laptop.",
     "width": 1513,
-    "height": 1144
+    "height": 1144,
+    "categoryPreviewOrder": 4,
+    "previewPosition": "50% 45%"
   },
   {
     "src": "assets/gallery/art/98270F26C29495430D81591E6AB18146.png",
@@ -56,14 +64,21 @@
     "category": "art",
     "alt": "Close-up illustration of a white fox character surrounded by pink light.",
     "width": 1600,
-    "height": 1600
+    "height": 1600,
+    "moreOrder": {
+      "all": 1,
+      "art": 2
+    },
+    "previewPosition": "50% 42%"
   },
   {
     "src": "assets/gallery/art/comm Nhật Võ.png",
     "category": "art",
     "alt": "A white fox character underwater beneath shafts of blue light.",
     "width": 1240,
-    "height": 2205
+    "height": 2205,
+    "categoryPreviewOrder": 1,
+    "previewPosition": "50% 70%"
   },
   {
     "src": "assets/gallery/art/fc65474c-1871-47ed-a4b2-9eadb26a5fb2.jpg",
@@ -84,14 +99,20 @@
     "category": "art",
     "alt": "A white fox character and a long pale dragon curled together beneath a moonlit sky.",
     "width": 1314,
-    "height": 1208
+    "height": 1208,
+    "moreOrder": {
+      "art": 3
+    },
+    "previewPosition": "50% 50%"
   },
   {
     "src": "assets/gallery/art/IMG_1627.png",
     "category": "art",
     "alt": "A white fox character wearing a dark suit and adjusting its tie.",
     "width": 3000,
-    "height": 3000
+    "height": 3000,
+    "categoryPreviewOrder": 3,
+    "previewPosition": "50% 30%"
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề37_20260417223717.png",
@@ -126,7 +147,9 @@
     "category": "art",
     "alt": "Two white and blue fox characters posing closely together.",
     "width": 1633,
-    "height": 1289
+    "height": 1289,
+    "categoryPreviewOrder": 5,
+    "previewPosition": "50% 48%"
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề36_20250124200640.png",
@@ -154,7 +177,12 @@
     "category": "art",
     "alt": "A white and blue fox character surrounded by bright blue music-themed effects.",
     "width": 1620,
-    "height": 2160
+    "height": 2160,
+    "moreOrder": {
+      "all": 2,
+      "art": 4
+    },
+    "previewPosition": "50% 45%"
   },
   {
     "src": "assets/gallery/art/YCH Võ Nhật (1).png",
@@ -168,21 +196,33 @@
     "category": "fursuit",
     "alt": "A white and blue fox fursuit posing in a black shirt against a dark wall.",
     "width": 5760,
-    "height": 3840
+    "height": 3840,
+    "moreOrder": {
+      "fursuit": 1
+    },
+    "previewPosition": "50% 30%"
   },
   {
     "src": "assets/gallery/fursuit/DSC00287.JPG",
     "category": "fursuit",
     "alt": "A white and blue fox fursuit beside an indoor escalator.",
     "width": 6000,
-    "height": 4000
+    "height": 4000,
+    "moreOrder": {
+      "fursuit": 2
+    },
+    "previewPosition": "30% 35%"
   },
   {
     "src": "assets/gallery/fursuit/DSC07340-Enhanced-NR.jpg",
     "category": "fursuit",
     "alt": "A fox fursuit posing at a desk in a recording studio.",
     "width": 2048,
-    "height": 1152
+    "height": 1152,
+    "moreOrder": {
+      "fursuit": 3
+    },
+    "previewPosition": "50% 45%"
   },
   {
     "src": "assets/gallery/fursuit/DSC07347-Enhanced-NR.jpg",
@@ -196,7 +236,9 @@
     "category": "fursuit",
     "alt": "A white and blue fox fursuit sitting on grass in a white shirt and jeans.",
     "width": 2048,
-    "height": 1365
+    "height": 1365,
+    "categoryPreviewOrder": 1,
+    "previewPosition": "50% 50%"
   },
   {
     "src": "assets/gallery/fursuit/f443065344.jpg",
@@ -240,35 +282,50 @@
     "category": "fursuit",
     "width": 6000,
     "height": 4000,
-    "alt": "A close-up selfie of a white and blue fox fursuit beside an indoor escalator."
+    "alt": "A close-up selfie of a white and blue fox fursuit beside an indoor escalator.",
+    "categoryPreviewOrder": 4,
+    "previewPosition": "55% 38%"
   },
   {
     "src": "assets/gallery/fursuit/DSC09709.jpg",
     "category": "fursuit",
     "width": 4000,
     "height": 6000,
-    "alt": "Two white and blue fursuit characters posing together at an indoor event."
+    "alt": "Two white and blue fursuit characters posing together at an indoor event.",
+    "categoryPreviewOrder": 3,
+    "previewPosition": "50% 28%"
   },
   {
     "src": "assets/gallery/fursuit/DSC09760a.jpg",
     "category": "fursuit",
     "width": 5595,
     "height": 3886,
-    "alt": "Two fursuit characters posing together indoors, one wearing a peaked cap."
+    "alt": "Two fursuit characters posing together indoors, one wearing a peaked cap.",
+    "moreOrder": {
+      "all": 3
+    },
+    "previewPosition": "50% 35%"
   },
   {
     "src": "assets/gallery/fursuit/f442952192.jpg",
     "category": "fursuit",
     "width": 4160,
     "height": 6240,
-    "alt": "A white and blue fox fursuit posing beside a lamp post and yellow balustrade."
+    "alt": "A white and blue fox fursuit posing beside a lamp post and yellow balustrade.",
+    "categoryPreviewOrder": 2,
+    "previewPosition": "50% 58%"
   },
   {
     "src": "assets/gallery/fursuit/IMG_6218.JPG",
     "category": "fursuit",
     "width": 5184,
     "height": 2912,
-    "alt": "Two white and blue fursuit characters posing beside flowering branches."
+    "alt": "Two white and blue fursuit characters posing beside flowering branches.",
+    "moreOrder": {
+      "all": 4,
+      "fursuit": 4
+    },
+    "previewPosition": "60% 40%"
   },
   {
     "src": "assets/gallery/fursuit/IMG_6244.JPG",
@@ -282,6 +339,8 @@
     "category": "fursuit",
     "width": 5184,
     "height": 2912,
-    "alt": "Two white and blue fursuit characters posing among large green leaves."
+    "alt": "Two white and blue fursuit characters posing among large green leaves.",
+    "categoryPreviewOrder": 5,
+    "previewPosition": "50% 45%"
   }
 ]
