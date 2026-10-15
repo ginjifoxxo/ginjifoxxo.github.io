@@ -1,42 +1,45 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const vm = require('node:vm');
 const fs = require('node:fs');
-const bootstrap = fs.readFileSync('public/navigation-start.js', 'utf8');
-const reveal = fs.readFileSync('public/reveal.js', 'utf8');
-function setup(reduced = false, supported = true) {
-  const classes = new Set(), rafs = [], timers = new Map(), groups = [0,1,2].map(() => ({ classList: { add(name) { this[name] = true; } } }));
-  let callback, motionChanged; const observed = new Set();
-  const root = { classList: { add: n => classes.add(n), remove: n => classes.delete(n) } };
-  const motion = { matches: reduced, addEventListener: (_, fn) => motionChanged = fn };
-  const window = { addEventListener() {} };
-  const env = { window, location: { hash: '' }, history: {}, performance: { getEntriesByType: () => [{ type: 'navigate' }] },
-    document: { documentElement: root, querySelectorAll: () => groups }, matchMedia: () => motion,
-    setTimeout: (fn, ms) => { timers.set(1, { fn, ms }); return 1; }, clearTimeout: id => timers.delete(id),
-    requestAnimationFrame: fn => rafs.push(fn), IntersectionObserver: class {
-      constructor(fn) { callback = fn; } observe(el) { observed.add(el); } unobserve(el) { observed.delete(el); } disconnect() { observed.clear(); }
-    } };
-  if (supported) window.IntersectionObserver = env.IntersectionObserver;
-  vm.createContext(env); vm.runInContext(bootstrap, env);
-  return { classes, groups, timers, observed, motion, start() { vm.runInContext(reveal, env); while (rafs.length) rafs.shift()(); },
-    enter(group) { callback([{ target: group, isIntersecting: true }]); }, reduce() { motion.matches = true; motionChanged(); } };
-}
-test('pre-paint opt-in is fail-open when reveal script is unavailable', () => {
-  const h = setup(); assert.ok(h.classes.has('reveal-enabled'));
-  assert.equal(h.timers.get(1).ms, 1800); h.timers.get(1).fn();
-  assert.equal(h.classes.has('reveal-enabled'), false);
+const vm = require('node:vm');
+const scenes = require('../public/reveal.js');
+test('scene entry/exit bands are reversible and keep long sections readable', () => {
+  assert.equal(scenes.isVisible({top:200,bottom:3000},800,false),true);
+  assert.equal(scenes.isVisible({top:-1600,bottom:400},800,true),true);
+  assert.equal(scenes.isVisible({top:-3000,bottom:50},800,true),false);
+  assert.equal(scenes.isVisible({top:-2900,bottom:200},800,false),true);
+  assert.equal(scenes.isVisible({top:750,bottom:1000},800,true),false);
+  assert.equal(scenes.isVisible({top:650,bottom:1000},800,false),true);
 });
-test('groups are observed once and remain revealed after leaving', () => {
-  const h = setup(); h.start(); assert.equal(h.observed.size, 3);
-  assert.equal(h.groups[2].classList['is-revealed'], undefined);
-  h.enter(h.groups[0]); assert.equal(h.observed.has(h.groups[0]), false);
-  assert.equal(h.groups[0].classList['is-revealed'], true); assert.equal(h.timers.size, 0);
-  assert.equal(h.observed.size, 2); h.reduce(); assert.equal(h.classes.size, 0); assert.equal(h.observed.size, 0);
+test('hysteresis prevents flicker near either entry boundary', () => {
+  const rect = {top:700,bottom:1700};
+  assert.equal(scenes.isVisible(rect,800,true),true);
+  assert.equal(scenes.isVisible(rect,800,false),false);
 });
-test('reduced motion or unsupported observer shows content immediately', () => {
-  for (const h of [setup(true), setup(false, false)]) { h.start(); assert.equal(h.classes.size, 0); assert.equal(h.timers.size, 0); }
+test('pre-paint bootstrap fails open when scene module is missing', () => {
+  const classes = new Set(); let fallback;
+  const env = {window:{},location:{hash:''},history:{},performance:{getEntriesByType:()=>[{type:'navigate'}]},
+    document:{documentElement:{classList:{add:n=>classes.add(n),remove:n=>classes.delete(n)}}},
+    matchMedia:()=>({matches:false}),setTimeout:fn=>{fallback=fn;return 1;}};
+  vm.createContext(env);vm.runInContext(fs.readFileSync('public/navigation-start.js','utf8'),env);
+  assert.ok(classes.has('reveal-enabled'));fallback();assert.equal(classes.size,0);
 });
-test('observer initialization error reveals content safely', () => {
-  const h = setup(); h.groups[Symbol.iterator] = () => { throw Error('bootstrap failure'); };
-  h.start(); assert.equal(h.classes.size, 0); assert.equal(h.timers.size, 0);
+test('DOM scene updates reverse visibility, guard invisible controls and respect reduced motion', () => {
+  function element(top,height) {
+    const classes=new Set();return {offsetTop:top,offsetHeight:height,inert:false,classList:{contains:n=>classes.has(n),
+      add:(...names)=>names.forEach(n=>classes.add(n)),remove:(...names)=>names.forEach(n=>classes.delete(n)),
+      toggle:(n,on)=>on?classes.add(n):classes.delete(n)}};
+  }
+  const root=element(0,0);root.classList.add('reveal-enabled');
+  const groups=[element(0,800),element(800,1600),element(2400,1000),element(3400,500)];
+  const rafs=[],events={};let motionChange;
+  const motion={matches:false,addEventListener:(_,fn)=>motionChange=fn};
+  const env={module:{exports:{}},window:{addEventListener:(n,fn)=>events[n]=fn},scrollY:0,innerHeight:800,
+    document:{documentElement:root,querySelectorAll:()=>groups},matchMedia:()=>motion,
+    setTimeout:()=>1,clearTimeout(){},requestAnimationFrame:fn=>{rafs.push(fn);return 1;},cancelAnimationFrame(){}};
+  vm.createContext(env);vm.runInContext(fs.readFileSync('public/reveal.js','utf8'),env);env.module.exports.init();
+  const flush=()=>{while(rafs.length)rafs.shift()();};flush();assert.equal(groups[0].inert,false);assert.equal(groups[2].inert,true);
+  env.scrollY=2400;events.scroll();flush();assert.equal(groups[0].inert,true);assert.equal(groups[2].inert,false);
+  env.scrollY=0;events.scroll();flush();assert.equal(groups[0].inert,false);
+  motion.matches=true;motionChange();assert.ok(groups.every(e=>!e.inert));assert.equal(root.classList.contains('reveal-enabled'),false);
 });

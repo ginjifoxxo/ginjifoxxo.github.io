@@ -74,11 +74,13 @@ python tests/test_music_sync.py
 
 Popup quay có entrance 400 ms (backdrop 350 ms), chờ animationend với fallback 500 ms rồi nghỉ 120 ms trước khi reel chạy. Đóng popup sẽ hủy pending start. Reduced motion bỏ entrance/pause và trả kết quả ngay.
 
-Hero reveal theo nhóm (heading → lead → portrait → social), stagger 100 ms,
-transition 650 ms, tổng khoảng 1,05 giây. Bootstrap trong head chuẩn bị trạng
-thái trước paint; fallback 1,8 giây hiển thị toàn bộ nếu reveal không khởi tạo.
-Các nhóm bên dưới dùng IntersectionObserver, reveal một lần khi cách viewport
-60px. Reduced motion, thiếu observer hoặc lỗi khởi tạo đều hiển thị ngay.
+Bốn section Hero/About/Fursona/Gallery là scene đảo chiều. Mỗi lần cuộn,
+JS đo bốn layout box trong một RAF khi cần, dùng dải vào 16%/ra 8% viewport
+để tránh flicker, giữ scene dài đọc được và không thay đổi document flow.
+Scene vào scale .975/opacity 0/blur 4px → rõ; scene rời phía trên scale 1.025.
+Transition 600 ms; Hero lần đầu stagger nhóm 100 ms, không translateY.
+Bootstrap trước paint có fallback 1,8 giây; reduced motion luôn hiện nội dung.
+Scene không nhìn thấy dùng inert để tránh focus/click vô hình.
 
 Landing point được chọn độc lập sau winner: `0.10 + Math.random() * 0.80`,
 dùng đúng một giá trị mỗi lượt cho animation và căn lại khi resize/kết thúc.
@@ -102,15 +104,43 @@ workflow khi đó báo lỗi và không force push. Lịch GitHub có thể ch�
 
 ## Nhạc nền và refsheet
 
-Nhạc nền duy nhất: Chocolate Lemon, `public/audio/chocolate-lemon.mp3`
-(192 kbps stereo, 5.237.612 byte, khoảng 3:38). Chuyển từ WAV người dùng
-cung cấp; WAV gốc giữ ngoài repository, không deploy. Không autoplay hoặc
-nhớ trạng thái tự phát. Nút glass góc dưới trái phát/tạm dừng, có nhãn VI/EN,
-loop, fade-in 800 ms tới volume 0,35; pause ngay, lỗi tải vô hiệu hóa nút.
-Trên mobile ẩn tên track, giữ icon và chữ Play/Pause. Một số hệ điều hành
-mobile quản lý âm lượng media bằng volume hệ thống thay vì HTMLMediaElement.volume.
+Nhạc nền duy nhất: Chocolate Lemon — ミツキヨ, `public/audio/chocolate-lemon.mp3`
+(192 kbps stereo, 5.237.612 byte, khoảng 3:38), giữ WAV ngoài repository.
+Player là đĩa tròn góc dưới trái, dùng đúng ảnh người dùng cung cấp tại
+`public/assets/music/chocolate-lemon-disc.png`. Nhãn bài/artist hiện khi hover,
+keyboard focus hoặc 2,8 giây sau touch. Đĩa dùng CSS timeline 10 giây/vòng,
+chỉ đổi animation-play-state để pause/resume không reset góc hay thời gian nhạc.
+Reduced motion bỏ chuyển động đĩa. Không có prev/next hoặc playlist player.
+
+Autoplay thử một lần ở volume 0,15. Nếu bị chặn, chỉ thử lại tại tương tác thật
+đầu tiên (disc tự xử lý click để không double-toggle). Từ chối autoplay không
+báo lỗi. Lỗi media vô hiệu hóa control. Loop giữ nguyên. Không autoplay muted,
+không tự unmute, không retry loop. Một số OS mobile quản lý âm lượng bằng
+volume hệ thống thay vì HTMLMediaElement.volume.
 
 Ref. A/B vẫn dùng mapping hiện có. Ảnh inline là button mở native dialog,
 object-fit contain, backdrop tối/blur và animation nhẹ 240 ms (reduced motion
 bỏ animation). Đóng bằng ×, backdrop hoặc Escape, trả focus mà không cuộn.
 Đã bỏ caption dưới refsheet và toàn bộ section Một lời chào; Gallery nối footer.
+
+
+## Wheel và Gallery
+
+Desktop fine pointer nhận wheel rời rạc (line-mode hoặc pixel ticks lớn, nguyên
+bội 20); delta nhỏ/phân số, touch/trackpad thông thường giữ native. Phân biệt
+mouse/trackpad là heuristic, không có nhận dạng phần cứng tuyệt đối. Wheel dùng
+cùng scrollRaf với navbar: phản hồi ngay 18%, tail time-based tau 80 ms (khoảng
+400 ms), clamp đầu/cuối. Navbar, pointer, keyboard, modal và reduced motion hủy
+inertia; không bắt wheel của dialog hoặc container cuộn riêng. Scrollbar desktop
+thin khoảng 9px, palette xanh xám; không đổi overlay scrollbar mobile.
+
+Gallery dùng `public/data/gallery.json` (hiện rỗng), xem
+`public/assets/gallery/README.md`. Hai thư mục upload riêng:
+- `public/assets/gallery/art/`: drawings/illustrations/commissions/fanart.
+- `public/assets/gallery/fursuit/`: real fursuit/event/portrait photos.
+
+Filter All/Art/Fursuit, tối đa 5 preview + tile +N nếu còn ảnh, overlay masonry
+scrollable cho filter hiện tại, lightbox contain riêng cho từng ảnh. Native
+dialog giữ focus, hỗ trợ ×/backdrop/Escape. Lazy/async loading, dimensions nếu
+có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Không có ảnh thật
+nào được thêm trong task framework này; fixture layout chỉ nằm trong server tạm.

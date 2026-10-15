@@ -106,6 +106,7 @@
     updateRefLabels();
     window.GinjiMusic.localize();
     window.GinjiBackgroundMusic.localize();
+    window.GinjiGallery.localize();
     scheduleIndicator();
     scheduleScrollUpdate();
   }
@@ -212,14 +213,16 @@
   window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
   window.addEventListener('resize', () => { scheduleScrollUpdate(); scheduleIndicator(); scheduleLanguageLayout(); }, { passive: true });
   if ('ResizeObserver' in window) new ResizeObserver(scheduleScrollUpdate).observe(document.querySelector('main'));
+  let wheelTarget = null, wheelLastFrame = null;
   function cancelScroll() {
     if (scrollRaf !== null) cancelAnimationFrame(scrollRaf);
     scrollRaf = null;
+    wheelTarget = null; wheelLastFrame = null;
     navigationTarget = null;
     scheduleScrollUpdate();
   }
   function destination(target) {
-    const top = target === overview ? 0 : window.scrollY + target.getBoundingClientRect().top - headerClearance();
+    const top = target === overview ? 0 : target.offsetTop - headerClearance();
     return Math.max(0, Math.min(top, document.documentElement.scrollHeight - window.innerHeight));
   }
   function scrollToSection(target) {
@@ -239,6 +242,7 @@
     }
     if (reducedMotion.matches) { finish(); return; }
     function step(now) {
+      if (document.querySelector('dialog[open]')) { cancelScroll(); return; }
       const t = Math.min(1, (now - started) / duration);
       const eased = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
       window.scrollTo({ top: from + (destination(target) - from) * eased, behavior: 'instant' });
@@ -253,7 +257,50 @@
     const target = document.getElementById(control.dataset.scrollTarget);
     if (target) scrollToSection(target);
   });
-  window.addEventListener('wheel', cancelScroll, { passive: true });
+  const wheelPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  function wheelStep(now) {
+    scrollRaf = null;
+    if (wheelTarget === null || reducedMotion.matches || document.querySelector('dialog[open]')) { cancelScroll(); return; }
+    const delta = wheelLastFrame === null ? 16 : Math.min(50, now - wheelLastFrame);
+    wheelLastFrame = now;
+    const max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+    wheelTarget = Math.max(0, Math.min(max, wheelTarget));
+    const remaining = wheelTarget - scrollY;
+    if (Math.abs(remaining) < .7) { window.scrollTo({ top: wheelTarget, behavior: 'instant' }); cancelScroll(); return; }
+    window.scrollTo({ top: scrollY + remaining * (1 - Math.exp(-delta / 80)), behavior: 'instant' });
+    scrollRaf = requestAnimationFrame(wheelStep);
+  }
+  function onWheel(event) {
+    const discrete = event.deltaMode === 1 || (event.deltaMode === 0 && Number.isInteger(event.deltaY) && Math.abs(event.deltaY) >= 80 && event.deltaY % 20 === 0);
+    if (event.ctrlKey || event.shiftKey || event.deltaX || !discrete || !wheelPointer.matches || reducedMotion.matches
+        || document.querySelector('dialog[open]') || event.target.closest('input, textarea, select, [contenteditable="true"]')) { cancelScroll(); return; }
+    // Respect nested scroll containers instead of capturing their wheel input.
+    for (let node = event.target; node && node !== document.body; node = node.parentElement) {
+      if (node.scrollHeight > node.clientHeight && /auto|scroll/.test(getComputedStyle(node).overflowY)) { cancelScroll(); return; }
+    }
+    event.preventDefault();
+    if (wheelTarget === null || navigationTarget) { cancelScroll(); wheelTarget = scrollY; }
+    const amount = event.deltaY * (event.deltaMode === 1 ? 32 : 1);
+    if (Math.sign(amount) !== Math.sign(wheelTarget - scrollY)) wheelTarget = scrollY;
+    const max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+    const next = Math.max(0, Math.min(max, wheelTarget + amount));
+    // A small immediate response, then a short time-based exponential tail (~400ms).
+    window.scrollTo({ top: scrollY + (next - wheelTarget) * .18, behavior: 'instant' });
+    wheelTarget = next;
+    if (scrollRaf === null) scrollRaf = requestAnimationFrame(wheelStep);
+  }
+  function syncWheelListener() {
+    window.removeEventListener('wheel', onWheel);
+    window.removeEventListener('wheel', cancelScroll);
+    cancelScroll();
+    if (wheelPointer.matches && !reducedMotion.matches) window.addEventListener('wheel', onWheel, { passive: false });
+    else window.addEventListener('wheel', cancelScroll, { passive: true });
+  }
+  syncWheelListener();
+  wheelPointer.addEventListener('change', syncWheelListener);
+  reducedMotion.addEventListener('change', syncWheelListener);
+  window.addEventListener('pointerdown', cancelScroll, { passive: true });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) cancelScroll(); });
   window.addEventListener('touchstart', cancelScroll, { passive: true });
   window.addEventListener('keydown', event => {
     if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(event.key)) cancelScroll();
@@ -372,6 +419,7 @@
   window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion });
 
   window.GinjiBackgroundMusic.init({ getLanguage: () => currentLanguage });
+  window.GinjiGallery.init({ getLanguage: () => currentLanguage });
 
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');

@@ -7,59 +7,67 @@
   let localize = () => {};
   function init({ getLanguage }) {
     const audio = document.getElementById('background-audio');
-    const button = document.querySelector('.background-music');
-    const action = button.querySelector('.music-action');
-    let pending = false, failed = !!audio.error, generation = 0, frame = null;
-    const cancelFade = () => { if (frame !== null) cancelAnimationFrame(frame); frame = null; };
+    const button = document.querySelector('.music-disc');
+    const player = button.parentElement;
+    let pending = false, failed = !!audio.error, generation = 0, playing = false, infoTimer;
     function update() {
       const vi = getLanguage() !== 'en';
-      const playing = pending || !audio.paused;
       const label = failed ? (vi ? 'Nhạc chưa khả dụng' : 'Music unavailable')
-        : playing ? (vi ? 'Tạm dừng' : 'Pause') : (vi ? 'Phát nhạc' : 'Play');
-      action.textContent = label;
+        : pending || !audio.paused ? (vi ? 'Tạm dừng' : 'Pause') : (vi ? 'Phát nhạc' : 'Play');
       button.setAttribute('aria-label', label + ' — Chocolate Lemon');
-      button.setAttribute('aria-pressed', String(playing && !failed));
-      button.title = label + ' — Chocolate Lemon';
+      button.setAttribute('aria-pressed', String(!failed && !audio.paused));
+      button.dataset.playing = String(playing && !failed);
       button.disabled = failed;
     }
-    function pause() {
-      generation++; pending = false; cancelFade();
-      audio.pause(); audio.volume = 0; update();
+    function removeFallback() {
+      document.removeEventListener('pointerdown', firstInteraction, true);
+      document.removeEventListener('keydown', firstInteraction, true);
     }
-    button.addEventListener('click', async () => {
-      if (failed) return;
-      if (pending || !audio.paused) { pause(); return; }
+    function fail() { failed = true; pending = false; playing = false; generation++; removeFallback(); audio.pause(); update(); }
+    async function start() {
+      if (failed || pending) return;
       const token = ++generation;
-      pending = true; audio.volume = 0; update();
+      pending = true; audio.volume = .15; update();
       try {
-        // Called directly in the user's gesture, never from a timer or page load.
         await audio.play();
-        if (token !== generation || audio.paused) return;
-        pending = false; update();
-        let started = null;
-        function fade(now) {
-          frame = null;
-          if (token !== generation || audio.paused) return;
-          if (started === null) started = now;
-          const progress = Math.min(1, (now - started) / 800);
-          audio.volume = .35 * progress;
-          if (progress < 1) frame = requestAnimationFrame(fade);
-        }
-        frame = requestAnimationFrame(fade);
+        if (token !== generation) return;
+        pending = false;
+        if (!audio.paused) { playing = true; removeFallback(); }
+        update();
       } catch {
         if (token !== generation) return;
-        pending = false; cancelFade();
-        if (audio.error) failed = true;
-        update(); // A rejected browser play request remains safely retryable.
+        pending = false; playing = false;
+        if (audio.error) fail();
+        else update(); // Autoplay denial is normal; no prompt or retry loop.
+      }
+    }
+    function firstInteraction(event) {
+      if (!event.isTrusted || (event.type === 'keydown' && (event.repeat || event.ctrlKey || event.metaKey || event.altKey || ['Shift','Control','Alt','Meta','Tab'].includes(event.key)))) return;
+      removeFallback();
+      // The disc's own click performs exactly one predictable Play/Pause action.
+      if (event.target.closest('.music-disc')) return;
+      start();
+    }
+    button.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'touch') {
+        clearTimeout(infoTimer); player.classList.add('show-info');
+        infoTimer = setTimeout(() => player.classList.remove('show-info'), 2800);
       }
     });
-    audio.addEventListener('pause', () => {
-      if (!audio.paused) return;
-      pending = false; cancelFade(); update();
+    button.addEventListener('click', () => {
+      removeFallback();
+      if (pending || !audio.paused) {
+        generation++; pending = false; playing = false; audio.pause(); update();
+      } else start();
     });
-    audio.addEventListener('error', () => { failed = true; pause(); });
-    localize = update;
-    update(); button.hidden = false;
+    audio.addEventListener('playing', () => { playing = !audio.paused; update(); });
+    for (const event of ['pause','waiting','ended']) audio.addEventListener(event, () => { playing = false; update(); });
+    audio.addEventListener('error', fail);
+    localize = update; update(); player.hidden = false;
+    if (failed) return;
+    document.addEventListener('pointerdown', firstInteraction, true);
+    document.addEventListener('keydown', firstInteraction, true);
+    start(); // One best-effort autoplay attempt, followed by at most one genuine gesture retry.
   }
   return { init, localize: () => localize() };
 });
