@@ -20,7 +20,7 @@
       refAltA: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
       refViewer: 'Refsheet Ginji', refSelector: 'Chọn refsheet', refAltB: 'Refsheet Ginji B: cáo trắng xanh với nhiều đuôi, bảng màu và các biểu cảm đeo kính.', refUnavailable: 'Ảnh này chưa khả dụng. Vẫn hiển thị refsheet hiện tại.', refChanged: 'Đang hiển thị', galleryEmpty: 'Một góc dành cho những artwork sắp tới của Ginji.',
       backToTop: 'Về đầu trang',
-      languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
+      languageLabel: 'Switch to English', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
       gameList: "Danh sách game mình thường chơi",
       gamePending: "Danh sách game đang được cập nhật.",
       musicTry: "Nghe thử một bài nhạc không?",
@@ -28,30 +28,30 @@
       sleepText: "Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời",
     },
     en: {
-      description: 'Ginji (CoCo) — a law student into games, music and cloudy days.',
+      description: 'Ginji — a law student who likes games, music, and quiet days.',
       skip: 'Skip to main content', navigation: 'Main navigation',
-      heroLead: 'Hewwooo, I’m Ginji — a chill lil fox who loves wandering around. Welcome to my profileee~',
+      heroLead: "Hewwooo, I'm Ginji. I like games, music, and sleep. Welcome to my little profile :3",
       navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
       introAlt: 'Ginji, a white and blue fox with a playful smile.', socialNav: 'Social links', newTab: 'opens in a new tab', fursonaLabel: 'FURSONA', galleryLabel: 'GALLERY',
-      aboutLabel: 'ABOUT ME', aboutHeadline1: "I'm a little introverted.", aboutHeadline2: "But I'm not that hard to get to know :3",
-      aboutP1: "You can call me Ginji. I've made it through 22 pots of bánh chưng so far, and I'm currently studying and living in Ho Chi Minh City.",
-      aboutP2: "I'm pretty easy to get along with and sociable, though I'm also a bit introverted. Sometimes I talk a lot; other times I close myself off and get quiet. But don't let that make you hesitate to talk to me. If you want to start a conversation, just give it a try and come chat with me uwu.",
-      interestsTitle: "Things I like to do",
-      gameTitle: "Playing \"gem\"", gameText: "I mean, isn't it obvious? Who doesn't like playing games? Do you play any of the games I usually play?",
-      musicTitle: 'Listen to music', musicText: "I listen to lots of different genres. Is there a song in here that you might end up liking as much as I do?",
-      fursonaHeadline: "Ginji - Kitsune with \"9 lil' tails\"",
-      fursonaText: "Yep, you heard that right. He's a white nine-tailed fox, but in his everyday form he usually appears with just two tails — and he's also my mascot.",
-      galleryTitle: "A little world of my own :3", refCaption: 'Character reference sheet',
-      refOpen: 'Enlarge current refsheet', refClose: 'Close image', refLightbox: 'Full reference sheet',
-      refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
-      refViewer: 'Ginji reference sheets', refSelector: 'Choose a reference sheet', refAltB: 'Ginji reference sheet B: a white and blue fox with multiple tails, a colour palette and expressions wearing glasses.', refUnavailable: 'This image is unavailable. Keeping the current reference sheet.', refChanged: 'Showing', galleryEmpty: 'A little space for Ginji’s upcoming artwork.',
+      aboutLabel: 'ABOUT ME', aboutHeadline1: "I'm a little introverted.", aboutHeadline2: "But I'm easy to talk to :3",
+      aboutP1: "You can call me Ginji. I'm 22 and currently studying and living in Ho Chi Minh City.",
+      aboutP2: "I'm friendly and easy to get along with, but I can be quiet sometimes. Feel free to say hi and start a conversation with me uwu.",
+      interestsTitle: 'Things I Like',
+      gameTitle: 'Gaming', gameText: 'I enjoy playing games in my free time. Maybe we play some of the same games.',
+      musicTitle: 'Music', musicText: "I listen to many kinds of music. Maybe you'll find a song you like too.",
+      fursonaHeadline: 'Ginji — Nine-Tailed Kitsune',
+      fursonaText: "Ginji is a white nine-tailed fox. Most of the time, he appears with two tails. He's also my mascot.",
+      galleryTitle: 'A little part of my world :3', refCaption: 'Character Reference',
+      refOpen: 'View current refsheet', refClose: 'Close image', refLightbox: 'Full refsheet',
+      refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, shown from the front and back with design details.',
+      refViewer: 'Ginji refsheet', refSelector: 'Choose refsheet', refAltB: 'Ginji reference sheet B: a white and blue fox with multiple tails, a color palette, and expressions with glasses.', refUnavailable: "This image isn't available. Showing the current refsheet instead.", refChanged: 'Showing', galleryEmpty: 'A space for upcoming artwork of Ginji.',
       backToTop: 'Back to top',
-      languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
-      gameList: "Games I usually play",
-      gamePending: "The game list is being updated.",
-      musicTry: "Wanna hear a song?",
-      sleepTitle: 'Go "eepy"',
-      sleepText: "What did you think? Of course I have to sleep. I'm kind of obsessed with it, seriously.",
+      languageLabel: 'Switch to Vietnamese', languageHint: 'Switch to Vietnamese', languageAnnouncement: 'Switched to English.',
+      gameList: 'Games I Play',
+      gamePending: 'Game list coming soon.',
+      musicTry: 'Try a Random Song',
+      sleepTitle: 'Sleep',
+      sleepText: "I really like sleeping. That's all :3",
     }
   };
   const languageToggle = document.querySelector('.language-toggle');
@@ -314,7 +314,7 @@
   const refIndicator = document.querySelector('.ref-indicator');
   const refButtons = Array.from(document.querySelectorAll('[data-ref]'));
   const refs = { a: { src: 'assets/ginji-refsheet.png', alt: 'refAltA' }, b: { src: 'assets/ginji-refsheet-b.png', alt: 'refAltB' } };
-  let currentRef = 'a', refRequest = 0;
+  let currentRef = 'a', refRequest = 0, refStatus = '';
   const refTrigger = document.querySelector('.refsheet-image');
   const refLightbox = document.getElementById('ref-lightbox');
   const fullRefImage = refLightbox.querySelector('img');
@@ -337,10 +337,15 @@
   });
   function updateRefLabels() {
     refImage.alt = copy[currentLanguage][refs[currentRef].alt];
+    if (refStatus) updateRefAnnouncement();
     if (refLightbox.open) {
       fullRefImage.src = refs[currentRef].src;
       fullRefImage.alt = refImage.alt;
     }
+  }
+  function updateRefAnnouncement() {
+    document.getElementById('ref-announcement').textContent = copy[currentLanguage][refStatus]
+      + (refStatus === 'refChanged' ? ' Ref. ' + currentRef.toUpperCase() : '');
   }
   function updateRefIndicator() {
     const button = refButtons.find(el => el.dataset.ref === currentRef);
@@ -376,11 +381,11 @@
       updateRefLabels();
       for (const button of refButtons) button.setAttribute('aria-pressed', String(button.dataset.ref === key));
       updateRefIndicator();
-      document.getElementById('ref-announcement').textContent = copy[currentLanguage].refChanged + ' Ref. ' + key.toUpperCase();
+      refStatus = 'refChanged'; updateRefAnnouncement();
     } catch {
       if (request === refRequest) {
         refButtons.find(button => button.dataset.ref === key).disabled = true;
-        document.getElementById('ref-announcement').textContent = copy[currentLanguage].refUnavailable;
+        refStatus = 'refUnavailable'; updateRefAnnouncement();
       }
     } finally { if (request === refRequest) refViewer.classList.remove('is-switching'); }
   }

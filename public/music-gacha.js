@@ -25,7 +25,7 @@
   }
   const copy = {
     vi: { rolling: 'Đang chọn một bài nhạc', close: 'Đóng kết quả', loading: 'Đang tải danh sách nhạc…', empty: 'Playlist chưa có bài nhạc khả dụng.', error: 'Chưa tải được danh sách nhạc. Nhấn Escape để đóng và thử lại.', listen: 'Nghe bài này ↗', unknown: 'YouTube' },
-    en: { rolling: 'Choosing a song', close: 'Close result', loading: 'Loading the song list…', empty: 'No available songs in this playlist yet.', error: 'The song list could not load. Press Escape to close and try again.', listen: 'Listen to this song ↗', unknown: 'YouTube' },
+    en: { rolling: 'Picking a song', close: 'Close', loading: 'Loading songs…', empty: 'No songs are available yet.', error: 'Could not load the song list. Press Escape to close and try again.', listen: 'Listen on YouTube ↗', unknown: 'YouTube' },
   };
   let localize = () => {};
   function init({ getLanguage, reducedMotion }) {

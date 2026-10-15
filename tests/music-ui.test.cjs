@@ -69,7 +69,7 @@ for (const mode of ['empty', 'failure']) test(mode + ' dataset reports a friendl
   nodes['#music-dialog'].listeners.animationend?.({ target: nodes['#music-dialog'], animationName: 'gacha-enter' });
   await opening;
   assert.notEqual(nodes['#music-result-dialog'].open, true);
-  assert.match(nodes['.gacha-status'].textContent, mode === 'empty' ? /No available/ : /could not load/);
+  assert.match(nodes['.gacha-status'].textContent, mode === 'empty' ? /No songs are available yet\./ : /Could not load the song list\./);
   nodes['#music-dialog'].close(); await settle();
   assert.equal(nodes['.music-gacha'].focused, true);
 });
