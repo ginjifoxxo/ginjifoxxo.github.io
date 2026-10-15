@@ -155,5 +155,9 @@ curation trong README gallery. Thêm ảnh mới không thay ảnh đã curate.
 Preview có crop bảo toàn chủ thể;
 overlay masonry giữ tỷ lệ tự nhiên, lightbox contain riêng cho từng ảnh. Native
 dialog giữ focus, hỗ trợ ×/backdrop/Escape. Lazy/async loading, dimensions nếu
-có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation
+có, WebP preview riêng và bản nhỏ cho mini-collage/srcset. Chạy
+`python scripts/generate-gallery-previews.py` (Pillow) sau khi thêm record;
+xem hướng dẫn trong README gallery. Ảnh gốc chỉ được Gallery tải khi mở
+lightbox; collage không dùng blur để giảm chi phí compositing.
+Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation
 và alt mô tả nội dung. Giữ nguyên tên và file gốc; fixture kiểm thử không nằm trong dữ liệu production.

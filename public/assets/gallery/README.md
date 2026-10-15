@@ -20,8 +20,9 @@ Add one record per supplied image in `public/data/gallery.json` (currently 40 re
 
 The example is a schema, not a real image record. Use category `fursuit` with the
 `assets/gallery/fursuit/` folder for photos. No filename-based category guessing.
-Dimensions must describe the real source. Optional `previewSrc` can point to a
-smaller version in the same category folder; it should keep the same aspect ratio.
+Dimensions must describe the real source. Generated `previewSrc` and
+`smallPreviewSrc` point to separate WebPs; `previewWidth`/`previewHeight` and
+`smallPreviewWidth`/`smallPreviewHeight` describe their actual encoded sizes.
 The full source is loaded on lightbox open. Keep descriptions factual; do not
 invent captions for missing images. JPEG/PNG/WebP/AVIF/GIF are supported.
 
@@ -48,6 +49,46 @@ columns, switching to one below 360px. All share the same outer gallery width.
 Current featured order: `f444739072.jpg`,
 `1D0B7C4632D45BF540CB873C7D2F38CA.png`, `1-10.jpg` (Fursuit),
 `2025-04-23-19-28-25-019.jpg`, `98270F26C29495430D81591E6AB18146.png`.
+
+## Local preview generation
+
+After adding an original and its JSON record, run:
+
+```powershell
+python -m pip install Pillow
+python scripts/generate-gallery-previews.py
+node --test tests/*.test.cjs
+```
+
+The offline helper uses Pillow to apply EXIF orientation, preserve alpha,
+and resize without upscaling. Originals are never modified. Medium WebPs:
+`previews/{art,fursuit}/`, long edge <=1200, quality 80. Small WebPs:
+`previews-small/{art,fursuit}/`, long edge <=600, quality 75. Both use method 6.
+Names hash the original path and bytes and include output settings. Unchanged
+outputs are verified and reused; changed sources receive new names. Review
+obsolete derivatives manually rather than deleting originals or assets blindly.
+
+Commit the derivatives and updated JSON together. The generator does not scan
+folders, so add metadata first. No build framework or cloud conversion is needed.
+The collage and on-demand full dialog use lazy/async, low-priority previews;
+responsive srcset can choose the small variant. View more uses only small WebPs.
+Only an image lightbox requests the original, and closes by removing its source.
+Closing the full dialog clears its cards. No Gallery image preloads are added.
+
+The collage retains fade/scale but has no CSS blur. Other content keeps its
+existing reversible reveal. No permanent GPU layers or paint containment are
+added: containment would clip the approved outer shadows/focus outlines.
+
+Measured source payloads (decimal MB, five medium + four small after):
+
+| Filter | Before | After | Reduction |
+| --- | ---: | ---: | ---: |
+| All | 29.564641 MB | 0.584306 MB | 98.02% |
+| Art | 12.066334 MB | 0.462836 MB | 96.16% |
+| Fursuit | 33.757663 MB | 0.529030 MB | 98.43% |
+
+Original total: 95,807,114 bytes (40). Medium total: 2,893,234 bytes (40).
+Small total: 982,922 bytes (40). Srcset/cache can reduce actual transfers further.
 
 ## Art preview
 

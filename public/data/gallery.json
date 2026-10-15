@@ -6,7 +6,13 @@
     "width": 1000,
     "height": 1000,
     "categoryPreviewOrder": 2,
-    "previewPosition": "50% 28%"
+    "previewPosition": "50% 28%",
+    "previewSrc": "assets/gallery/previews/art/110b65004cfe858ffdb814d2-1200-q80.webp",
+    "previewWidth": 1000,
+    "previewHeight": 1000,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/110b65004cfe858ffdb814d2-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/1D0B7C4632D45BF540CB873C7D2F38CA.png",
@@ -14,7 +20,13 @@
     "alt": "A white and blue fox character in a dark futuristic outfit amid angular light effects.",
     "width": 2000,
     "height": 2829,
-    "featuredOrder": 2
+    "featuredOrder": 2,
+    "previewSrc": "assets/gallery/previews/art/acf1444a958dcd39f1c7dd4b-1200-q80.webp",
+    "previewWidth": 848,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/acf1444a958dcd39f1c7dd4b-600-q75.webp",
+    "smallPreviewWidth": 424,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/2025-04-23-19-28-25-019.jpg",
@@ -22,7 +34,13 @@
     "alt": "A smiling white fox character hugging a black and blue robotic character.",
     "width": 1280,
     "height": 1280,
-    "featuredOrder": 4
+    "featuredOrder": 4,
+    "previewSrc": "assets/gallery/previews/art/e8a1528745196725cd092f56-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/e8a1528745196725cd092f56-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/486995934_626312330320504_7868608711666537376_n.jpg",
@@ -33,14 +51,26 @@
     "moreOrder": {
       "art": 1
     },
-    "previewPosition": "50% 50%"
+    "previewPosition": "50% 50%",
+    "previewSrc": "assets/gallery/previews/art/6680462fb2bd2aab49e72089-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/6680462fb2bd2aab49e72089-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/4870fa58-d457-4618-8c8e-426db12548de.jpg",
     "category": "art",
     "alt": "A small white and blue fox character with glasses and several fluffy tails.",
     "width": 1932,
-    "height": 2048
+    "height": 2048,
+    "previewSrc": "assets/gallery/previews/art/92bfdf53f72bc94b67d8b7ee-1200-q80.webp",
+    "previewWidth": 1132,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/92bfdf53f72bc94b67d8b7ee-600-q75.webp",
+    "smallPreviewWidth": 566,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/522984271_1820757332193958_2115214187605010279_n.jpg",
@@ -49,7 +79,13 @@
     "width": 1513,
     "height": 1144,
     "categoryPreviewOrder": 4,
-    "previewPosition": "50% 45%"
+    "previewPosition": "50% 45%",
+    "previewSrc": "assets/gallery/previews/art/fa622097b5f3af6f457b8485-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 907,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/fa622097b5f3af6f457b8485-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 454
   },
   {
     "src": "assets/gallery/art/98270F26C29495430D81591E6AB18146.png",
@@ -57,7 +93,13 @@
     "alt": "A white and blue fox character in shorts leaning over a table.",
     "width": 2124,
     "height": 1404,
-    "featuredOrder": 5
+    "featuredOrder": 5,
+    "previewSrc": "assets/gallery/previews/art/b47903c06f99ca013e330fb6-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 793,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/b47903c06f99ca013e330fb6-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 397
   },
   {
     "src": "assets/gallery/art/AF1D8EA6830A2BC5B7BA8E108FD5744E.png",
@@ -69,7 +111,13 @@
       "all": 1,
       "art": 2
     },
-    "previewPosition": "50% 42%"
+    "previewPosition": "50% 42%",
+    "previewSrc": "assets/gallery/previews/art/4f2d50231cacfa6ab4abc376-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/4f2d50231cacfa6ab4abc376-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/comm Nhật Võ.png",
@@ -78,21 +126,39 @@
     "width": 1240,
     "height": 2205,
     "categoryPreviewOrder": 1,
-    "previewPosition": "50% 70%"
+    "previewPosition": "50% 70%",
+    "previewSrc": "assets/gallery/previews/art/53a8f3b6b3bf97b13e004b15-1200-q80.webp",
+    "previewWidth": 675,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/53a8f3b6b3bf97b13e004b15-600-q75.webp",
+    "smallPreviewWidth": 337,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/fc65474c-1871-47ed-a4b2-9eadb26a5fb2.jpg",
     "category": "art",
     "alt": "A white fox character and a dark robotic character facing each other.",
     "width": 2497,
-    "height": 2001
+    "height": 2001,
+    "previewSrc": "assets/gallery/previews/art/e3a66ea287acb6b775a614d3-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 962,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/e3a66ea287acb6b775a614d3-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 481
   },
   {
     "src": "assets/gallery/art/full.png",
     "category": "art",
     "alt": "Two characters cuddling together in a dark blue scene with glowing stars.",
     "width": 666,
-    "height": 513
+    "height": 513,
+    "previewSrc": "assets/gallery/previews/art/8b71eb5c41e0bce2b0ac548f-1200-q80.webp",
+    "previewWidth": 666,
+    "previewHeight": 513,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/8b71eb5c41e0bce2b0ac548f-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 462
   },
   {
     "src": "assets/gallery/art/IMG_0754.PNG",
@@ -103,7 +169,13 @@
     "moreOrder": {
       "art": 3
     },
-    "previewPosition": "50% 50%"
+    "previewPosition": "50% 50%",
+    "previewSrc": "assets/gallery/previews/art/e295fab97fd25ca992040821-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1103,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/e295fab97fd25ca992040821-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 552
   },
   {
     "src": "assets/gallery/art/IMG_1627.png",
@@ -112,35 +184,65 @@
     "width": 3000,
     "height": 3000,
     "categoryPreviewOrder": 3,
-    "previewPosition": "50% 30%"
+    "previewPosition": "50% 30%",
+    "previewSrc": "assets/gallery/previews/art/b5c2b0d691a3e0d9ffc206e7-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/b5c2b0d691a3e0d9ffc206e7-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề37_20260417223717.png",
     "category": "art",
     "alt": "A white fox character with red glasses and multicoloured eyes.",
     "width": 6144,
-    "height": 6144
+    "height": 6144,
+    "previewSrc": "assets/gallery/previews/art/10568fa53624ae342a729634-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/10568fa53624ae342a729634-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề1177_20250605204230.png",
     "category": "art",
     "alt": "Full-body illustration of a white fox character in blue and orange clothing.",
     "width": 736,
-    "height": 955
+    "height": 955,
+    "previewSrc": "assets/gallery/previews/art/651bb141264e213e55a90960-1200-q80.webp",
+    "previewWidth": 736,
+    "previewHeight": 955,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/651bb141264e213e55a90960-600-q75.webp",
+    "smallPreviewWidth": 462,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề125_20250319131224.png",
     "category": "art",
     "alt": "A seated chibi white fox character with glasses and fluffy blue tails.",
     "width": 2560,
-    "height": 2560
+    "height": 2560,
+    "previewSrc": "assets/gallery/previews/art/7a930fa014b5ba302481c921-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/7a930fa014b5ba302481c921-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề1381_20250617153545.png",
     "category": "art",
     "alt": "A smiling white and blue fox character making a heart gesture with its paws.",
     "width": 768,
-    "height": 741
+    "height": 741,
+    "previewSrc": "assets/gallery/previews/art/24b587786f24165b7db6c9df-1200-q80.webp",
+    "previewWidth": 768,
+    "previewHeight": 741,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/24b587786f24165b7db6c9df-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 579
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề2411_20241223004842.png",
@@ -149,28 +251,52 @@
     "width": 1633,
     "height": 1289,
     "categoryPreviewOrder": 5,
-    "previewPosition": "50% 48%"
+    "previewPosition": "50% 48%",
+    "previewSrc": "assets/gallery/previews/art/b7e7eede56faca7b97139836-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 947,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/b7e7eede56faca7b97139836-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 474
   },
   {
     "src": "assets/gallery/art/Không Có Tiêu Đề36_20250124200640.png",
     "category": "art",
     "alt": "A surprised white fox character looking sideways beneath an exclamation mark.",
     "width": 1280,
-    "height": 1280
+    "height": 1280,
+    "previewSrc": "assets/gallery/previews/art/949f45aacec7c6309cacc526-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/949f45aacec7c6309cacc526-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Messenger_creation_7D12074C-18F5-4C11-9FD5-C5ACAFDA6CA0.jpg",
     "category": "art",
     "alt": "A cheerful white fox character with glasses and its tongue out.",
     "width": 1024,
-    "height": 1024
+    "height": 1024,
+    "previewSrc": "assets/gallery/previews/art/a1107d5753d15d27dbe43df9-1200-q80.webp",
+    "previewWidth": 1024,
+    "previewHeight": 1024,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/a1107d5753d15d27dbe43df9-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/Thiết kế chưa có tên.png",
     "category": "art",
     "alt": "Portrait of a white fox character framed by a pale blue circular background.",
     "width": 4000,
-    "height": 4000
+    "height": 4000,
+    "previewSrc": "assets/gallery/previews/art/e8a31b175f535f9cb091b518-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/e8a31b175f535f9cb091b518-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/w effects.PNG",
@@ -182,14 +308,26 @@
       "all": 2,
       "art": 4
     },
-    "previewPosition": "50% 45%"
+    "previewPosition": "50% 45%",
+    "previewSrc": "assets/gallery/previews/art/6026da2b388f327958d7d470-1200-q80.webp",
+    "previewWidth": 900,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/6026da2b388f327958d7d470-600-q75.webp",
+    "smallPreviewWidth": 450,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/art/YCH Võ Nhật (1).png",
     "category": "art",
     "alt": "A seated white and blue fox character with glasses, looking upward.",
     "width": 3300,
-    "height": 3300
+    "height": 3300,
+    "previewSrc": "assets/gallery/previews/art/79a768c4e88905af4d15b621-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/art/79a768c4e88905af4d15b621-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/1-11.jpg",
@@ -200,7 +338,13 @@
     "moreOrder": {
       "fursuit": 1
     },
-    "previewPosition": "50% 30%"
+    "previewPosition": "50% 30%",
+    "previewSrc": "assets/gallery/previews/fursuit/24ccafda192695ca16a003dc-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/24ccafda192695ca16a003dc-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/DSC00287.JPG",
@@ -211,7 +355,13 @@
     "moreOrder": {
       "fursuit": 2
     },
-    "previewPosition": "30% 35%"
+    "previewPosition": "30% 35%",
+    "previewSrc": "assets/gallery/previews/fursuit/00734f2e7677e9e30f6f0af7-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/00734f2e7677e9e30f6f0af7-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/DSC07340-Enhanced-NR.jpg",
@@ -222,14 +372,26 @@
     "moreOrder": {
       "fursuit": 3
     },
-    "previewPosition": "50% 45%"
+    "previewPosition": "50% 45%",
+    "previewSrc": "assets/gallery/previews/fursuit/46091912b65a536bb7b83dad-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 675,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/46091912b65a536bb7b83dad-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 338
   },
   {
     "src": "assets/gallery/fursuit/DSC07347-Enhanced-NR.jpg",
     "category": "fursuit",
     "alt": "Two fursuit characters beside a studio mixing console.",
     "width": 2048,
-    "height": 1361
+    "height": 1361,
+    "previewSrc": "assets/gallery/previews/fursuit/e0bde933dbe1046025d01b84-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 797,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/e0bde933dbe1046025d01b84-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 399
   },
   {
     "src": "assets/gallery/fursuit/DSCF0526.jpg",
@@ -238,14 +400,26 @@
     "width": 2048,
     "height": 1365,
     "categoryPreviewOrder": 1,
-    "previewPosition": "50% 50%"
+    "previewPosition": "50% 50%",
+    "previewSrc": "assets/gallery/previews/fursuit/f9ae010f5f24d8f93b90b1a7-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/f9ae010f5f24d8f93b90b1a7-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/f443065344.jpg",
     "category": "fursuit",
     "alt": "A white and blue fox fursuit standing on a city walkway between tall buildings.",
     "width": 6122,
-    "height": 4081
+    "height": 4081,
+    "previewSrc": "assets/gallery/previews/fursuit/db397b581634e02ff6626713-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/db397b581634e02ff6626713-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/f444739072.jpg",
@@ -253,14 +427,26 @@
     "alt": "A fox fursuit seated on a yellow balustrade with city buildings behind.",
     "width": 6240,
     "height": 4160,
-    "featuredOrder": 1
+    "featuredOrder": 1,
+    "previewSrc": "assets/gallery/previews/fursuit/5af3445d864f34fdc471299c-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/5af3445d864f34fdc471299c-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/IMG_6209.JPG",
     "category": "fursuit",
     "alt": "Close-up of a white and blue fox fursuit with a blue and white neck accessory indoors.",
     "width": 2912,
-    "height": 5184
+    "height": 5184,
+    "previewSrc": "assets/gallery/previews/fursuit/f739e0769226c9ff4dfc0545-1200-q80.webp",
+    "previewWidth": 674,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/f739e0769226c9ff4dfc0545-600-q75.webp",
+    "smallPreviewWidth": 337,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/1-10.jpg",
@@ -268,14 +454,26 @@
     "width": 3840,
     "height": 5760,
     "alt": "A white and blue fox fursuit standing with folded paws beside a graffiti-covered wall.",
-    "featuredOrder": 3
+    "featuredOrder": 3,
+    "previewSrc": "assets/gallery/previews/fursuit/1704129778c4c52684f5e99f-1200-q80.webp",
+    "previewWidth": 800,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/1704129778c4c52684f5e99f-600-q75.webp",
+    "smallPreviewWidth": 400,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/1-7.jpg",
     "category": "fursuit",
     "width": 3840,
     "height": 5760,
-    "alt": "A white and blue fox fursuit tilting its head and raising a paw beside a graffiti-covered wall."
+    "alt": "A white and blue fox fursuit tilting its head and raising a paw beside a graffiti-covered wall.",
+    "previewSrc": "assets/gallery/previews/fursuit/e2e10e808445cbb7ed5810c4-1200-q80.webp",
+    "previewWidth": 800,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/e2e10e808445cbb7ed5810c4-600-q75.webp",
+    "smallPreviewWidth": 400,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/DSC00346.JPG",
@@ -284,7 +482,13 @@
     "height": 4000,
     "alt": "A close-up selfie of a white and blue fox fursuit beside an indoor escalator.",
     "categoryPreviewOrder": 4,
-    "previewPosition": "55% 38%"
+    "previewPosition": "55% 38%",
+    "previewSrc": "assets/gallery/previews/fursuit/06710cd2aa4d9e0b562fe693-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 800,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/06710cd2aa4d9e0b562fe693-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 400
   },
   {
     "src": "assets/gallery/fursuit/DSC09709.jpg",
@@ -293,7 +497,13 @@
     "height": 6000,
     "alt": "Two white and blue fursuit characters posing together at an indoor event.",
     "categoryPreviewOrder": 3,
-    "previewPosition": "50% 28%"
+    "previewPosition": "50% 28%",
+    "previewSrc": "assets/gallery/previews/fursuit/ef8579d340484300c0204590-1200-q80.webp",
+    "previewWidth": 800,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/ef8579d340484300c0204590-600-q75.webp",
+    "smallPreviewWidth": 400,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/DSC09760a.jpg",
@@ -304,7 +514,13 @@
     "moreOrder": {
       "all": 3
     },
-    "previewPosition": "50% 35%"
+    "previewPosition": "50% 35%",
+    "previewSrc": "assets/gallery/previews/fursuit/53f9eaa47a0f9b18676b0e81-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 833,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/53f9eaa47a0f9b18676b0e81-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 417
   },
   {
     "src": "assets/gallery/fursuit/f442952192.jpg",
@@ -313,7 +529,13 @@
     "height": 6240,
     "alt": "A white and blue fox fursuit posing beside a lamp post and yellow balustrade.",
     "categoryPreviewOrder": 2,
-    "previewPosition": "50% 58%"
+    "previewPosition": "50% 58%",
+    "previewSrc": "assets/gallery/previews/fursuit/b71a7d7c4ef9f0f4f47d430d-1200-q80.webp",
+    "previewWidth": 800,
+    "previewHeight": 1200,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/b71a7d7c4ef9f0f4f47d430d-600-q75.webp",
+    "smallPreviewWidth": 400,
+    "smallPreviewHeight": 600
   },
   {
     "src": "assets/gallery/fursuit/IMG_6218.JPG",
@@ -325,14 +547,26 @@
       "all": 4,
       "fursuit": 4
     },
-    "previewPosition": "60% 40%"
+    "previewPosition": "60% 40%",
+    "previewSrc": "assets/gallery/previews/fursuit/f52cfc55b28b577a01e984e2-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 674,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/f52cfc55b28b577a01e984e2-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 337
   },
   {
     "src": "assets/gallery/fursuit/IMG_6244.JPG",
     "category": "fursuit",
     "width": 5184,
     "height": 2912,
-    "alt": "Two fursuit characters sitting together outside a wooden building."
+    "alt": "Two fursuit characters sitting together outside a wooden building.",
+    "previewSrc": "assets/gallery/previews/fursuit/23126cf075cfc2255f43b507-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 674,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/23126cf075cfc2255f43b507-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 337
   },
   {
     "src": "assets/gallery/fursuit/IMG_6261.JPG",
@@ -341,6 +575,12 @@
     "height": 2912,
     "alt": "Two white and blue fursuit characters posing among large green leaves.",
     "categoryPreviewOrder": 5,
-    "previewPosition": "50% 45%"
+    "previewPosition": "50% 45%",
+    "previewSrc": "assets/gallery/previews/fursuit/d2f6982b064f35345a48d81f-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 674,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/d2f6982b064f35345a48d81f-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 337
   }
 ]

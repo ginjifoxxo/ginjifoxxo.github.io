@@ -117,6 +117,8 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 96px; font-size: .81
 .reveal-enabled [data-scroll-reveal].is-passed:not(.is-visible) { scale: 1.02; }
 .reveal-enabled [data-scroll-reveal].is-visible { transition-delay: var(--reveal-delay, 0ms); }
 .reveal-enabled [data-scroll-reveal]:focus-within { opacity: 1; scale: 1; filter: none; pointer-events: auto; transition-delay: 0ms; }
+/* Large decoded image grids only fade/scale; keep blur on lighter content. */
+.reveal-enabled #gallery-preview[data-scroll-reveal] { filter: none; transition-property: opacity, scale; }
 section:focus { outline: none; }
 @media(max-width: 760px) {
   .overview { gap: 24px; padding: max(90px, calc(env(safe-area-inset-top) + 64px)) 0 40px; }

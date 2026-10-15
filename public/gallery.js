@@ -24,6 +24,17 @@
     const more = matches.filter(item => !visible.has(item.src) && Number.isInteger(item.moreOrder?.[filter])).sort((a, b) => a.moreOrder[filter] - b.moreOrder[filter]).slice(0, 4);
     return { items: matches, preview, more, remaining: Math.max(0, matches.length - preview.length) };
   }
+  function thumbnailSource(item, small = false) {
+    const valid = (key, folder) => typeof item[key + 'Src'] === 'string'
+      && item[key + 'Src'].startsWith('assets/gallery/' + folder + '/' + item.category + '/')
+      && !item[key + 'Src'].split('/').includes('..')
+      && /\.webp$/i.test(item[key + 'Src']);
+    const key = small && valid('smallPreview', 'previews-small') ? 'smallPreview'
+      : valid('preview', 'previews') ? 'preview' : '';
+    return { src: key ? item[key + 'Src'] : item.src,
+      width: key ? item[key + 'Width'] : item.width,
+      height: key ? item[key + 'Height'] : item.height };
+  }
   let localize = () => {};
   function init({ getLanguage }) {
     const preview = document.getElementById('gallery-preview');
@@ -52,13 +63,28 @@
       image.src = item.src; image.alt = item.alt;
       lightbox.showModal();
     }
-    function thumbnail(item, cropped = false) {
+    function thumbnail(item, cropped = false, small = false) {
       const img = make('img', ''); img.loading = 'lazy'; img.decoding = 'async'; img.alt = item.alt;
-      const thumb = item.previewSrc;
-      img.src = typeof thumb === 'string' && thumb.startsWith('assets/gallery/' + item.category + '/') && !thumb.split('/').includes('..') ? thumb : item.src;
-      if (Number.isInteger(item.width) && item.width > 0 && Number.isInteger(item.height) && item.height > 0) {
-        img.width = item.width; img.height = item.height;
+      const thumb = thumbnailSource(item, small);
+      img.src = thumb.src; img.fetchPriority = 'low';
+      if (Number.isInteger(thumb.width) && thumb.width > 0 && Number.isInteger(thumb.height) && thumb.height > 0) {
+        img.width = thumb.width; img.height = thumb.height;
       }
+      const compact = thumbnailSource(item, true);
+      if (!small && thumb.src !== item.src && compact.src !== thumb.src && compact.width > 0 && compact.width < thumb.width) {
+        img.srcset = compact.src + ' ' + compact.width + 'w, ' + thumb.src + ' ' + thumb.width + 'w';
+        img.sizes = cropped ? '(max-width: 599px) 100vw, (max-width: 900px) 60vw, 720px'
+          : '(max-width: 599px) 100vw, (max-width: 900px) 50vw, 33vw';
+      }
+      // A missing derivative must not break the image or retry indefinitely.
+      const fallbacks = [small ? thumbnailSource(item) : null, { src: item.src, width: item.width, height: item.height }]
+        .filter((source, index, list) => source && source.src !== thumb.src && list.findIndex(other => other?.src === source.src) === index);
+      img.addEventListener('error', () => {
+        const next = fallbacks.shift();
+        if (!next) return;
+        img.removeAttribute('srcset'); img.removeAttribute('sizes');
+        img.width = next.width; img.height = next.height; img.src = next.src;
+      });
       if (cropped && /^\d{1,3}% \d{1,3}%$/.test(item.previewPosition || '')) img.style.objectPosition = item.previewPosition;
       return img;
     }
@@ -79,7 +105,7 @@
       if (group.items.length > 5) {
         const more = make('button', 'gallery-more'); more.type = 'button'; more.setAttribute('aria-haspopup', 'dialog');
         const collage = make('span', 'gallery-more-images'); collage.setAttribute('aria-hidden', 'true');
-        for (const item of group.more) { const img = thumbnail(item, true); img.alt = ''; collage.append(img); }
+        for (const item of group.more) { const img = thumbnail(item, true, true); img.alt = ''; collage.append(img); }
         more.append(collage);
         const label = make('span', 'gallery-more-label'); more.append(label);
         more.addEventListener('click', () => {
@@ -134,5 +160,5 @@
       items = []; filters.hidden = true; render(); // Keep the existing translated empty state.
     });
   }
-  return { normalize, collection, init, localize: () => localize() };
+  return { normalize, collection, thumbnailSource, init, localize: () => localize() };
 });
