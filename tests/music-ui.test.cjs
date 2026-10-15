@@ -40,15 +40,17 @@ function harness(mode, reduced = true) {
   nodes['#music-result-dialog'].querySelector = name => nodes[name];
   const timers = new Map(); let timerId = 0;
   const motion = { matches: reduced, addEventListener() {}, removeEventListener() {} };
-  const env = { module: { exports: {} }, window: {}, AbortController,
+  let resize; const requests = [];
+  const env = { module: { exports: {} }, window: { ResizeObserver: true }, navigator: { userAgent: 'Desktop' }, AbortController,
     setTimeout: (fn, ms) => { const id = ++timerId; timers.set(id, { fn, ms }); return id; },
     clearTimeout: id => timers.delete(id),
     document: { getElementById: id => nodes['#' + id], querySelector: name => nodes[name], createElement: () => new Node() },
-    fetch: async () => ({ ok: mode !== 'failure', status: 503, json: async () => ({ tracks: mode === 'empty' ? [] : data.tracks }) }),
+    ResizeObserver: class { constructor(callback) { resize = callback; } observe() {} },
+    fetch: async (...args) => { requests.push(args); return ({ ok: mode !== 'failure', status: 503, json: async () => ({ tracks: mode === 'empty' ? [] : data.tracks }) }); },
   };
   vm.createContext(env); vm.runInContext(source, env);
   env.module.exports.init({ getLanguage: () => 'en', reducedMotion: motion });
-  return { nodes, timers, motion };
+  return { nodes, timers, motion, requests, resize: () => resize() };
 }
 const settle = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
 test('reduced motion hands off immediately to a separate result dialog', async () => {
@@ -137,4 +139,23 @@ test('closing during the post-entrance pause cancels its pending start', async (
   assert.equal(timers.size, 0);
   assert.equal(nodes['.reel-track'].animated, undefined);
   assert.notEqual(nodes['#music-result-dialog'].open, true);
+});
+
+test('landing fraction survives resize and final alignment without changing winner', async () => {
+  const { nodes, timers, resize, requests } = harness('loaded', false);
+  const opening = nodes['.music-gacha'].listeners.click(); await settle();
+  nodes['#music-dialog'].listeners.animationend({ target: nodes['#music-dialog'], animationName: 'gacha-enter' });
+  await settle(); [...timers.values()][0].fn(); await opening;
+  const reel = nodes['.reel-track'], viewport = nodes['.reel-viewport'];
+  const winner = reel.children[17];
+  const end = Number(reel.frames[1].transform.match(/translate3d\(([-\d.]+)px/)[1]);
+  const fraction = (viewport.clientWidth / 2 - winner.offsetLeft - end) / winner.offsetWidth;
+  assert.ok(fraction >= .1 && fraction <= .9);
+  const title = winner.children[1].textContent;
+  viewport.clientWidth = 320; resize(); await settle();
+  const expected = 160 - winner.offsetLeft - winner.offsetWidth * fraction;
+  const final = Number(reel.style.transform.match(/translate3d\(([-\d.]+)px/)[1]);
+  assert.ok(Math.abs(final - expected) < .000001);
+  assert.equal(nodes['.gacha-result'].children[1].children[0].textContent, title);
+  assert.equal(requests[0][1].cache, 'no-store');
 });

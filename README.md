@@ -73,3 +73,28 @@ python tests/test_music_sync.py
 ```
 
 Popup quay có entrance 400 ms (backdrop 350 ms), chờ animationend với fallback 500 ms rồi nghỉ 120 ms trước khi reel chạy. Đóng popup sẽ hủy pending start. Reduced motion bỏ entrance/pause và trả kết quả ngay.
+
+Hero reveal theo nhóm (heading → lead → portrait → social), stagger 100 ms,
+transition 650 ms, tổng khoảng 1,05 giây. Bootstrap trong head chuẩn bị trạng
+thái trước paint; fallback 1,8 giây hiển thị toàn bộ nếu reveal không khởi tạo.
+Các nhóm bên dưới dùng IntersectionObserver, reveal một lần khi cách viewport
+60px. Reduced motion, thiếu observer hoặc lỗi khởi tạo đều hiển thị ngay.
+
+Landing point được chọn độc lập sau winner: `0.10 + Math.random() * 0.80`,
+dùng đúng một giá trị mỗi lượt cho animation và căn lại khi resize/kết thúc.
+Marker vẫn cố định, kích thước lấy từ DOM. Cách chọn bài/tránh lặp không đổi;
+không dùng xác suất lưu trong dataset. Playlist được fetch với `cache: 'no-store'`.
+
+Link kết quả luôn là YouTube HTTPS canonical. Mobile dùng cùng tab để hệ
+điều hành có thể xử lý app/universal link, fallback tự nhiên về YouTube web;
+desktop vẫn mở tab mới. Không thể ép mở app nếu cài đặt hệ điều hành chặn.
+
+Workflow `sync-music.yml` chạy thứ Hai 08:15 Việt Nam (01:15 UTC), hoặc bằng
+workflow_dispatch. Dùng yt-dlp metadata-only và script sync hiện có; JSON mới
+được kiểm tra structure, track không rỗng, ID duy nhất và URL canonical, ghi
+file tạm rồi validate lại trước atomic replace. Sync lỗi giữ nguyên dữ liệu.
+Timestamp đơn thuần không gây thay đổi. Chỉ khi có diff music.json mới tạo
+commit `chore: sync music playlist` bằng GITHUB_TOKEN. Sau push, workflow gọi
+workflow Pages dùng chung để deploy main mới nhất, vì push bằng GITHUB_TOKEN
+không tự kích hoạt push workflow. Branch protection có thể chặn bot push;
+workflow khi đó báo lỗi và không force push. Lịch GitHub có thể chạy trễ.

@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
@@ -23,11 +24,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main # Also pick up the new data commit when called by sync-music.
       - name: Check JavaScript syntax
         run: |
           node --check public/app.js
           node --check public/navigation-start.js
           node --check public/music-gacha.js
+          node --check public/reveal.js
           node --test tests/*.test.cjs
           python3 tests/test_music_sync.py
       - name: Configure Pages

@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <script src="navigation-start.js?v=20261012-clean"></script>
+  <script src="navigation-start.js?v=20261015-reveal"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ginji's Card ✦</title>
   <meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.">
@@ -11,9 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261012-gacha-calm">
-  <script src="music-gacha.js?v=20261012-gacha-calm" defer></script>
-  <script src="app.js?v=20261012-gacha-calm" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261015-reveal">
+  <script src="music-gacha.js?v=20261015-reveal" defer></script>
+  <script src="reveal.js?v=20261015-reveal" defer></script>
+  <script src="app.js?v=20261015-reveal" defer></script>
   <noscript><style>.site-header { opacity: 1; visibility: visible; pointer-events: auto; } #overview { padding-top: 150px; }</style></noscript>
 </head>
 <body id="top">
@@ -35,14 +36,14 @@
       <section id="overview" class="overview" tabindex="-1" aria-labelledby="overview-title">
       <div class="hero">
         <div>
-          <h1 id="overview-title">Ginji</h1>
-          <p class="lead" data-i18n="heroLead">Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~</p>
+          <h1 id="overview-title" data-reveal="hero-title">Ginji</h1>
+          <p data-reveal="hero-lead" class="lead" data-i18n="heroLead">Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~</p>
         </div>
-        <div class="portrait">
+        <div class="portrait" data-reveal="hero-portrait">
           <img src="assets/ginji-intro.png" width="1000" height="1000" fetchpriority="high" decoding="async" alt="Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch." data-i18n-alt="introAlt">
         </div>
       </div>
-      <nav class="social-links" aria-label="Mạng xã hội" data-i18n-aria="socialNav">
+      <nav data-reveal="hero-social" class="social-links" aria-label="Mạng xã hội" data-i18n-aria="socialNav">
         <a href="https://www.facebook.com/toki.sakin.50" target="_blank" rel="noopener noreferrer" aria-label="Facebook — mở trong tab mới" data-social="Facebook"><span class="social-icon icon-facebook" aria-hidden="true"></span><span>Facebook</span></a>
         <a href="https://www.tiktok.com/@ceo_coco077" target="_blank" rel="noopener noreferrer" aria-label="TikTok — mở trong tab mới" data-social="TikTok"><span class="social-icon icon-tiktok" aria-hidden="true"></span><span>TikTok</span></a>
         <a href="https://discord.com/users/674579019597086731" target="_blank" rel="noopener noreferrer" aria-label="Discord — mở trong tab mới" data-social="Discord"><span class="social-icon icon-discord" aria-hidden="true"></span><span>Discord</span></a>
@@ -54,28 +55,28 @@
       </section>
       <section id="about" class="about-section" aria-labelledby="about-title">
         <div class="section-grid">
-          <h2 class="section-heading" id="about-title"><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
-          <div class="about">
+          <h2 data-reveal="section" class="section-heading" id="about-title"><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
+          <div data-reveal="section" class="about">
             <h3><span data-i18n="aboutHeadline1">Mình hơi hướng nội một chút.</span><br><em data-i18n="aboutHeadline2">Nhưng không khó để làm quen đâu :3</em></h3>
             <p data-i18n="aboutP1">Bạn có thể gọi mình là Ginji. Hiện mình đã ăn được 22 nồi bánh chưng, đang học tập cũng như sinh sống tại TP. Hồ Chí Minh.</p>
             <p data-i18n="aboutP2">Mình khá dễ gần và hoà đồng, nhưng cũng hơi hướng nội. Có lúc mình nói rất nhiều, có lúc lại khép kín và trở nên trầm tính. Nhưng đừng vì những điều đó mà ngại ngùng trò chuyện với mình nhé. Nếu muốn bắt chuyện thì cứ thử chủ động trò chuyện cùng mình uwu.</p>
           </div>
         </div>
         <div class="interests">
-          <div class="interests-head"><h3 data-i18n="interestsTitle">Những điều mình thích làm</h3></div>
+          <div data-reveal="section" class="interests-head"><h3 data-i18n="interestsTitle">Những điều mình thích làm</h3></div>
           <div class="cards">
-            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a4 4 0 0 1 4 3l1 6a2.5 2.5 0 0 1-4.2 2.3L15 16H9l-2.8 2.3A2.5 2.5 0 0 1 2 16l1-6a4 4 0 0 1 4-3Z"/><path d="M6 12h4m-2-2v4"/><circle cx="16" cy="11" r=".65" fill="currentColor" stroke="none"/><circle cx="18" cy="13" r=".65" fill="currentColor" stroke="none"/></svg><h4 data-i18n="gameTitle">Chơi "gem"</h4><p data-i18n="gameText">Đây là điều hiển nhiên mà? Ai mà chẳng thích chơi game chứ? Liệu bạn có chơi những game mình hay chơi không?</p><div class="card-actions"><button class="card-action game-list" type="button" aria-describedby="game-status"><span data-i18n="gameList">Danh sách game mình thường chơi</span><svg class="action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></button><p class="action-status" id="game-status" role="status" data-i18n="gamePending" hidden>Danh sách game đang được cập nhật.</p></div></article>
-            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg><h4 data-i18n="musicTitle">Nghe nhạc</h4><p data-i18n="musicText">Mình thường nghe nhiều thể loại nhạc, liệu có bài hát nào trong số này khiến bạn thích nghe giống mình không?</p><div class="card-actions"><button class="card-action music-gacha" type="button" aria-haspopup="dialog" aria-controls="music-dialog"><span data-i18n="musicTry">Nghe thử một bài nhạc không?</span><svg class="action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></button></div></article>
-            <article class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A9 9 0 0 1 9.5 3.5a9 9 0 1 0 11 11Z"/></svg><h4 data-i18n="sleepTitle">Đi "ngẩu"</h4><p data-i18n="sleepText">Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời</p></article>
+            <article data-reveal="section" class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a4 4 0 0 1 4 3l1 6a2.5 2.5 0 0 1-4.2 2.3L15 16H9l-2.8 2.3A2.5 2.5 0 0 1 2 16l1-6a4 4 0 0 1 4-3Z"/><path d="M6 12h4m-2-2v4"/><circle cx="16" cy="11" r=".65" fill="currentColor" stroke="none"/><circle cx="18" cy="13" r=".65" fill="currentColor" stroke="none"/></svg><h4 data-i18n="gameTitle">Chơi "gem"</h4><p data-i18n="gameText">Đây là điều hiển nhiên mà? Ai mà chẳng thích chơi game chứ? Liệu bạn có chơi những game mình hay chơi không?</p><div class="card-actions"><button class="card-action game-list" type="button" aria-describedby="game-status"><span data-i18n="gameList">Danh sách game mình thường chơi</span><svg class="action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></button><p class="action-status" id="game-status" role="status" data-i18n="gamePending" hidden>Danh sách game đang được cập nhật.</p></div></article>
+            <article data-reveal="section" class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg><h4 data-i18n="musicTitle">Nghe nhạc</h4><p data-i18n="musicText">Mình thường nghe nhiều thể loại nhạc, liệu có bài hát nào trong số này khiến bạn thích nghe giống mình không?</p><div class="card-actions"><button class="card-action music-gacha" type="button" aria-haspopup="dialog" aria-controls="music-dialog"><span data-i18n="musicTry">Nghe thử một bài nhạc không?</span><svg class="action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></button></div></article>
+            <article data-reveal="section" class="card"><svg class="symbol" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A9 9 0 0 1 9.5 3.5a9 9 0 1 0 11 11Z"/></svg><h4 data-i18n="sleepTitle">Đi "ngẩu"</h4><p data-i18n="sleepText">Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời</p></article>
           </div>
         </div>
       </section>
       <section id="fursona" class="fursona-section" aria-labelledby="fursona-title">
         <div class="section-grid">
-          <h2 class="section-heading" id="fursona-title"><span data-i18n="fursonaLabel">FURSONA</span></h2>
-          <div class="about"><h3 data-i18n="fursonaHeadline">Ginji - Kitsune "9 đui"</h3><p data-i18n="fursonaText">Đúng vậy, bạn không có nghe nhầm đâu. Đó là một cậu cáo trắng chín đuôi, nhưng trong hình dạng thường ngày cậu ấy sẽ xuất hiện với hai chiếc đuôi, cũng chính là mascot của mình.</p></div>
+          <h2 data-reveal="section" class="section-heading" id="fursona-title"><span data-i18n="fursonaLabel">FURSONA</span></h2>
+          <div data-reveal="section" class="about"><h3 data-i18n="fursonaHeadline">Ginji - Kitsune "9 đui"</h3><p data-i18n="fursonaText">Đúng vậy, bạn không có nghe nhầm đâu. Đó là một cậu cáo trắng chín đuôi, nhưng trong hình dạng thường ngày cậu ấy sẽ xuất hiện với hai chiếc đuôi, cũng chính là mascot của mình.</p></div>
         </div>
-        <figure class="refsheet-viewer" aria-label="Refsheet Ginji" data-i18n-aria="refViewer">
+        <figure data-reveal="section" class="refsheet-viewer" aria-label="Refsheet Ginji" data-i18n-aria="refViewer">
           <div class="refsheet-toolbar"><strong data-i18n="refCaption">Refsheet nhân vật</strong><div class="ref-selector" role="group" aria-label="Chọn refsheet" data-i18n-aria="refSelector" hidden><span class="ref-indicator" aria-hidden="true"></span><button type="button" data-ref="a" aria-pressed="true">Ref. A</button><button type="button" data-ref="b" aria-pressed="false">Ref. B</button></div></div>
           <div class="refsheet-image"><img id="refsheet-image" src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế."></div>
           <figcaption><span class="ref-current">Ref. A</span><a class="refsheet-full-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener noreferrer"><span data-i18n="refView">Xem ảnh đầy đủ</span><span aria-hidden="true">↗</span></a></figcaption>
@@ -83,15 +84,15 @@
         </figure>
       </section>
       <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
-        <h2 class="section-heading" id="gallery-title"><span data-i18n="galleryLabel">THƯ VIỆN</span></h2>
-        <p class="gallery-intro" data-i18n="galleryTitle">Một chút thế giới nhỏ của mình :3</p>
-        <div class="gallery-empty"><span aria-hidden="true">✧</span><p data-i18n="galleryEmpty">Một góc dành cho những artwork sắp tới của Ginji.</p></div>
+        <h2 data-reveal="section" class="section-heading" id="gallery-title"><span data-i18n="galleryLabel">THƯ VIỆN</span></h2>
+        <p data-reveal="section" class="gallery-intro" data-i18n="galleryTitle">Một chút thế giới nhỏ của mình :3</p>
+        <div data-reveal="section" class="gallery-empty"><span aria-hidden="true">✧</span><p data-i18n="galleryEmpty">Một góc dành cho những artwork sắp tới của Ginji.</p></div>
       </section>
-      <section class="hello" aria-labelledby="hello-title">
+      <section data-reveal="section" class="hello" aria-labelledby="hello-title">
         <div><p class="section-title" data-i18n="helloLabel">MỘT LỜI CHÀO</p><h2 id="hello-title"><span data-i18n="helloHeadline">Đừng ngại nói</span> <em>hi.</em></h2><p data-i18n="helloText">Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.</p></div><p class="note" data-i18n="helloNote">Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.</p>
       </section>
     </main>
-    <footer>Copyright © 2026 by Ginji.</footer>
+    <footer data-reveal="section">Copyright © 2026 by Ginji.</footer>
   </div>
   <button type="button" class="back-to-top glass" data-scroll-target="overview" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
   <dialog class="music-dialog music-roll-dialog glass" id="music-dialog" aria-labelledby="music-roll-title">

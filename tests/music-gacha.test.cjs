@@ -47,3 +47,23 @@ test('duration has exactly 21 uniformly distributed integer steps from 7000 to 9
   assert.deepEqual([...counts.keys()], Array.from({ length: 21 }, (_, i) => 7000 + i * 100));
   assert.ok([...counts.values()].every(count => count === 10));
 });
+
+test('landing point is independent and uniform within the inner 10–90 percent', () => {
+  const fractions = [0, .125, .5, .875, 1 - Number.EPSILON].map(n => picker.pickLandingFraction(() => n));
+  assert.ok(fractions.every(n => n >= .1 && n <= .9));
+  assert.equal(fractions[0], .1);
+  assert.equal(fractions[2], .5);
+  assert.ok(new Set(fractions).size === fractions.length);
+  const viewport = { clientWidth: 340 }, card = { offsetLeft: 1800, offsetWidth: 126 };
+  for (const fraction of fractions) {
+    const translate = picker.getLandingTranslate(viewport, card, fraction);
+    const markerWithinCard = viewport.clientWidth / 2 - translate - card.offsetLeft;
+    assert.ok(Math.abs(markerWithinCard / card.offsetWidth - fraction) < 1e-12);
+  }
+});
+test('YouTube mobile uses HTTPS same-context app links, desktop retains web tab', () => {
+  for (const info of [{ userAgent: 'Android' }, { userAgent: 'iPhone' }, { userAgent: 'iPad' },
+    { platform: 'MacIntel', maxTouchPoints: 5 }, { userAgentData: { mobile: true } }])
+    assert.equal(picker.youtubeTarget(info), '_self');
+  assert.equal(picker.youtubeTarget({ userAgent: 'Windows Chrome' }), '_blank');
+});

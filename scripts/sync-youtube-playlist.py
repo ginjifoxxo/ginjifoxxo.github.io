@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -73,6 +74,48 @@ def normalize(metadata, existing=None):
             "report": report, "tracks": tracks}
 
 
+def validate(data):
+    if not isinstance(data, dict) or data.get('version') != 1 or not isinstance(data.get('playlistId'), str):
+        raise ValueError('Invalid playlist root structure')
+    tracks = data.get('tracks')
+    if not isinstance(tracks, list) or not tracks:
+        raise ValueError('Playlist must contain at least one valid track')
+    seen = set()
+    for track in tracks:
+        if not isinstance(track, dict):
+            raise ValueError('Invalid track structure')
+        video_id = track.get('id')
+        if not isinstance(video_id, str) or not re.fullmatch(r'[A-Za-z0-9_-]{11}', video_id) or video_id in seen:
+            raise ValueError('Invalid or duplicate video ID')
+        seen.add(video_id)
+        if track.get('youtubeUrl') != 'https://www.youtube.com/watch?v=' + video_id:
+            raise ValueError('Invalid canonical YouTube URL')
+        if not isinstance(track.get('title'), str) or not track['title'].strip():
+            raise ValueError('Missing track title')
+
+
+def write_dataset(output, data):
+    validate(data)
+    existing = json.loads(output.read_text(encoding='utf-8')) if output.exists() else None
+    # A new sync timestamp alone must never create a weekly commit.
+    comparable = lambda value: {k: v for k, v in value.items() if k != 'syncedAt'}
+    if existing is not None and comparable(existing) == comparable(data):
+        return False
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=output.parent,
+                                         prefix=output.name + '.', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+        validate(json.loads(temporary.read_text(encoding='utf-8')))
+        temporary.replace(output)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--playlist", default=PLAYLIST_ID, help="Playlist ID or URL")
@@ -96,12 +139,8 @@ def main():
             raise ValueError("Playlist response has no entries array")
         existing = json.loads(args.output.read_text(encoding="utf-8")) if args.output.exists() else None
         data = normalize(metadata, existing)
-        if not data["tracks"] and existing and existing.get("tracks"):
-            raise ValueError("No available tracks returned; existing valid data preserved")
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        temporary = args.output.with_suffix(".json.tmp")
-        temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        temporary.replace(args.output)
+        changed = write_dataset(args.output, data)
+        print('Dataset updated.' if changed else 'Dataset unchanged.')
         print(json.dumps(data["report"], ensure_ascii=False, indent=2))
         print("Metadata only. No audio/video downloaded.")
     except (OSError, ValueError, subprocess.SubprocessError) as error:

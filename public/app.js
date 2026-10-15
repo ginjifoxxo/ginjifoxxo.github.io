@@ -358,19 +358,6 @@
   desiredLanguage = currentLanguage;
   reserveLanguageSpace(true);
   languageToggle.hidden = false;
-  // Observe individual reading blocks, keeping long content visible until fully out of view.
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(entries => {
-      for (const entry of entries) entry.target.classList.toggle('is-revealed', entry.isIntersecting);
-    }, { rootMargin: '24px 0px', threshold: 0 });
-    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .gallery-intro, .refsheet-viewer, .gallery-empty, .hello > div, .hello > .note')) {
-      const rect = el.getBoundingClientRect();
-      el.classList.toggle('is-revealed', rect.bottom >= -24 && rect.top <= window.innerHeight + 24);
-      el.classList.add('reveal');
-      revealObserver.observe(el);
-    }
-  }
-
   const canvas = document.getElementById('star-canvas');
   const ctx = canvas.getContext('2d');
   if (!ctx) { scheduleScrollUpdate(); return; }

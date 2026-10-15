@@ -6,6 +6,14 @@
   'use strict';
   const entranceTiming = { popup: 400, fallbackSlack: 100, pause: 120 };
   function pickDuration(random = Math.random) { return (70 + Math.floor(random() * 21)) * 100; }
+  function pickLandingFraction(random = Math.random) { return .10 + random() * .80; }
+  function getLandingTranslate(viewport, card, fraction) {
+    return viewport.clientWidth / 2 - card.offsetLeft - card.offsetWidth * fraction;
+  }
+  function youtubeTarget(info) {
+    return info.userAgentData?.mobile || /Android|iPhone|iPad|iPod/i.test(info.userAgent || '')
+      || (info.platform === 'MacIntel' && info.maxTouchPoints > 1) ? '_self' : '_blank';
+  }
   function pickTrack(tracks, previousId, random = Math.random) {
     const candidates = tracks.length > 1 ? tracks.filter(track => track.id !== previousId) : tracks;
     return candidates.length ? candidates[Math.floor(random() * candidates.length)] : null;
@@ -30,7 +38,7 @@
     const result = resultDialog.querySelector('.gacha-result');
     const status = dialog.querySelector('.gacha-status');
     let tracks = [], state = 'loading', loadPromise = null, generation = 0;
-    let previousId = null, winner = null, animation = null, winnerIndex = null, openingController = null;
+    let previousId = null, winner = null, animation = null, winnerIndex = null, landingFraction = .5, openingController = null;
     const text = () => copy[getLanguage() === 'en' ? 'en' : 'vi'];
     const element = (tag, className, content) => {
       const node = document.createElement(tag);
@@ -61,7 +69,7 @@
       const author = element('p', '', winner.artist || winner.channel || text().unknown);
       author.id = 'music-result-author';
       const listen = element('a', 'card-action', text().listen);
-      listen.href = winner.youtubeUrl; listen.target = '_blank'; listen.rel = 'noopener noreferrer';
+      listen.href = winner.youtubeUrl; listen.target = youtubeTarget(navigator); listen.rel = 'noopener noreferrer';
       info.append(title, author, listen);
       result.append(thumbnail(winner), info);
     }
@@ -74,19 +82,19 @@
       if (resultDialog.open) renderResult();
     }
     localize = () => { if (dialog.open || resultDialog.open) updateCopy(); };
-    function center(index) {
+    function center(index, fraction = .5) {
       const node = reel.children[index];
-      return viewport.clientWidth / 2 - node.offsetLeft - node.offsetWidth / 2;
+      return getLandingTranslate(viewport, node, fraction);
     }
     function centerWinner() {
-      if (winnerIndex !== null && reel.children[winnerIndex]) reel.style.transform = 'translate3d(' + center(winnerIndex) + 'px,0,0)';
+      if (winnerIndex !== null && reel.children[winnerIndex]) reel.style.transform = 'translate3d(' + center(winnerIndex, landingFraction) + 'px,0,0)';
     }
     async function load() {
       if (loadPromise) return loadPromise;
       state = 'loading'; updateCopy();
       loadPromise = (async () => {
         try {
-          const response = await fetch('data/music.json');
+          const response = await fetch('data/music.json', { cache: 'no-store' });
           if (!response.ok) throw new Error('Dataset HTTP ' + response.status);
           const data = await response.json();
           if (!Array.isArray(data.tracks)) throw new Error('Invalid music dataset');
@@ -129,6 +137,7 @@
     }
     function prepareReel() {
       winner = pickTrack(tracks, previousId);
+      landingFraction = pickLandingFraction();
       const sequence = buildReel(tracks, winner);
       winnerIndex = sequence.winnerIndex;
       state = 'opening'; updateCopy();
@@ -140,7 +149,7 @@
       if (!tracks.length || state !== 'opening' || !dialog.open) return;
       const token = ++generation;
       state = 'rolling'; updateCopy();
-      const from = center(2), to = center(winnerIndex);
+      const from = center(2), to = center(winnerIndex, landingFraction);
       if (!reducedMotion.matches && typeof reel.animate === 'function') {
         animation = reel.animate([
           { transform: 'translate3d(' + from + 'px,0,0)', offset: 0 },
@@ -219,5 +228,5 @@
       else centerWinner();
     }).observe(viewport);
   }
-  return { pickDuration, pickTrack, buildReel, init, localize: () => localize() };
+  return { pickLandingFraction, getLandingTranslate, youtubeTarget, pickDuration, pickTrack, buildReel, init, localize: () => localize() };
 });

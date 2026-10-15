@@ -18,3 +18,12 @@
   }
   for (const event of events) window.addEventListener(event, restoreHistory, { once: true, passive: true });
 })();
+
+// Pre-paint opt-in with a fail-open timeout if the deferred bootstrap fails.
+(() => {
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.GinjiRevealFallback = setTimeout(() => document.documentElement.classList.remove('reveal-enabled'), 1800);
+    document.documentElement.classList.add('reveal-enabled');
+  } catch { document.documentElement.classList.remove('reveal-enabled'); }
+})();
