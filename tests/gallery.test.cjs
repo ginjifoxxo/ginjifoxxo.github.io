@@ -16,3 +16,14 @@ test('categories must match explicit folder; no invented alt or external source 
 test('natural dimensions survive filtering and preview selection',()=>{
   const item=collection(normalize(records),'art').preview[1];assert.equal(item.width,1200);assert.equal(item.height,1600);
 });
+test('published gallery records point to real supplied files with valid dimensions and descriptions',()=>{
+  const fs=require('node:fs'),path=require('node:path');
+  const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../public/data/gallery.json'),'utf8'));
+  assert.equal(normalize(data).length,data.length);
+  for(const item of data){
+    assert.ok(fs.existsSync(path.join(__dirname,'../public',item.src)),item.src);
+    assert.ok(Number.isInteger(item.width)&&item.width>0);
+    assert.ok(Number.isInteger(item.height)&&item.height>0);
+    assert.ok(item.alt.trim().length>0);
+  }
+});

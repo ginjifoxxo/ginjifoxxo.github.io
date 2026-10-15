@@ -134,7 +134,7 @@ cùng scrollRaf với navbar: phản hồi ngay 18%, tail time-based tau 80 ms (
 inertia; không bắt wheel của dialog hoặc container cuộn riêng. Scrollbar desktop
 thin khoảng 9px, palette xanh xám; không đổi overlay scrollbar mobile.
 
-Gallery dùng `public/data/gallery.json` (hiện rỗng), xem
+Gallery dùng `public/data/gallery.json` (hiện 23 Art + 8 Fursuit), xem
 `public/assets/gallery/README.md`. Hai thư mục upload riêng:
 - `public/assets/gallery/art/`: drawings/illustrations/commissions/fanart.
 - `public/assets/gallery/fursuit/`: real fursuit/event/portrait photos.
@@ -142,5 +142,5 @@ Gallery dùng `public/data/gallery.json` (hiện rỗng), xem
 Filter All/Art/Fursuit, tối đa 5 preview + tile +N nếu còn ảnh, overlay masonry
 scrollable cho filter hiện tại, lightbox contain riêng cho từng ảnh. Native
 dialog giữ focus, hỗ trợ ×/backdrop/Escape. Lazy/async loading, dimensions nếu
-có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Không có ảnh thật
-nào được thêm trong task framework này; fixture layout chỉ nằm trong server tạm.
+có, previewSrc tùy chọn. Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation
+và alt mô tả nội dung. Giữ nguyên tên và file gốc; fixture kiểm thử không nằm trong dữ liệu production.

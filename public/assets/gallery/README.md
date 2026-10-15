@@ -3,9 +3,10 @@
 ART: add drawings, illustrations, commissions, fanart and character artwork to `art/`.
 FURSUIT: add real suit portraits, fursuit photography and event/studio/outdoor photos to `fursuit/`.
 
-Both folders currently contain zero images. `.gitkeep` only preserves empty directories.
+Current supplied collection: 23 Art images and 8 Fursuit photos. Original filenames and files are preserved.
+`.gitkeep` keeps the upload directories available.
 
-Add one record per supplied image in `public/data/gallery.json` (currently `[]`):
+Add one record per supplied image in `public/data/gallery.json` (currently 31 records):
 
 ```json
 {
