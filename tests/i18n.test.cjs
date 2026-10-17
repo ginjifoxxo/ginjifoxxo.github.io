@@ -41,7 +41,7 @@ test('language switch describes the next action and announces the language actua
   assert.equal(h.portrait.attributes.alt, 'Ginji, a white and blue fox with a playful smile.');
   assert.equal(h.social.attributes['aria-label'], 'Discord — opens in a new tab');
   assert.equal(h.top.title, 'Back to top');
-  assert.equal(h.meta.content, 'Ginji — a law student who likes games, music, and quiet days.');
+  assert.equal(h.meta.content, 'Hewwooo, welcome to my profile uwu');
   await h.events.click();
   assert.equal(h.env.document.documentElement.lang, 'vi');
   assert.equal(h.toggle.attributes['aria-checked'], 'false');

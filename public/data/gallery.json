@@ -582,5 +582,18 @@
     "smallPreviewSrc": "assets/gallery/previews-small/fursuit/d2f6982b064f35345a48d81f-600-q75.webp",
     "smallPreviewWidth": 600,
     "smallPreviewHeight": 337
+  },
+  {
+    "src": "assets/gallery/fursuit/銀次.png",
+    "category": "fursuit",
+    "alt": "Ginji in fursuit sitting on a yellow balcony with Landmark 81 in the background.",
+    "width": 2049,
+    "height": 1152,
+    "previewSrc": "assets/gallery/previews/fursuit/bbad7eae1110bc7f8b4bf21d-1200-q80.webp",
+    "previewWidth": 1200,
+    "previewHeight": 675,
+    "smallPreviewSrc": "assets/gallery/previews-small/fursuit/bbad7eae1110bc7f8b4bf21d-600-q75.webp",
+    "smallPreviewWidth": 600,
+    "smallPreviewHeight": 337
   }
 ]

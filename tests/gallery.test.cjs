@@ -102,7 +102,7 @@ test('rendering stays lazy; failed small images fall back once per source and di
  mini.events.error();assert.match(mini.src,/\/previews\//);
  mini.events.error();assert.doesNotMatch(mini.src,/\/previews/);const original=mini.src;
  mini.events.error();assert.equal(mini.src,original);
- more.events.click();assert.equal(full.children.length,40);assert.ok(full.children.every(b=>b.children[0].src.includes('/previews/')));
+ more.events.click();assert.equal(full.children.length,require('../public/data/gallery.json').length);assert.ok(full.children.every(b=>b.children[0].src.includes('/previews/')));
  full.children[0].events.click();assert.equal(image.src,require('../public/data/gallery.json')[0].src);
  closeImage.events.click();assert.equal(image.src,undefined);
  closeDialog.events.click();assert.equal(full.children.length,0);

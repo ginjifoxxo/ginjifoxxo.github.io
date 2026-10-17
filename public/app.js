@@ -2,7 +2,7 @@
   'use strict';
   const copy = {
     vi: {
-      description: 'Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.',
+      description: 'Hewwooo, welcome to my profile uwu',
       skip: 'Đến nội dung chính', navigation: 'Điều hướng chính',
       heroLead: 'Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~',
       navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
@@ -28,7 +28,7 @@
       sleepText: "Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời",
     },
     en: {
-      description: 'Ginji — a law student who likes games, music, and quiet days.',
+      description: 'Hewwooo, welcome to my profile uwu',
       skip: 'Skip to main content', navigation: 'Main navigation',
       heroLead: "Hewwooo, I'm Ginji. I like games, music, and sleep. Welcome to my little profile :3",
       navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',

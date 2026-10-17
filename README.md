@@ -139,7 +139,7 @@ cùng scrollRaf với navbar: phản hồi ngay 18%, tail time-based tau 80 ms (
 inertia; không bắt wheel của dialog hoặc container cuộn riêng. Scrollbar desktop
 thin khoảng 9px, palette xanh xám; không đổi overlay scrollbar mobile.
 
-Gallery dùng `public/data/gallery.json` (hiện 23 Art + 17 Fursuit = 40 ảnh), xem
+Gallery dùng `public/data/gallery.json` (hiện 23 Art + 18 Fursuit = 41 ảnh), xem
 `public/assets/gallery/README.md`. Hai thư mục upload riêng:
 - `public/assets/gallery/art/`: drawings/illustrations/commissions/fanart.
 - `public/assets/gallery/fursuit/`: real fursuit/event/portrait photos.

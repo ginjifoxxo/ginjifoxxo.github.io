@@ -3,10 +3,10 @@
 ART: add drawings, illustrations, commissions, fanart and character artwork to `art/`.
 FURSUIT: add real suit portraits, fursuit photography and event/studio/outdoor photos to `fursuit/`.
 
-Current supplied collection: 23 Art images and 17 Fursuit photos (40 total). Original filenames and files are preserved.
+Current supplied collection: 23 Art images and 18 Fursuit photos (41 total). Original filenames and files are preserved.
 `.gitkeep` keeps the upload directories available.
 
-Add one record per supplied image in `public/data/gallery.json` (currently 40 records):
+Add one record per supplied image in `public/data/gallery.json` (currently 41 records):
 
 ```json
 {
@@ -79,7 +79,7 @@ The collage retains fade/scale but has no CSS blur. Other content keeps its
 existing reversible reveal. No permanent GPU layers or paint containment are
 added: containment would clip the approved outer shadows/focus outlines.
 
-Measured source payloads (decimal MB, five medium + four small after):
+Performance snapshot before the latest addition (40 images; decimal MB, five medium + four small after):
 
 | Filter | Before | After | Reduction |
 | --- | ---: | ---: | ---: |
