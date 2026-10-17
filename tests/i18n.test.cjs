@@ -13,7 +13,7 @@ function setup() {
   const env = { document: { documentElement: {}, querySelector: () => meta,
     querySelectorAll: selector => elements[selector] || [], getElementById: () => announcement },
     languageToggle: toggle, backToTop: top, reducedMotion: { matches: true, addEventListener() {} },
-    window: { scrollY: 1200, innerHeight: 800, scrollTo() {}, GinjiMusic: { localize() {} }, GinjiBackgroundMusic: { localize() {} }, GinjiGallery: { localize() {} } },
+    window: { scrollY: 1200, innerHeight: 800, scrollTo() {}, GinjiMusic: { localize() {} }, GinjiBackgroundMusic: { localize() {} }, GinjiGallery: { localize() {} }, GinjiGames: { localize() {} } },
     getComputedStyle: () => ({ visibility: 'visible' }),
     savePreference: (key, value) => preference[key] = value,
     updateRefLabels() {}, scheduleIndicator() {}, scheduleScrollUpdate() {}, cancelScroll() {} };

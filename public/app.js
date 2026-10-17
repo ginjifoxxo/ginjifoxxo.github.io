@@ -22,7 +22,6 @@
       backToTop: 'Về đầu trang',
       languageLabel: 'Switch to English', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
       gameList: "Danh sách game mình thường chơi",
-      gamePending: "Danh sách game đang được cập nhật.",
       musicTry: "Nghe thử một bài nhạc không?",
       sleepTitle: 'Đi "ngẩu"',
       sleepText: "Bạn nghĩ gì thế? Đương nhiên phải đi ngủ rồi, hơi bị mê nha trời",
@@ -48,7 +47,6 @@
       backToTop: 'Back to top',
       languageLabel: 'Switch to Vietnamese', languageHint: 'Switch to Vietnamese', languageAnnouncement: 'Switched to English.',
       gameList: 'Games I Play',
-      gamePending: 'Game list coming soon.',
       musicTry: 'Try a Random Song',
       sleepTitle: 'Sleep',
       sleepText: "I really like sleeping. That's all :3",
@@ -107,6 +105,7 @@
     window.GinjiMusic.localize();
     window.GinjiBackgroundMusic.localize();
     window.GinjiGallery.localize();
+    window.GinjiGames.localize();
     scheduleIndicator();
     scheduleScrollUpdate();
   }
@@ -418,9 +417,7 @@
   reducedMotion.addEventListener('change', resetPortrait);
   finePointer.addEventListener('change', resetPortrait);
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPortrait(); });
-  document.querySelector('.game-list').addEventListener('click', () => {
-    document.getElementById('game-status').hidden = false;
-  });
+  window.GinjiGames.init({ getLanguage: () => currentLanguage, reducedMotion });
   window.GinjiMusic.init({ getLanguage: () => currentLanguage, reducedMotion });
 
   window.GinjiBackgroundMusic.init({ getLanguage: () => currentLanguage });

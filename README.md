@@ -139,7 +139,7 @@ cùng scrollRaf với navbar: phản hồi ngay 18%, tail time-based tau 80 ms (
 inertia; không bắt wheel của dialog hoặc container cuộn riêng. Scrollbar desktop
 thin khoảng 9px, palette xanh xám; không đổi overlay scrollbar mobile.
 
-Gallery dùng `public/data/gallery.json` (hiện 23 Art + 18 Fursuit = 41 ảnh), xem
+Gallery dùng `public/data/gallery.json` (hiện 23 Art + 17 Fursuit = 40 ảnh), xem
 `public/assets/gallery/README.md`. Hai thư mục upload riêng:
 - `public/assets/gallery/art/`: drawings/illustrations/commissions/fanart.
 - `public/assets/gallery/fursuit/`: real fursuit/event/portrait photos.
@@ -161,3 +161,26 @@ xem hướng dẫn trong README gallery. Ảnh gốc chỉ được Gallery tả
 lightbox; collage không dùng blur để giảm chi phí compositing.
 Empty state không tạo ảnh giả hoặc +0. Bộ ảnh người dùng cung cấp đã được lập chỉ mục với kích thước theo EXIF orientation
 và alt mô tả nội dung. Giữ nguyên tên và file gốc; fixture kiểm thử không nằm trong dữ liệu production.
+
+## My Game
+
+`public/game-list.js` quản lý bốn entry theo thứ tự Guilty Gear Strive, Riot Games,
+Roblox, Steam. Nút Gaming mở native dialog cùng trang, tiêu đề luôn là My Game.
+Card được tạo khi mở lần đầu, dùng chung component tỉ lệ 16:10, cùng vùng title,
+visual và ba ô metadata. Các chữ GG/RG/R/S là badge tạm; chưa có artwork chính
+thức, UID hay dữ liệu tài khoản. Riot giữ ba badge League of Legends, Teamfight
+Tactics và Valorant trong một card. Thay nội dung sau trong mảng `games`.
+
+Desktop có card giữa và hai card bên cạnh thu nhỏ, trượt transform/opacity 450ms.
+Dưới 800px hoặc pointer coarse dùng slider một card. Icon strip, trước/tiếp,
+ArrowLeft/ArrowRight và Home/End đồng bộ cùng state; looping bốn card thật,
+không clone DOM. Nhớ lựa chọn trong phiên trang, không lưu localStorage.
+Swipe touch cần >=45px ngang và lớn hơn 1,5 lần khoảng dọc; pan dọc giữ native.
+Reduced motion bỏ transition; đóng bằng ×/Escape/backdrop, trả focus về opener.
+Dialog cuộn ở màn hình thấp, dùng scroll-lock hiện có. Không có animation loop
+hay request artwork lúc đóng. Vùng stage dùng overflow:clip để focus/click card
+bên cạnh không khiến trình duyệt tự cuộn ngang bên trong carousel.
+
+Ảnh chia sẻ nằm riêng tại `public/assets/social-preview/ginji-preview.png`
+(2049×1152), giữ nguyên byte ảnh được cung cấp. Ảnh này không thuộc Gallery;
+Open Graph/Twitter dùng URL tuyệt đối, kích thước thật và alt mô tả khách quan.
