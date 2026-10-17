@@ -5,6 +5,7 @@ const api = require('../public/game-list.js');
 function harness(reduce = true) {
   let focus, language = 'vi'; const timers = new Map(); let timerId = 0;
   class Node {
+    decode() { return Promise.resolve(); }
     constructor() { this.children = []; this.events = {}; this.attrs = {}; this.dataset = {}; this.style = { setProperty: (k, v) => this.style[k] = v }; this.className = ''; this.hidden = false; }
     append(...nodes) { this.children.push(...nodes); }
     setAttribute(key, value) { this.attrs[key] = value; }
@@ -20,11 +21,11 @@ function harness(reduce = true) {
   for (const cls of ['game-nav', 'game-stage', 'game-close', 'game-previous', 'game-next', 'game-announcement']) { const node = new Node(); node.className = cls; controls[cls] = node; dialog.append(node); }
   const motion = { matches: reduce, addEventListener: (_, fn) => motion.change = fn };
   const fs = require('node:fs'), vm = require('node:vm');
-  const env = { module: { exports: {} }, document: { getElementById: () => dialog, querySelector: () => opener, createElement: () => new Node() },
-    setTimeout: fn => { timers.set(++timerId, fn); return timerId; }, clearTimeout: id => timers.delete(id) };
+  const env = { module: { exports: {} }, document: { getElementById: () => dialog, querySelector: () => opener, createElement: () => new Node(), hidden: false, events: {}, addEventListener(key, fn) { this.events[key] = fn; } },
+    setTimeout: (fn, delay) => { fn.delay = delay; timers.set(++timerId, fn); return timerId; }, clearTimeout: id => timers.delete(id) };
   vm.createContext(env); vm.runInContext(fs.readFileSync('public/game-list.js', 'utf8'), env);
   env.module.exports.init({ getLanguage: () => language, reducedMotion: motion });
-  return { dialog, opener, controls, motion, timers, open: () => opener.events.click(),
+  return { dialog, opener, controls, motion, timers, document: env.document, open: () => opener.events.click(),
     lang: value => { language = value; env.module.exports.localize(); }, focus: () => focus,
     active: () => controls['game-nav'].children.findIndex(n => n.attrs['aria-pressed'] === 'true'),
     key(key) { let prevented = false; dialog.events.keydown({ key, preventDefault: () => prevented = true }); return prevented; } };
@@ -32,7 +33,7 @@ function harness(reduce = true) {
 
 test('four fixed game identities, circular positions and horizontal intent stay deterministic', () => {
   assert.deepEqual(api.games.map(g => g.name), ['Guilty Gear Strive', 'Riot Games', 'Roblox', 'Steam']);
-  assert.deepEqual(api.games[1].subgames, ['League of Legends', 'Teamfight Tactics', 'Valorant']);
+  assert.deepEqual(api.games[1].variants.map(v => v.name), ['League of Legends', 'Teamfight Tactics', 'Valorant']);
   for (let active = 0; active < 4; active++) assert.deepEqual(api.games.map((_, i) => api.slot(i, active)).sort((a,b) => a-b), [-1,0,1,2]);
   assert.equal(api.wrap(-1), 3); assert.equal(api.wrap(4), 0);
   assert.equal(api.swipe({x:100,y:100},{x:40,y:105}),1);
@@ -59,8 +60,8 @@ test('localized generic labels preserve game names and all account values remain
   h.lang('en');assert.equal(h.controls['game-close'].attrs['aria-label'],'Close');
   assert.equal(h.controls['game-next'].attrs['aria-label'],'Next');
   for (const card of h.controls['game-stage'].children) {
-    assert.equal(card.children.length,4); assert.equal(card.children[2].children.length,3);
-    for (const row of card.children[2].children) assert.equal(row.children[1].textContent,'—');
+    assert.equal(card.children.length,4); assert.equal(card.querySelector('.game-card-meta').children.length,3);
+    for (const row of card.querySelector('.game-card-meta').children) assert.equal(row.children[1].textContent,'—');
   }
 });
 
@@ -79,4 +80,41 @@ test('touch swipe selects one neighbor, while vertical movement and cancelled to
   stage.events.pointerdown(start);stage.events.pointerup({pointerId:1,clientX:100,clientY:105});assert.equal(h.active(),1);
   stage.events.pointerdown(start);stage.events.pointerup({pointerId:1,clientX:180,clientY:250});assert.equal(h.active(),1);
   stage.events.pointerdown(start);stage.events.pointercancel();stage.events.pointerup({pointerId:1,clientX:100,clientY:100});assert.equal(h.active(),1);
+});
+
+// Run decoded-image microtasks before exercising the auto-rotation scheduler.
+const decoded = async () => { for (let i = 0; i < 6; i++) await Promise.resolve(); };
+test('Riot cycles quietly at 3500ms, manual selection resets and all lifecycle gates stop timers', async () => {
+  const h = harness(false); h.open(); await decoded();
+  assert.equal(h.timers.size, 0);
+  h.controls['game-nav'].children[1].events.click();
+  const tabs = h.controls['game-stage'].children[1].querySelector('.game-riot-tabs').children;
+  const selected = () => tabs.findIndex(button => button.attrs['aria-pressed'] === 'true');
+  const tick = () => { const [id, fn] = [...h.timers][0]; assert.equal(fn.delay,3500); h.timers.delete(id); fn(); };
+  const announcement = h.controls['game-announcement'].textContent;
+  for (const expected of [1,2,0,1,2,0]) { tick(); assert.equal(selected(),expected); assert.equal(h.timers.size,1); }
+  assert.equal(h.controls['game-announcement'].textContent,announcement);
+  const old = [...h.timers.keys()][0]; tabs[2].events.click(); assert.equal(selected(),2); assert.ok(!h.timers.has(old)); tick(); assert.equal(selected(),0);
+  h.document.hidden=true; h.document.events.visibilitychange(); assert.equal(h.timers.size,0);
+  h.document.hidden=false; h.document.events.visibilitychange(); assert.equal(h.timers.size,1);
+  h.controls['game-next'].events.click(); assert.equal(h.timers.size,0);
+  h.controls['game-previous'].events.click(); assert.equal(h.timers.size,1);
+  h.motion.matches=true; h.motion.change(); assert.equal(h.timers.size,0); tabs[1].events.click(); assert.equal(selected(),1); assert.equal(h.timers.size,0);
+  h.lang('en'); assert.deepEqual(tabs.map(t=>t.textContent),['League','TFT','Valorant']);
+  h.lang('vi'); assert.deepEqual(tabs.map(t=>t.textContent),['LMHT','ĐTCL','Valorant']);
+  h.motion.matches=false; h.motion.change(); assert.equal(h.timers.size,1);
+  h.controls['game-close'].events.click(); assert.equal([...h.timers.values()].filter(fn=>fn.delay===3500).length,0);
+  h.dialog.close(); assert.equal(h.timers.size,0); h.open(); assert.equal(h.timers.size,1);
+  h.dialog.close(); assert.equal(h.timers.size,0);
+});
+test('all cards share background/overlay/content structure and local supplied assets', () => {
+  const fs = require('node:fs'), h=harness();h.open();
+  for (const game of api.games) {
+    assert.ok(fs.existsSync('public/'+game.logo));
+    for (const variant of game.variants || (game.background ? [game] : [])) assert.ok(fs.existsSync('public/'+variant.background));
+  }
+  for (const card of h.controls['game-stage'].children) {
+    assert.ok(card.querySelector('.game-card-background')); assert.ok(card.querySelector('.game-card-overlay'));
+    assert.equal(card.querySelector('.game-card-content').children.length,3);
+  }
 });

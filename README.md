@@ -167,9 +167,33 @@ và alt mô tả nội dung. Giữ nguyên tên và file gốc; fixture kiểm t
 `public/game-list.js` quản lý bốn entry theo thứ tự Guilty Gear Strive, Riot Games,
 Roblox, Steam. Nút Gaming mở native dialog cùng trang, tiêu đề luôn là My Game.
 Card được tạo khi mở lần đầu, dùng chung component tỉ lệ 16:10, cùng vùng title,
-visual và ba ô metadata. Các chữ GG/RG/R/S là badge tạm; chưa có artwork chính
-thức, UID hay dữ liệu tài khoản. Riot giữ ba badge League of Legends, Teamfight
-Tactics và Valorant trong một card. Thay nội dung sau trong mảng `games`.
+visual và ba ô metadata. Bốn PNG logo do người dùng cung cấp nằm ở
+`public/assets/games/logos/{ggst,riot,roblox,steam}.png`, giữ nguyên byte/alpha.
+Năm background WebP quality 83 nằm ở `public/assets/games/backgrounds/`:
+
+| Asset | Kích thước | Focal position |
+| --- | --- | --- |
+| ggst-anji.webp | 1200×675 | 48% 44% |
+| riot-lol-kennen.webp | 1280×720 | 60% 42% |
+| riot-tft-pegu.webp | 1600×900 | 52% 50% |
+| riot-valorant-omen.webp | 1600×900 | 50% 38% |
+| roblox-furry.webp | 1595×1064 | 60% 42% |
+
+Background `object-fit:cover` phủ toàn card, dưới overlay navy/gradient đáy.
+Chung background/overlay/content/header/context/meta, bo góc 24px. Không dùng
+filter animation. Steam dùng logo thật và shell gradient navy, chưa xác minh
+được trang Steam công khai nên không dựng avatar/tên/status giả. Tất cả thông
+tin tài khoản vẫn là dấu gạch, sẵn sàng cho lần cập nhật sau.
+
+Riot có ba button full accessible name, aria-pressed; nhãn VI LMHT/ĐTCL/Valorant,
+EN League/TFT/Valorant. Decode ba background khi mở dialog lần đầu. Một timeout
+3500ms chỉ chạy khi dialog mở, Riot active, trang visible và không reduced motion.
+Chọn tay reset đủ 3500ms; rời card, bắt đầu đóng, close native, hidden hoặc reduced
+motion đều hủy timer. Crossfade/scale nhẹ 420ms, reduced motion đổi ngay bằng tay,
+không auto. Tự xoay không ghi lại live announcement của carousel.
+
+Chín asset tổng 892852 bytes (~872 KiB), trong đó background 456004 bytes (~445 KiB).
+Không thêm nguồn lớn không dùng, không đưa ảnh game vào Gallery.
 
 Desktop có card giữa và hai card bên cạnh thu nhỏ, trượt transform/opacity 450ms.
 Dưới 800px hoặc pointer coarse dùng slider một card. Icon strip, trước/tiếp,

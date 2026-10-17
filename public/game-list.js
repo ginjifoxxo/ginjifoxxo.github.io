@@ -5,10 +5,14 @@
 })(typeof window === 'undefined' ? globalThis : window, function () {
   'use strict';
   const games = [
-    { id: 'ggst', name: 'Guilty Gear Strive', badge: 'GG', fields: ['player', 'main', 'floor'] },
-    { id: 'riot', name: 'Riot Games', badge: 'RG', fields: ['riotId', 'favorite', 'status'], subgames: ['League of Legends', 'Teamfight Tactics', 'Valorant'] },
-    { id: 'roblox', name: 'Roblox', badge: 'R', fields: ['username', 'experiences', 'status'] },
-    { id: 'steam', name: 'Steam', badge: 'S', fields: ['profile', 'friend', 'favorite'] },
+    { id: 'ggst', name: 'Guilty Gear Strive', logo: 'assets/games/logos/ggst.png', background: 'assets/games/backgrounds/ggst-anji.webp', position: '48% 44%', fields: ['player', 'main', 'floor'] },
+    { id: 'riot', name: 'Riot Games', logo: 'assets/games/logos/riot.png', variants: [
+      { id: 'lol', name: 'League of Legends', vi: 'LMHT', en: 'League', background: 'assets/games/backgrounds/riot-lol-kennen.webp', position: '60% 42%' },
+      { id: 'tft', name: 'Teamfight Tactics', vi: 'ĐTCL', en: 'TFT', background: 'assets/games/backgrounds/riot-tft-pegu.webp', position: '52% 50%' },
+      { id: 'valorant', name: 'Valorant', vi: 'Valorant', en: 'Valorant', background: 'assets/games/backgrounds/riot-valorant-omen.webp', position: '50% 38%' },
+    ], fields: ['riotId', 'favorite', 'status'] },
+    { id: 'roblox', name: 'Roblox', logo: 'assets/games/logos/roblox.png', background: 'assets/games/backgrounds/roblox-furry.webp', position: '60% 42%', fields: ['username', 'experiences', 'status'] },
+    { id: 'steam', name: 'Steam', logo: 'assets/games/logos/steam.png', fields: ['profile', 'friend', 'favorite'] },
   ];
   const copy = {
     vi: { close: 'Đóng', previous: 'Trước', next: 'Tiếp', list: 'Danh sách game', choose: 'Chọn game', pending: 'Chưa thêm', player: 'ID người chơi', main: 'Nhân vật chính', floor: 'Hạng / Tầng', riotId: 'Riot ID', favorite: 'Yêu thích', status: 'Trạng thái', username: 'Tên người dùng', experiences: 'Trải nghiệm', profile: 'Hồ sơ', friend: 'Mã bạn bè' },
@@ -26,28 +30,60 @@
     const nav = dialog.querySelector('.game-nav'), stage = dialog.querySelector('.game-stage');
     const close = dialog.querySelector('.game-close'), previous = dialog.querySelector('.game-previous'), next = dialog.querySelector('.game-next');
     const status = dialog.querySelector('.game-announcement');
-    const icons = [], cards = [], fields = [];
+    const icons = [], cards = [], fields = [], riotButtons = [], riotImages = [];
+    let riotActive = 0, riotTimer = null, riotReady = false;
     let active = 0, built = false, closing = false, closeTimer = null, touch = null, outside = false;
     const text = () => copy[getLanguage() === 'en' ? 'en' : 'vi'];
     const make = (tag, cls, content) => { const el = document.createElement(tag); el.className = cls; if (content) el.textContent = content; return el; };
+    function stopRiot() { if (riotTimer !== null) clearTimeout(riotTimer); riotTimer = null; }
+    function scheduleRiot() {
+      stopRiot();
+      if (riotReady && dialog.open && !closing && active === 1 && !document.hidden && !reducedMotion.matches) {
+        riotTimer = setTimeout(() => { riotTimer = null; chooseRiot((riotActive + 1) % 3); }, 3500);
+      }
+    }
+    function updateRiot() {
+      const language = getLanguage() === 'en' ? 'en' : 'vi';
+      riotButtons.forEach((button, index) => {
+        button.textContent = games[1].variants[index][language];
+        button.setAttribute('aria-pressed', String(index === riotActive));
+        button.tabIndex = active === 1 ? 0 : -1;
+      });
+      riotImages.forEach((image, index) => image.classList.toggle('is-current', index === riotActive));
+    }
+    function chooseRiot(index) { riotActive = index; updateRiot(); scheduleRiot(); }
+    function backgroundImage(variant) {
+      const image = make('img', 'game-background-image'); image.alt = ''; image.decoding = 'async';
+      image.src = variant.background; image.style.objectPosition = variant.position;
+      return image;
+    }
     function build() {
       for (const [index, game] of games.entries()) {
         const icon = make('button', 'game-nav-item'); icon.type = 'button';
-        const badge = make('span', 'game-icon', game.badge); badge.setAttribute('aria-hidden', 'true');
+        const badge = make('img', 'game-icon'); badge.src = game.logo; badge.alt = ''; badge.setAttribute('aria-hidden', 'true');
         icon.append(badge, make('span', 'sr-only', game.name));
         icon.addEventListener('click', () => select(index)); nav.append(icon); icons.push(icon);
         const card = make('article', 'game-card'); card.dataset.game = game.id;
         const header = make('header', 'game-card-header'), title = make('h3', 'game-card-title', game.name);
         title.id = 'game-title-' + game.id; card.setAttribute('aria-labelledby', title.id); header.append(title);
-        const media = make('div', 'game-card-media');
-        const identity = make('span', 'game-identity', game.badge); identity.setAttribute('aria-hidden', 'true');
-        const subgames = make('div', 'game-subgames');
-        for (let i = 0; i < 3; i++) {
-          const chip = make('span', 'game-subgame', game.subgames?.[i] || '—');
-          if (!game.subgames) chip.setAttribute('aria-hidden', 'true');
-          subgames.append(chip);
+        const background = make('div', 'game-card-background'); background.setAttribute('aria-hidden', 'true');
+        if (game.variants) {
+          for (const variant of game.variants) { const image = backgroundImage(variant); background.append(image); riotImages.push(image); }
+        } else if (game.background) background.append(backgroundImage(game));
+        const overlay = make('div', 'game-card-overlay'); overlay.setAttribute('aria-hidden', 'true');
+        const content = make('div', 'game-card-content'), media = make('div', 'game-card-context');
+        if (game.id === 'steam') {
+          const identity = make('img', 'game-steam-identity'); identity.src = game.logo; identity.alt = '';
+          media.append(identity, make('span', 'game-steam-placeholder', '—'));
         }
-        media.append(identity, subgames);
+        if (game.variants) {
+          const tabs = make('div', 'game-riot-tabs'); tabs.setAttribute('role', 'group'); tabs.setAttribute('aria-label', 'Riot Games');
+          game.variants.forEach((variant, index) => {
+            const button = make('button', 'game-riot-tab'); button.type = 'button'; button.setAttribute('aria-label', variant.name);
+            button.addEventListener('click', () => chooseRiot(index)); tabs.append(button); riotButtons.push(button);
+          });
+          media.append(tabs);
+        }
         const meta = make('dl', 'game-card-meta');
         for (const field of game.fields) {
           const row = make('div', 'game-field'), label = make('dt', ''), value = make('dd', '', '—');
@@ -55,9 +91,14 @@
         }
         const selector = make('button', 'game-card-select'); selector.type = 'button'; selector.tabIndex = -1;
         selector.setAttribute('aria-label', game.name); selector.addEventListener('click', () => { select(index); icons[index].focus({ preventScroll: true }); });
-        card.append(header, media, meta, selector); stage.append(card); cards.push(card);
+        content.append(header, media, meta); card.append(background, overlay, content, selector); stage.append(card); cards.push(card);
       }
       built = true;
+      updateRiot();
+      // Decode only the three small Riot backgrounds before allowing crossfades.
+      Promise.all(riotImages.map(image => image.decode().catch(() => {}))).then(() => {
+        riotReady = true; scheduleRiot();
+      });
     }
     function update() {
       const t = text();
@@ -72,18 +113,20 @@
         cards[index].querySelector('.game-card-select').hidden = selected;
         icons[index].setAttribute('aria-pressed', String(selected)); icons[index].tabIndex = selected ? 0 : -1;
       }
+      updateRiot();
       if (built) status.textContent = games[active].name + ' · ' + (active + 1) + ' / ' + games.length;
     }
-    function select(index) { active = wrap(index); update(); }
+    function select(index) { active = wrap(index); update(); scheduleRiot(); }
     function finishClose() { if (closeTimer !== null) clearTimeout(closeTimer); closeTimer = null; if (dialog.open) dialog.close(); }
     function requestClose() {
       if (!dialog.open || closing) return;
+      stopRiot();
       if (reducedMotion.matches) { finishClose(); return; }
       closing = true; dialog.classList.add('is-closing'); closeTimer = setTimeout(finishClose, 220);
     }
     opener.addEventListener('click', () => {
       if (dialog.open) return;
-      if (!built) build(); update(); dialog.showModal(); icons[active].focus({ preventScroll: true });
+      if (!built) build(); update(); dialog.showModal(); scheduleRiot(); icons[active].focus({ preventScroll: true });
     });
     close.addEventListener('click', requestClose);
     previous.addEventListener('click', () => select(active - 1)); next.addEventListener('click', () => select(active + 1));
@@ -102,6 +145,7 @@
     dialog.addEventListener('click', event => { if (outside && isOutside(event)) requestClose(); outside = false; });
     dialog.addEventListener('animationend', event => { if (event.target === dialog && closing) finishClose(); });
     dialog.addEventListener('close', () => {
+      stopRiot();
       if (closeTimer !== null) clearTimeout(closeTimer); closeTimer = null; closing = false; outside = false; touch = null;
       dialog.classList.remove('is-closing'); opener.focus({ preventScroll: true });
     });
@@ -112,7 +156,8 @@
       if (direction && dialog.open && !closing) select(active + direction);
     });
     stage.addEventListener('pointercancel', () => { touch = null; });
-    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches && closing) finishClose(); });
+    document.addEventListener('visibilitychange', scheduleRiot);
+    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches && closing) finishClose(); scheduleRiot(); });
     localize = update; update();
   }
   return { games, wrap, slot, swipe, init, localize: () => localize() };
