@@ -2,17 +2,17 @@
   "version": 1,
   "playlistId": "PLF_QC1tSP8yo",
   "playlistTitle": "10k lộn xộn",
-  "syncedAt": "2026-10-26T01:51:32.545501+00:00",
+  "syncedAt": "2026-11-09T07:55:25.836908+00:00",
   "report": {
-    "totalReturned": 290,
-    "youtubePlaylistCount": 290,
-    "validTracks": 290,
+    "totalReturned": 293,
+    "youtubePlaylistCount": 293,
+    "validTracks": 293,
     "duplicatesRemoved": 0,
     "unavailableReturned": 0,
-    "unknownArtist": 290,
+    "unknownArtist": 293,
     "rarityCounts": {
-      "common": 143,
-      "rare": 87,
+      "common": 144,
+      "rare": 89,
       "legendary": 45,
       "epic": 15
     },
@@ -21,8 +21,47 @@
   },
   "tracks": [
     {
-      "id": "Bz1WzRcmv04",
+      "id": "fF816EiSH10",
       "playlistIndex": 1,
+      "title": "Mơ Về Em",
+      "rawTitle": "Mơ Về Em",
+      "artist": "",
+      "channel": "Mono Official",
+      "youtubeUrl": "https://www.youtube.com/watch?v=fF816EiSH10",
+      "thumbnail": "https://i.ytimg.com/vi/fF816EiSH10/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCn77Uopo30WIHPyQeScq0QbD_iFw",
+      "duration": 266,
+      "rarity": "common",
+      "tags": []
+    },
+    {
+      "id": "k5Bss32QTbY",
+      "playlistIndex": 2,
+      "title": "Sau Cơn Mưa",
+      "rawTitle": "Sau Cơn Mưa",
+      "artist": "",
+      "channel": "COOLKID OFFICIAL",
+      "youtubeUrl": "https://www.youtube.com/watch?v=k5Bss32QTbY",
+      "thumbnail": "https://i.ytimg.com/vi/k5Bss32QTbY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCtjtTutrZfakDJAYbT-3Bi7UTsuQ",
+      "duration": 155,
+      "rarity": "rare",
+      "tags": []
+    },
+    {
+      "id": "mVWueJWN07c",
+      "playlistIndex": 3,
+      "title": "MONO - Em Là (Prod. Renard 狐) | THIÊN SỨ ĐIỆN TỬ: Vol.2",
+      "rawTitle": "MONO - Em Là (Prod. Renard 狐) | THIÊN SỨ ĐIỆN TỬ: Vol.2",
+      "artist": "",
+      "channel": "Renard 狐 ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=mVWueJWN07c",
+      "thumbnail": "https://i.ytimg.com/vi/mVWueJWN07c/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdpwgeV5ipjevu7hYTGqPv77cL0A",
+      "duration": 243,
+      "rarity": "rare",
+      "tags": []
+    },
+    {
+      "id": "Bz1WzRcmv04",
+      "playlistIndex": 4,
       "title": "Dạo bước Hồng Kong 1999",
       "rawTitle": "Dạo bước Hồng Kong 1999",
       "artist": "",
@@ -35,7 +74,7 @@
     },
     {
       "id": "GheFGLpNh44",
-      "playlistIndex": 2,
+      "playlistIndex": 5,
       "title": "id 072019",
       "rawTitle": "id 072019",
       "artist": "",
@@ -48,7 +87,7 @@
     },
     {
       "id": "uW1o3in6-3s",
-      "playlistIndex": 3,
+      "playlistIndex": 6,
       "title": "1001 câu trả lời",
       "rawTitle": "1001 câu trả lời",
       "artist": "",
@@ -61,7 +100,7 @@
     },
     {
       "id": "j6_N2adlezQ",
-      "playlistIndex": 4,
+      "playlistIndex": 7,
       "title": "toidaidot",
       "rawTitle": "toidaidot",
       "artist": "",
@@ -74,7 +113,7 @@
     },
     {
       "id": "5ibi4qoT_vc",
-      "playlistIndex": 5,
+      "playlistIndex": 8,
       "title": "hoá ra…",
       "rawTitle": "hoá ra…",
       "artist": "",
@@ -87,7 +126,7 @@
     },
     {
       "id": "kAijE5mPGgU",
-      "playlistIndex": 6,
+      "playlistIndex": 9,
       "title": "đưa em về nhàa",
       "rawTitle": "đưa em về nhàa",
       "artist": "",
@@ -100,7 +139,7 @@
     },
     {
       "id": "QXWAReyqf98",
-      "playlistIndex": 7,
+      "playlistIndex": 10,
       "title": "tình yêu chậm trễ",
       "rawTitle": "tình yêu chậm trễ",
       "artist": "",
@@ -113,7 +152,7 @@
     },
     {
       "id": "ckchSYGJpN8",
-      "playlistIndex": 8,
+      "playlistIndex": 11,
       "title": "Chế Độ Im Lặng",
       "rawTitle": "Chế Độ Im Lặng",
       "artist": "",
@@ -126,7 +165,7 @@
     },
     {
       "id": "aqDzTImo1hE",
-      "playlistIndex": 9,
+      "playlistIndex": 12,
       "title": "Quá Muộn",
       "rawTitle": "Quá Muộn",
       "artist": "",
@@ -139,7 +178,7 @@
     },
     {
       "id": "nGa6UaPxQ_w",
-      "playlistIndex": 10,
+      "playlistIndex": 13,
       "title": "chẳng phải tình đầu sao đau đến thế",
       "rawTitle": "chẳng phải tình đầu sao đau đến thế",
       "artist": "",
@@ -152,7 +191,7 @@
     },
     {
       "id": "H5tO_9wZ0hg",
-      "playlistIndex": 11,
+      "playlistIndex": 14,
       "title": "Touch",
       "rawTitle": "Touch",
       "artist": "",
@@ -165,7 +204,7 @@
     },
     {
       "id": "nkNZWdzTH58",
-      "playlistIndex": 12,
+      "playlistIndex": 15,
       "title": "Xoay",
       "rawTitle": "Xoay",
       "artist": "",
@@ -178,7 +217,7 @@
     },
     {
       "id": "R43UzjiI2Dw",
-      "playlistIndex": 13,
+      "playlistIndex": 16,
       "title": "SAU CƠN SUY",
       "rawTitle": "SAU CƠN SUY",
       "artist": "",
@@ -191,7 +230,7 @@
     },
     {
       "id": "0XT2lnA1eDk",
-      "playlistIndex": 14,
+      "playlistIndex": 17,
       "title": "NÓI GÌ NỮA",
       "rawTitle": "NÓI GÌ NỮA",
       "artist": "",
@@ -204,7 +243,7 @@
     },
     {
       "id": "ShPB4jUMp5M",
-      "playlistIndex": 15,
+      "playlistIndex": 18,
       "title": "toidaidot",
       "rawTitle": "toidaidot",
       "artist": "",
@@ -217,7 +256,7 @@
     },
     {
       "id": "KbalxuYQliI",
-      "playlistIndex": 16,
+      "playlistIndex": 19,
       "title": "mới hôm qua",
       "rawTitle": "mới hôm qua",
       "artist": "",
@@ -230,7 +269,7 @@
     },
     {
       "id": "OFk7TQyZWuU",
-      "playlistIndex": 17,
+      "playlistIndex": 20,
       "title": "đôi mắt kẻ tình si",
       "rawTitle": "đôi mắt kẻ tình si",
       "artist": "",
@@ -243,7 +282,7 @@
     },
     {
       "id": "siEEGwEQe38",
-      "playlistIndex": 18,
+      "playlistIndex": 21,
       "title": "yêu em như…",
       "rawTitle": "yêu em như…",
       "artist": "",
@@ -256,7 +295,7 @@
     },
     {
       "id": "z6h1ekorMUE",
-      "playlistIndex": 19,
+      "playlistIndex": 22,
       "title": "hoá ra…",
       "rawTitle": "hoá ra…",
       "artist": "",
@@ -269,7 +308,7 @@
     },
     {
       "id": "B6tP8jXb5wQ",
-      "playlistIndex": 20,
+      "playlistIndex": 23,
       "title": "7 элемент",
       "rawTitle": "7 элемент",
       "artist": "",
@@ -282,7 +321,7 @@
     },
     {
       "id": "vclAjuytWto",
-      "playlistIndex": 21,
+      "playlistIndex": 24,
       "title": "Опера #2",
       "rawTitle": "Опера #2",
       "artist": "",
@@ -295,7 +334,7 @@
     },
     {
       "id": "iQEpTa3VqLU",
-      "playlistIndex": 22,
+      "playlistIndex": 25,
       "title": "Daddy Cool",
       "rawTitle": "Daddy Cool",
       "artist": "",
@@ -308,7 +347,7 @@
     },
     {
       "id": "5Z0dxsFmX7c",
-      "playlistIndex": 23,
+      "playlistIndex": 26,
       "title": "Rasputin",
       "rawTitle": "Rasputin",
       "artist": "",
@@ -321,7 +360,7 @@
     },
     {
       "id": "rA6wmf-MUP8",
-      "playlistIndex": 24,
+      "playlistIndex": 27,
       "title": "Rivers of Babylon",
       "rawTitle": "Rivers of Babylon",
       "artist": "",
@@ -334,7 +373,7 @@
     },
     {
       "id": "c1ZCYY-4lAM",
-      "playlistIndex": 25,
+      "playlistIndex": 28,
       "title": "Cheri Cheri Lady",
       "rawTitle": "Cheri Cheri Lady",
       "artist": "",
@@ -347,7 +386,7 @@
     },
     {
       "id": "WlTlUseVt7E",
-      "playlistIndex": 26,
+      "playlistIndex": 29,
       "title": "Beat It",
       "rawTitle": "Beat It",
       "artist": "",
@@ -360,7 +399,7 @@
     },
     {
       "id": "7CTJcHjkq0E",
-      "playlistIndex": 27,
+      "playlistIndex": 30,
       "title": "Billie Jean",
       "rawTitle": "Billie Jean",
       "artist": "",
@@ -373,7 +412,7 @@
     },
     {
       "id": "agQP0V9sTx0",
-      "playlistIndex": 28,
+      "playlistIndex": 31,
       "title": "Slow Down",
       "rawTitle": "Slow Down",
       "artist": "",
@@ -386,7 +425,7 @@
     },
     {
       "id": "ZqYGW8uXL0I",
-      "playlistIndex": 29,
+      "playlistIndex": 32,
       "title": "New Rules",
       "rawTitle": "New Rules",
       "artist": "",
@@ -399,7 +438,7 @@
     },
     {
       "id": "htg8v0g_4e4",
-      "playlistIndex": 30,
+      "playlistIndex": 33,
       "title": "Don't Start Now",
       "rawTitle": "Don't Start Now",
       "artist": "",
@@ -412,7 +451,7 @@
     },
     {
       "id": "xyNZ4M2mI8s",
-      "playlistIndex": 31,
+      "playlistIndex": 34,
       "title": "La La La",
       "rawTitle": "La La La",
       "artist": "",
@@ -425,7 +464,7 @@
     },
     {
       "id": "02dMNQxwy48",
-      "playlistIndex": 32,
+      "playlistIndex": 35,
       "title": "You Are Not Alone",
       "rawTitle": "You Are Not Alone",
       "artist": "",
@@ -438,7 +477,7 @@
     },
     {
       "id": "TA1W-pHNKl8",
-      "playlistIndex": 33,
+      "playlistIndex": 36,
       "title": "a thousand years",
       "rawTitle": "a thousand years",
       "artist": "",
@@ -451,7 +490,7 @@
     },
     {
       "id": "pKnRHLqh4PY",
-      "playlistIndex": 34,
+      "playlistIndex": 37,
       "title": "I Have Nothing",
       "rawTitle": "I Have Nothing",
       "artist": "",
@@ -464,7 +503,7 @@
     },
     {
       "id": "cyCMuCFCkdk",
-      "playlistIndex": 35,
+      "playlistIndex": 38,
       "title": "Heal the World",
       "rawTitle": "Heal the World",
       "artist": "",
@@ -477,7 +516,7 @@
     },
     {
       "id": "_u0zg4p9cV4",
-      "playlistIndex": 36,
+      "playlistIndex": 39,
       "title": "Careless Whisper",
       "rawTitle": "Careless Whisper",
       "artist": "",
@@ -490,7 +529,7 @@
     },
     {
       "id": "m4QZL7whs10",
-      "playlistIndex": 37,
+      "playlistIndex": 40,
       "title": "I Will Always Love You",
       "rawTitle": "I Will Always Love You",
       "artist": "",
@@ -503,7 +542,7 @@
     },
     {
       "id": "VoGilr7ediw",
-      "playlistIndex": 38,
+      "playlistIndex": 41,
       "title": "Cure For Me",
       "rawTitle": "Cure For Me",
       "artist": "",
@@ -516,7 +555,7 @@
     },
     {
       "id": "iv7TrKrwteI",
-      "playlistIndex": 39,
+      "playlistIndex": 42,
       "title": "Cupid (Twin Version)",
       "rawTitle": "Cupid (Twin Version)",
       "artist": "",
@@ -529,7 +568,7 @@
     },
     {
       "id": "H9NJenpBV2I",
-      "playlistIndex": 40,
+      "playlistIndex": 43,
       "title": "Easy On Me",
       "rawTitle": "Easy On Me",
       "artist": "",
@@ -542,7 +581,7 @@
     },
     {
       "id": "t31xgKtLjwo",
-      "playlistIndex": 41,
+      "playlistIndex": 44,
       "title": "no tears left to cry",
       "rawTitle": "no tears left to cry",
       "artist": "",
@@ -555,7 +594,7 @@
     },
     {
       "id": "OmKvVuEg5xE",
-      "playlistIndex": 42,
+      "playlistIndex": 45,
       "title": "Five Nights at Freddy's",
       "rawTitle": "Five Nights at Freddy's",
       "artist": "",
@@ -568,7 +607,7 @@
     },
     {
       "id": "Da0JYezblTU",
-      "playlistIndex": 43,
+      "playlistIndex": 46,
       "title": "Magic Hour",
       "rawTitle": "Magic Hour",
       "artist": "",
@@ -581,7 +620,7 @@
     },
     {
       "id": "8SuaxAygnYY",
-      "playlistIndex": 44,
+      "playlistIndex": 47,
       "title": "Don't Recall",
       "rawTitle": "Don't Recall",
       "artist": "",
@@ -594,7 +633,7 @@
     },
     {
       "id": "nTbyCYcHS6s",
-      "playlistIndex": 45,
+      "playlistIndex": 48,
       "title": "顕現シタ異物",
       "rawTitle": "顕現シタ異物",
       "artist": "",
@@ -607,7 +646,7 @@
     },
     {
       "id": "Gqfq_8jPw8Q",
-      "playlistIndex": 46,
+      "playlistIndex": 49,
       "title": "Perfect Night",
       "rawTitle": "Perfect Night",
       "artist": "",
@@ -620,7 +659,7 @@
     },
     {
       "id": "UgSHUZvs8jg",
-      "playlistIndex": 47,
+      "playlistIndex": 50,
       "title": "Ashes of Dreams / Aratanaru-JP Version",
       "rawTitle": "Ashes of Dreams / Aratanaru-JP Version",
       "artist": "",
@@ -633,7 +672,7 @@
     },
     {
       "id": "iMAv9T22UXQ",
-      "playlistIndex": 48,
+      "playlistIndex": 51,
       "title": "Run Through Fire",
       "rawTitle": "Run Through Fire",
       "artist": "",
@@ -646,7 +685,7 @@
     },
     {
       "id": "Gm52sbciBhw",
-      "playlistIndex": 49,
+      "playlistIndex": 52,
       "title": "Terekakushi Shisyunki",
       "rawTitle": "Terekakushi Shisyunki",
       "artist": "",
@@ -659,7 +698,7 @@
     },
     {
       "id": "4dpniat6_Kk",
-      "playlistIndex": 50,
+      "playlistIndex": 53,
       "title": "Radiant Dawn",
       "rawTitle": "Radiant Dawn",
       "artist": "",
@@ -672,7 +711,7 @@
     },
     {
       "id": "ugalSs8B6XI",
-      "playlistIndex": 51,
+      "playlistIndex": 54,
       "title": "24/7, 365",
       "rawTitle": "24/7, 365",
       "artist": "",
@@ -685,7 +724,7 @@
     },
     {
       "id": "FnywQ_s7Odk",
-      "playlistIndex": 52,
+      "playlistIndex": 55,
       "title": "24/7, 365 (sunset session)",
       "rawTitle": "24/7, 365 (sunset session)",
       "artist": "",
@@ -698,7 +737,7 @@
     },
     {
       "id": "At_RVcArwuM",
-      "playlistIndex": 53,
+      "playlistIndex": 56,
       "title": "Mất Kết Nối",
       "rawTitle": "Mất Kết Nối",
       "artist": "",
@@ -711,7 +750,7 @@
     },
     {
       "id": "WFRu36VlKYs",
-      "playlistIndex": 54,
+      "playlistIndex": 57,
       "title": "Leaving at Midnight",
       "rawTitle": "Leaving at Midnight",
       "artist": "",
@@ -724,7 +763,7 @@
     },
     {
       "id": "Fny3UkHpVcU",
-      "playlistIndex": 55,
+      "playlistIndex": 58,
       "title": "This Will Be the Day (feat. Casey Lee Williams)",
       "rawTitle": "This Will Be the Day (feat. Casey Lee Williams)",
       "artist": "",
@@ -737,7 +776,7 @@
     },
     {
       "id": "almxxpZJ0j0",
-      "playlistIndex": 56,
+      "playlistIndex": 59,
       "title": "2phần3",
       "rawTitle": "2phần3",
       "artist": "",
@@ -750,7 +789,7 @@
     },
     {
       "id": "i7ZyZHIY2Jw",
-      "playlistIndex": 57,
+      "playlistIndex": 60,
       "title": "dự báo thời tiết hôm nay mưa",
       "rawTitle": "dự báo thời tiết hôm nay mưa",
       "artist": "",
@@ -763,7 +802,7 @@
     },
     {
       "id": "eZIool5fExE",
-      "playlistIndex": 58,
+      "playlistIndex": 61,
       "title": "Silence",
       "rawTitle": "Silence",
       "artist": "",
@@ -776,7 +815,7 @@
     },
     {
       "id": "OZaHk0h_axE",
-      "playlistIndex": 59,
+      "playlistIndex": 62,
       "title": "Little Bit Better",
       "rawTitle": "Little Bit Better",
       "artist": "",
@@ -789,7 +828,7 @@
     },
     {
       "id": "1L1NzHy4T24",
-      "playlistIndex": 60,
+      "playlistIndex": 63,
       "title": "Khi Mà",
       "rawTitle": "Khi Mà",
       "artist": "",
@@ -802,7 +841,7 @@
     },
     {
       "id": "HayThhUpgUA",
-      "playlistIndex": 61,
+      "playlistIndex": 64,
       "title": "It Takes Two",
       "rawTitle": "It Takes Two",
       "artist": "",
@@ -815,7 +854,7 @@
     },
     {
       "id": "7CUz7Ec7cWc",
-      "playlistIndex": 62,
+      "playlistIndex": 65,
       "title": "hate that i made you love me",
       "rawTitle": "hate that i made you love me",
       "artist": "",
@@ -828,7 +867,7 @@
     },
     {
       "id": "cQUJQb39yP8",
-      "playlistIndex": 63,
+      "playlistIndex": 66,
       "title": "イニシエノウタ/運命 (ver.1.22474487139...)",
       "rawTitle": "イニシエノウタ/運命 (ver.1.22474487139...)",
       "artist": "",
@@ -841,7 +880,7 @@
     },
     {
       "id": "5FaEtvA_11A",
-      "playlistIndex": 64,
+      "playlistIndex": 67,
       "title": "イニシエノウタ/運命",
       "rawTitle": "イニシエノウタ/運命",
       "artist": "",
@@ -854,7 +893,7 @@
     },
     {
       "id": "rJowbzT9IWU",
-      "playlistIndex": 65,
+      "playlistIndex": 68,
       "title": "i think i'm addicted",
       "rawTitle": "i think i'm addicted",
       "artist": "",
@@ -867,7 +906,7 @@
     },
     {
       "id": "wO97VxN6-3E",
-      "playlistIndex": 66,
+      "playlistIndex": 69,
       "title": "Resonator",
       "rawTitle": "Resonator",
       "artist": "",
@@ -880,7 +919,7 @@
     },
     {
       "id": "sglEftCe8Is",
-      "playlistIndex": 67,
+      "playlistIndex": 70,
       "title": "A World Without Danger",
       "rawTitle": "A World Without Danger",
       "artist": "",
@@ -893,7 +932,7 @@
     },
     {
       "id": "HeZtDS49DJw",
-      "playlistIndex": 68,
+      "playlistIndex": 71,
       "title": "I watch the moon",
       "rawTitle": "I watch the moon",
       "artist": "",
@@ -906,7 +945,7 @@
     },
     {
       "id": "YuAIkXtASoY",
-      "playlistIndex": 69,
+      "playlistIndex": 72,
       "title": "Chất Gây Hại",
       "rawTitle": "Chất Gây Hại",
       "artist": "",
@@ -919,7 +958,7 @@
     },
     {
       "id": "TryyVvxUE94",
-      "playlistIndex": 70,
+      "playlistIndex": 73,
       "title": "SAX",
       "rawTitle": "SAX",
       "artist": "",
@@ -932,7 +971,7 @@
     },
     {
       "id": "Dsk3DTdTY3Y",
-      "playlistIndex": 71,
+      "playlistIndex": 74,
       "title": "Weight of the World/壊レタ世界ノ歌",
       "rawTitle": "Weight of the World/壊レタ世界ノ歌",
       "artist": "",
@@ -945,7 +984,7 @@
     },
     {
       "id": "ABvi5qegodY",
-      "playlistIndex": 72,
+      "playlistIndex": 75,
       "title": "還ラナイ声/ギター",
       "rawTitle": "還ラナイ声/ギター",
       "artist": "",
@@ -958,7 +997,7 @@
     },
     {
       "id": "smnbPEysX6k",
-      "playlistIndex": 73,
+      "playlistIndex": 76,
       "title": "「塔」",
       "rawTitle": "「塔」",
       "artist": "",
@@ -971,7 +1010,7 @@
     },
     {
       "id": "EyZaNx8T-fM",
-      "playlistIndex": 74,
+      "playlistIndex": 77,
       "title": "エミール/絶望",
       "rawTitle": "エミール/絶望",
       "artist": "",
@@ -984,7 +1023,7 @@
     },
     {
       "id": "0Vcoh3KgXCk",
-      "playlistIndex": 75,
+      "playlistIndex": 78,
       "title": "偽リノ城塞",
       "rawTitle": "偽リノ城塞",
       "artist": "",
@@ -997,7 +1036,7 @@
     },
     {
       "id": "SAuoXWy2uDM",
-      "playlistIndex": 76,
+      "playlistIndex": 79,
       "title": "森ノ王国",
       "rawTitle": "森ノ王国",
       "artist": "",
@@ -1010,7 +1049,7 @@
     },
     {
       "id": "Utdrwlk7fdQ",
-      "playlistIndex": 77,
+      "playlistIndex": 80,
       "title": "CHỈ MỘT CÂU THẦN CHÚ",
       "rawTitle": "CHỈ MỘT CÂU THẦN CHÚ",
       "artist": "",
@@ -1023,7 +1062,7 @@
     },
     {
       "id": "E6koHPoqdVs",
-      "playlistIndex": 78,
+      "playlistIndex": 81,
       "title": "NGHĨ MỘT TÍ",
       "rawTitle": "NGHĨ MỘT TÍ",
       "artist": "",
@@ -1036,7 +1075,7 @@
     },
     {
       "id": "2pOB5T3w5bQ",
-      "playlistIndex": 79,
+      "playlistIndex": 82,
       "title": "LÁ THU VÀNG RƠI MANG TÌNH YÊU TỚI",
       "rawTitle": "LÁ THU VÀNG RƠI MANG TÌNH YÊU TỚI",
       "artist": "",
@@ -1049,7 +1088,7 @@
     },
     {
       "id": "UXxKu4t7stw",
-      "playlistIndex": 80,
+      "playlistIndex": 83,
       "title": "Lý do của mưa",
       "rawTitle": "Lý do của mưa",
       "artist": "",
@@ -1062,7 +1101,7 @@
     },
     {
       "id": "baW265Iwoig",
-      "playlistIndex": 81,
+      "playlistIndex": 84,
       "title": "ハローセカイ / バーチャル・シンガーver.",
       "rawTitle": "ハローセカイ / バーチャル・シンガーver.",
       "artist": "",
@@ -1075,7 +1114,7 @@
     },
     {
       "id": "eV_YwpvmGSs",
-      "playlistIndex": 82,
+      "playlistIndex": 85,
       "title": "never ender",
       "rawTitle": "never ender",
       "artist": "",
@@ -1088,7 +1127,7 @@
     },
     {
       "id": "Skc1_eVgLSM",
-      "playlistIndex": 83,
+      "playlistIndex": 86,
       "title": "僕が夢を捨てて大人になるまで",
       "rawTitle": "僕が夢を捨てて大人になるまで",
       "artist": "",
@@ -1101,7 +1140,7 @@
     },
     {
       "id": "VKNzKsh9t5w",
-      "playlistIndex": 84,
+      "playlistIndex": 87,
       "title": "ラッキー☆オーブ (feat. 初音ミク)",
       "rawTitle": "ラッキー☆オーブ (feat. 初音ミク)",
       "artist": "",
@@ -1114,7 +1153,7 @@
     },
     {
       "id": "uSijY6BEMRE",
-      "playlistIndex": 85,
+      "playlistIndex": 88,
       "title": "Yellow (Re:Dialed)",
       "rawTitle": "Yellow (Re:Dialed)",
       "artist": "",
@@ -1127,7 +1166,7 @@
     },
     {
       "id": "3GA7byGyIxw",
-      "playlistIndex": 86,
+      "playlistIndex": 89,
       "title": "Jubilee",
       "rawTitle": "Jubilee",
       "artist": "",
@@ -1140,7 +1179,7 @@
     },
     {
       "id": "m8wPDPCAEug",
-      "playlistIndex": 87,
+      "playlistIndex": 90,
       "title": "世界中で一番",
       "rawTitle": "世界中で一番",
       "artist": "",
@@ -1153,7 +1192,7 @@
     },
     {
       "id": "uB_kB8YIDyk",
-      "playlistIndex": 88,
+      "playlistIndex": 91,
       "title": "Catch the Wave feat.初音ミク",
       "rawTitle": "Catch the Wave feat.初音ミク",
       "artist": "",
@@ -1166,7 +1205,7 @@
     },
     {
       "id": "IOsan3ZndrU",
-      "playlistIndex": 89,
+      "playlistIndex": 92,
       "title": "Taisetsunakoto (feat. Hatsune Miku, Kagamine Rin, Kagamine Len, Megurine Luka, KAITO, MEIKO &...",
       "rawTitle": "Taisetsunakoto (feat. Hatsune Miku, Kagamine Rin, Kagamine Len, Megurine Luka, KAITO, MEIKO &...",
       "artist": "",
@@ -1179,7 +1218,7 @@
     },
     {
       "id": "sONUW6kym4g",
-      "playlistIndex": 90,
+      "playlistIndex": 93,
       "title": "贖罪",
       "rawTitle": "贖罪",
       "artist": "",
@@ -1192,7 +1231,7 @@
     },
     {
       "id": "4h6n6Q4BLVs",
-      "playlistIndex": 91,
+      "playlistIndex": 94,
       "title": "Satisfaction feat.初音ミク",
       "rawTitle": "Satisfaction feat.初音ミク",
       "artist": "",
@@ -1205,7 +1244,7 @@
     },
     {
       "id": "sJlUV34X8JA",
-      "playlistIndex": 92,
+      "playlistIndex": 95,
       "title": "Decorator",
       "rawTitle": "Decorator",
       "artist": "",
@@ -1218,7 +1257,7 @@
     },
     {
       "id": "8JUcFfxL9cU",
-      "playlistIndex": 93,
+      "playlistIndex": 96,
       "title": "Redial",
       "rawTitle": "Redial",
       "artist": "",
@@ -1231,7 +1270,7 @@
     },
     {
       "id": "a9kqq9P8fA0",
-      "playlistIndex": 94,
+      "playlistIndex": 97,
       "title": "Hand in Hand",
       "rawTitle": "Hand in Hand",
       "artist": "",
@@ -1244,7 +1283,7 @@
     },
     {
       "id": "6kdBdNkM3K8",
-      "playlistIndex": 95,
+      "playlistIndex": 98,
       "title": "Weekender Girl",
       "rawTitle": "Weekender Girl",
       "artist": "",
@@ -1257,7 +1296,7 @@
     },
     {
       "id": "IdekFd3D6q8",
-      "playlistIndex": 96,
+      "playlistIndex": 99,
       "title": "劣等上等 feat. 鏡音リン・レン",
       "rawTitle": "劣等上等 feat. 鏡音リン・レン",
       "artist": "",
@@ -1270,7 +1309,7 @@
     },
     {
       "id": "4n94ukt15qg",
-      "playlistIndex": 97,
+      "playlistIndex": 100,
       "title": "Tell Your World",
       "rawTitle": "Tell Your World",
       "artist": "",
@@ -1283,7 +1322,7 @@
     },
     {
       "id": "N1MHFKtkml4",
-      "playlistIndex": 98,
+      "playlistIndex": 101,
       "title": "Shadows",
       "rawTitle": "Shadows",
       "artist": "",
@@ -1296,7 +1335,7 @@
     },
     {
       "id": "xs8VJykHPy4",
-      "playlistIndex": 99,
+      "playlistIndex": 102,
       "title": "Crystallize",
       "rawTitle": "Crystallize",
       "artist": "",
@@ -1309,7 +1348,7 @@
     },
     {
       "id": "6_NfUrP_6vw",
-      "playlistIndex": 100,
+      "playlistIndex": 103,
       "title": "Shatter Me Featuring Lzzy Hale",
       "rawTitle": "Shatter Me Featuring Lzzy Hale",
       "artist": "",
@@ -1322,7 +1361,7 @@
     },
     {
       "id": "DyLtoLSfxnU",
-      "playlistIndex": 101,
+      "playlistIndex": 104,
       "title": "Roundtable Rival",
       "rawTitle": "Roundtable Rival",
       "artist": "",
@@ -1335,7 +1374,7 @@
     },
     {
       "id": "3Dsku6Hkh1I",
-      "playlistIndex": 102,
+      "playlistIndex": 105,
       "title": "Carol Of The Bells",
       "rawTitle": "Carol Of The Bells",
       "artist": "",
@@ -1348,7 +1387,7 @@
     },
     {
       "id": "EBFYYjdGwJg",
-      "playlistIndex": 103,
+      "playlistIndex": 106,
       "title": "LEMONADE",
       "rawTitle": "LEMONADE",
       "artist": "",
@@ -1361,7 +1400,7 @@
     },
     {
       "id": "7NMrrRQqzN0",
-      "playlistIndex": 104,
+      "playlistIndex": 107,
       "title": "I Want You To Know",
       "rawTitle": "I Want You To Know",
       "artist": "",
@@ -1374,7 +1413,7 @@
     },
     {
       "id": "KJBUF-s15co",
-      "playlistIndex": 105,
+      "playlistIndex": 108,
       "title": "美シキ歌",
       "rawTitle": "美シキ歌",
       "artist": "",
@@ -1387,7 +1426,7 @@
     },
     {
       "id": "hF17F0CIt8g",
-      "playlistIndex": 106,
+      "playlistIndex": 109,
       "title": "Good Vibe (GOLDHOUSE Remix)",
       "rawTitle": "Good Vibe (GOLDHOUSE Remix)",
       "artist": "",
@@ -1400,7 +1439,7 @@
     },
     {
       "id": "qAHYjLwtRn4",
-      "playlistIndex": 107,
+      "playlistIndex": 110,
       "title": "The Upside (feat. Elle King)",
       "rawTitle": "The Upside (feat. Elle King)",
       "artist": "",
@@ -1413,7 +1452,7 @@
     },
     {
       "id": "1CkJpy5P_KA",
-      "playlistIndex": 108,
+      "playlistIndex": 111,
       "title": "Lost Girls",
       "rawTitle": "Lost Girls",
       "artist": "",
@@ -1426,7 +1465,7 @@
     },
     {
       "id": "tiKswy6diL0",
-      "playlistIndex": 109,
+      "playlistIndex": 112,
       "title": "Underground",
       "rawTitle": "Underground",
       "artist": "",
@@ -1439,7 +1478,7 @@
     },
     {
       "id": "3IcCjpiGTfE",
-      "playlistIndex": 110,
+      "playlistIndex": 113,
       "title": "Masquerade",
       "rawTitle": "Masquerade",
       "artist": "",
@@ -1452,7 +1491,7 @@
     },
     {
       "id": "GYeOVn0PhSk",
-      "playlistIndex": 111,
+      "playlistIndex": 114,
       "title": "One Last Kiss",
       "rawTitle": "One Last Kiss",
       "artist": "",
@@ -1465,7 +1504,7 @@
     },
     {
       "id": "p7H2oSf8etE",
-      "playlistIndex": 112,
+      "playlistIndex": 115,
       "title": "Save Me",
       "rawTitle": "Save Me",
       "artist": "",
@@ -1478,7 +1517,7 @@
     },
     {
       "id": "6QWpHhHgTD4",
-      "playlistIndex": 113,
+      "playlistIndex": 116,
       "title": "Daft Punk",
       "rawTitle": "Daft Punk",
       "artist": "",
@@ -1491,7 +1530,7 @@
     },
     {
       "id": "j2bfLQ2wcwE",
-      "playlistIndex": 114,
+      "playlistIndex": 117,
       "title": "길 (The Road)",
       "rawTitle": "길 (The Road)",
       "artist": "",
@@ -1504,7 +1543,7 @@
     },
     {
       "id": "RKvRLLQtDbg",
-      "playlistIndex": 115,
+      "playlistIndex": 118,
       "title": "Lạc Trôi",
       "rawTitle": "Lạc Trôi",
       "artist": "",
@@ -1517,7 +1556,7 @@
     },
     {
       "id": "moMtFrQBQws",
-      "playlistIndex": 116,
+      "playlistIndex": 119,
       "title": "Thái Bình Mồ Hôi Rơi",
       "rawTitle": "Thái Bình Mồ Hôi Rơi",
       "artist": "",
@@ -1530,7 +1569,7 @@
     },
     {
       "id": "HrlpCgMgRVo",
-      "playlistIndex": 117,
+      "playlistIndex": 120,
       "title": "Nắng Ấm Xa Dần",
       "rawTitle": "Nắng Ấm Xa Dần",
       "artist": "",
@@ -1543,7 +1582,7 @@
     },
     {
       "id": "t-cKtOItdhc",
-      "playlistIndex": 118,
+      "playlistIndex": 121,
       "title": "Em Của Ngày Hôm Qua",
       "rawTitle": "Em Của Ngày Hôm Qua",
       "artist": "",
@@ -1556,7 +1595,7 @@
     },
     {
       "id": "78dCF99PheM",
-      "playlistIndex": 119,
+      "playlistIndex": 122,
       "title": "Chúng Ta Không Thuộc Về Nhau",
       "rawTitle": "Chúng Ta Không Thuộc Về Nhau",
       "artist": "",
@@ -1569,7 +1608,7 @@
     },
     {
       "id": "23Nerfq7Cws",
-      "playlistIndex": 120,
+      "playlistIndex": 123,
       "title": "C U Again",
       "rawTitle": "C U Again",
       "artist": "",
@@ -1582,7 +1621,7 @@
     },
     {
       "id": "NUIpYsLOiQQ",
-      "playlistIndex": 121,
+      "playlistIndex": 124,
       "title": "Rubik",
       "rawTitle": "Rubik",
       "artist": "",
@@ -1595,11 +1634,11 @@
     },
     {
       "id": "XvOHl0zoOtU",
-      "playlistIndex": 122,
+      "playlistIndex": 125,
       "title": "Takeaway (Sondr Remix)",
       "rawTitle": "Takeaway (Sondr Remix)",
       "artist": "",
-      "channel": "The Chainsmokers",
+      "channel": "The Chainsmokers - Topic",
       "youtubeUrl": "https://www.youtube.com/watch?v=XvOHl0zoOtU",
       "thumbnail": "https://i.ytimg.com/vi/XvOHl0zoOtU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD7DYpzPC3FLRrGEAJajH0wQUZ4xA",
       "duration": 215,
@@ -1608,7 +1647,7 @@
     },
     {
       "id": "98rlBxhdQr0",
-      "playlistIndex": 123,
+      "playlistIndex": 126,
       "title": "LOVE ME",
       "rawTitle": "LOVE ME",
       "artist": "",
@@ -1621,7 +1660,7 @@
     },
     {
       "id": "DlStjuEovhQ",
-      "playlistIndex": 124,
+      "playlistIndex": 127,
       "title": "Cold Blooded Love",
       "rawTitle": "Cold Blooded Love",
       "artist": "",
@@ -1634,7 +1673,7 @@
     },
     {
       "id": "Q2ac97Ltoas",
-      "playlistIndex": 125,
+      "playlistIndex": 128,
       "title": "Sunlight",
       "rawTitle": "Sunlight",
       "artist": "",
@@ -1647,7 +1686,7 @@
     },
     {
       "id": "KPNWnMS_mj8",
-      "playlistIndex": 126,
+      "playlistIndex": 129,
       "title": "Puzzle",
       "rawTitle": "Puzzle",
       "artist": "",
@@ -1660,7 +1699,7 @@
     },
     {
       "id": "MTbqEciHCXo",
-      "playlistIndex": 127,
+      "playlistIndex": 130,
       "title": "Rendezvous",
       "rawTitle": "Rendezvous",
       "artist": "",
@@ -1673,7 +1712,7 @@
     },
     {
       "id": "Oks_fiRU_Yw",
-      "playlistIndex": 128,
+      "playlistIndex": 131,
       "title": "Quaoar (For \"Thanks Follower 50k\")",
       "rawTitle": "Quaoar (For \"Thanks Follower 50k\")",
       "artist": "",
@@ -1686,7 +1725,7 @@
     },
     {
       "id": "1U_2WqZ3pzI",
-      "playlistIndex": 129,
+      "playlistIndex": 132,
       "title": "Feel Good",
       "rawTitle": "Feel Good",
       "artist": "",
@@ -1699,7 +1738,7 @@
     },
     {
       "id": "U5by55dkYlI",
-      "playlistIndex": 130,
+      "playlistIndex": 133,
       "title": "Infinite",
       "rawTitle": "Infinite",
       "artist": "",
@@ -1712,7 +1751,7 @@
     },
     {
       "id": "DoRbjMm_BNc",
-      "playlistIndex": 131,
+      "playlistIndex": 134,
       "title": "Forever",
       "rawTitle": "Forever",
       "artist": "",
@@ -1725,7 +1764,7 @@
     },
     {
       "id": "OJBxNA8cX-E",
-      "playlistIndex": 132,
+      "playlistIndex": 135,
       "title": "Razihel - Love U | Jersey Club | NCS - Copyright Free Music",
       "rawTitle": "Razihel - Love U | Jersey Club | NCS - Copyright Free Music",
       "artist": "",
@@ -1738,7 +1777,7 @@
     },
     {
       "id": "JLpQrjvtdkA",
-      "playlistIndex": 133,
+      "playlistIndex": 136,
       "title": "Let's Go!",
       "rawTitle": "Let's Go!",
       "artist": "",
@@ -1751,7 +1790,7 @@
     },
     {
       "id": "RUAbf_FtWeY",
-      "playlistIndex": 134,
+      "playlistIndex": 137,
       "title": "Mars",
       "rawTitle": "Mars",
       "artist": "",
@@ -1764,7 +1803,7 @@
     },
     {
       "id": "4r6botZY7EQ",
-      "playlistIndex": 135,
+      "playlistIndex": 138,
       "title": "Higher",
       "rawTitle": "Higher",
       "artist": "",
@@ -1777,7 +1816,7 @@
     },
     {
       "id": "nEjcwR8_dX8",
-      "playlistIndex": 136,
+      "playlistIndex": 139,
       "title": "Feelings",
       "rawTitle": "Feelings",
       "artist": "",
@@ -1790,7 +1829,7 @@
     },
     {
       "id": "BAJ3cp3aeZY",
-      "playlistIndex": 137,
+      "playlistIndex": 140,
       "title": "Found You",
       "rawTitle": "Found You",
       "artist": "",
@@ -1803,7 +1842,7 @@
     },
     {
       "id": "F8d6xim_R9Y",
-      "playlistIndex": 138,
+      "playlistIndex": 141,
       "title": "You & I",
       "rawTitle": "You & I",
       "artist": "",
@@ -1816,7 +1855,7 @@
     },
     {
       "id": "ZMKPpdzfbU4",
-      "playlistIndex": 139,
+      "playlistIndex": 142,
       "title": "Playing With Fire",
       "rawTitle": "Playing With Fire",
       "artist": "",
@@ -1829,7 +1868,7 @@
     },
     {
       "id": "3yRkCs2KJQY",
-      "playlistIndex": 140,
+      "playlistIndex": 143,
       "title": "Love Me To Life",
       "rawTitle": "Love Me To Life",
       "artist": "",
@@ -1842,7 +1881,7 @@
     },
     {
       "id": "LhAVbqVFc7c",
-      "playlistIndex": 141,
+      "playlistIndex": 144,
       "title": "Thinking About You",
       "rawTitle": "Thinking About You",
       "artist": "",
@@ -1855,7 +1894,7 @@
     },
     {
       "id": "CcIwhKLx09Q",
-      "playlistIndex": 142,
+      "playlistIndex": 145,
       "title": "There For You",
       "rawTitle": "There For You",
       "artist": "",
@@ -1868,7 +1907,7 @@
     },
     {
       "id": "W_r2x12lBio",
-      "playlistIndex": 143,
+      "playlistIndex": 146,
       "title": "Sweet Time",
       "rawTitle": "Sweet Time",
       "artist": "",
@@ -1881,7 +1920,7 @@
     },
     {
       "id": "TwMa3nq5iYU",
-      "playlistIndex": 144,
+      "playlistIndex": 147,
       "title": "Something Comforting",
       "rawTitle": "Something Comforting",
       "artist": "",
@@ -1894,7 +1933,7 @@
     },
     {
       "id": "Tvy47YFU6ZA",
-      "playlistIndex": 145,
+      "playlistIndex": 148,
       "title": "Get Your Wish",
       "rawTitle": "Get Your Wish",
       "artist": "",
@@ -1907,7 +1946,7 @@
     },
     {
       "id": "vxVig1gPnLo",
-      "playlistIndex": 146,
+      "playlistIndex": 149,
       "title": "Shelter",
       "rawTitle": "Shelter",
       "artist": "",
@@ -1920,7 +1959,7 @@
     },
     {
       "id": "7i_Rgrtv8rQ",
-      "playlistIndex": 147,
+      "playlistIndex": 150,
       "title": "Mirror",
       "rawTitle": "Mirror",
       "artist": "",
@@ -1933,7 +1972,7 @@
     },
     {
       "id": "EEGBRKVxlLw",
-      "playlistIndex": 148,
+      "playlistIndex": 151,
       "title": "Musician",
       "rawTitle": "Musician",
       "artist": "",
@@ -1946,7 +1985,7 @@
     },
     {
       "id": "6M-F1vV3Dks",
-      "playlistIndex": 149,
+      "playlistIndex": 152,
       "title": "Sad Machine",
       "rawTitle": "Sad Machine",
       "artist": "",
@@ -1959,7 +1998,7 @@
     },
     {
       "id": "soRSOiN-aWk",
-      "playlistIndex": 150,
+      "playlistIndex": 153,
       "title": "Masked Raver",
       "rawTitle": "Masked Raver",
       "artist": "",
@@ -1972,7 +2011,7 @@
     },
     {
       "id": "u1a0AXVN3e0",
-      "playlistIndex": 151,
+      "playlistIndex": 154,
       "title": "Bubble",
       "rawTitle": "Bubble",
       "artist": "",
@@ -1985,7 +2024,7 @@
     },
     {
       "id": "z8bVyiYxIsE",
-      "playlistIndex": 152,
+      "playlistIndex": 155,
       "title": "Won't Look Back",
       "rawTitle": "Won't Look Back",
       "artist": "",
@@ -1998,7 +2037,7 @@
     },
     {
       "id": "ppWbG03O_AU",
-      "playlistIndex": 153,
+      "playlistIndex": 156,
       "title": "I Could Be The One (Avicii Vs. Nicky Romero) (Radio Edit)",
       "rawTitle": "I Could Be The One (Avicii Vs. Nicky Romero) (Radio Edit)",
       "artist": "",
@@ -2011,7 +2050,7 @@
     },
     {
       "id": "Km4yqsCNcGk",
-      "playlistIndex": 154,
+      "playlistIndex": 157,
       "title": "Safe & Sound",
       "rawTitle": "Safe & Sound",
       "artist": "",
@@ -2024,7 +2063,7 @@
     },
     {
       "id": "eV4xLI2mQy4",
-      "playlistIndex": 155,
+      "playlistIndex": 158,
       "title": "Thinking About You",
       "rawTitle": "Thinking About You",
       "artist": "",
@@ -2037,7 +2076,7 @@
     },
     {
       "id": "u8yBiNVpt0c",
-      "playlistIndex": 156,
+      "playlistIndex": 159,
       "title": "Shine",
       "rawTitle": "Shine",
       "artist": "",
@@ -2050,7 +2089,7 @@
     },
     {
       "id": "jig2aRZbHm4",
-      "playlistIndex": 157,
+      "playlistIndex": 160,
       "title": "Fool For You",
       "rawTitle": "Fool For You",
       "artist": "",
@@ -2063,7 +2102,7 @@
     },
     {
       "id": "0MmOC0vcR3A",
-      "playlistIndex": 158,
+      "playlistIndex": 161,
       "title": "Need You",
       "rawTitle": "Need You",
       "artist": "",
@@ -2076,7 +2115,7 @@
     },
     {
       "id": "-KLvpYUs-SA",
-      "playlistIndex": 159,
+      "playlistIndex": 162,
       "title": "Saved by You (feat. RAENE)",
       "rawTitle": "Saved by You (feat. RAENE)",
       "artist": "",
@@ -2089,7 +2128,7 @@
     },
     {
       "id": "oLplL7Ds07U",
-      "playlistIndex": 160,
+      "playlistIndex": 163,
       "title": "Take Our Time",
       "rawTitle": "Take Our Time",
       "artist": "",
@@ -2102,7 +2141,7 @@
     },
     {
       "id": "rGSxbPQBMbA",
-      "playlistIndex": 161,
+      "playlistIndex": 164,
       "title": "Humansongs",
       "rawTitle": "Humansongs",
       "artist": "",
@@ -2115,7 +2154,7 @@
     },
     {
       "id": "UIeOU7YKmLo",
-      "playlistIndex": 162,
+      "playlistIndex": 165,
       "title": "Flechette",
       "rawTitle": "Flechette",
       "artist": "",
@@ -2128,7 +2167,7 @@
     },
     {
       "id": "wBI7q9fsafo",
-      "playlistIndex": 163,
+      "playlistIndex": 166,
       "title": "Shiawase",
       "rawTitle": "Shiawase",
       "artist": "",
@@ -2141,7 +2180,7 @@
     },
     {
       "id": "u6m94T-myQs",
-      "playlistIndex": 164,
+      "playlistIndex": 167,
       "title": "Cheerleader",
       "rawTitle": "Cheerleader",
       "artist": "",
@@ -2154,7 +2193,7 @@
     },
     {
       "id": "tOpetVlqdgQ",
-      "playlistIndex": 165,
+      "playlistIndex": 168,
       "title": "New Start!",
       "rawTitle": "New Start!",
       "artist": "",
@@ -2167,7 +2206,7 @@
     },
     {
       "id": "lC3SjrS4gsA",
-      "playlistIndex": 166,
+      "playlistIndex": 169,
       "title": "Fly Away",
       "rawTitle": "Fly Away",
       "artist": "",
@@ -2180,7 +2219,7 @@
     },
     {
       "id": "vVQmYIjdefg",
-      "playlistIndex": 167,
+      "playlistIndex": 170,
       "title": "Savannah",
       "rawTitle": "Savannah",
       "artist": "",
@@ -2193,7 +2232,7 @@
     },
     {
       "id": "5ZWQVPCVzP0",
-      "playlistIndex": 168,
+      "playlistIndex": 171,
       "title": "So Happy",
       "rawTitle": "So Happy",
       "artist": "",
@@ -2206,7 +2245,7 @@
     },
     {
       "id": "dixloN1O7-0",
-      "playlistIndex": 169,
+      "playlistIndex": 172,
       "title": "North Star",
       "rawTitle": "North Star",
       "artist": "",
@@ -2219,7 +2258,7 @@
     },
     {
       "id": "ZstakJHdJTA",
-      "playlistIndex": 170,
+      "playlistIndex": 173,
       "title": "RIGHT WHERE I WANNA STAY",
       "rawTitle": "RIGHT WHERE I WANNA STAY",
       "artist": "",
@@ -2232,7 +2271,7 @@
     },
     {
       "id": "mKKyxNTsz6c",
-      "playlistIndex": 171,
+      "playlistIndex": 174,
       "title": "Never Give Up",
       "rawTitle": "Never Give Up",
       "artist": "",
@@ -2245,7 +2284,7 @@
     },
     {
       "id": "p8mXiXztB-c",
-      "playlistIndex": 172,
+      "playlistIndex": 175,
       "title": "Call of Silence（Remix）",
       "rawTitle": "Call of Silence（Remix）",
       "artist": "",
@@ -2258,7 +2297,7 @@
     },
     {
       "id": "67_ZA1zLlXA",
-      "playlistIndex": 173,
+      "playlistIndex": 176,
       "title": "Beautiful Now",
       "rawTitle": "Beautiful Now",
       "artist": "",
@@ -2271,7 +2310,7 @@
     },
     {
       "id": "_6W7JnWYibA",
-      "playlistIndex": 174,
+      "playlistIndex": 177,
       "title": "Eternal Sunshine",
       "rawTitle": "Eternal Sunshine",
       "artist": "",
@@ -2284,7 +2323,7 @@
     },
     {
       "id": "uV_5eEvamoQ",
-      "playlistIndex": 175,
+      "playlistIndex": 178,
       "title": "golden hour",
       "rawTitle": "golden hour",
       "artist": "",
@@ -2297,7 +2336,7 @@
     },
     {
       "id": "_ddScWWx8j0",
-      "playlistIndex": 176,
+      "playlistIndex": 179,
       "title": "Dynamic",
       "rawTitle": "Dynamic",
       "artist": "",
@@ -2310,7 +2349,7 @@
     },
     {
       "id": "nEpeuYnngQY",
-      "playlistIndex": 177,
+      "playlistIndex": 180,
       "title": "You'll Be on My Mind",
       "rawTitle": "You'll Be on My Mind",
       "artist": "",
@@ -2323,7 +2362,7 @@
     },
     {
       "id": "ccXlDEA-EG0",
-      "playlistIndex": 178,
+      "playlistIndex": 181,
       "title": "Try Again",
       "rawTitle": "Try Again",
       "artist": "",
@@ -2336,7 +2375,7 @@
     },
     {
       "id": "TcRchMCo5SY",
-      "playlistIndex": 179,
+      "playlistIndex": 182,
       "title": "Cause You're The One",
       "rawTitle": "Cause You're The One",
       "artist": "",
@@ -2349,7 +2388,7 @@
     },
     {
       "id": "de_KIWR8SXI",
-      "playlistIndex": 180,
+      "playlistIndex": 183,
       "title": "We Came to Party",
       "rawTitle": "We Came to Party",
       "artist": "",
@@ -2362,7 +2401,7 @@
     },
     {
       "id": "gnlR1O6GGb8",
-      "playlistIndex": 181,
+      "playlistIndex": 184,
       "title": "Dawn",
       "rawTitle": "Dawn",
       "artist": "",
@@ -2375,7 +2414,7 @@
     },
     {
       "id": "HIZfhVL72Nc",
-      "playlistIndex": 182,
+      "playlistIndex": 185,
       "title": "Cumulus Express",
       "rawTitle": "Cumulus Express",
       "artist": "",
@@ -2388,7 +2427,7 @@
     },
     {
       "id": "Pcx3PNmOXtA",
-      "playlistIndex": 183,
+      "playlistIndex": 186,
       "title": "Sanctuary",
       "rawTitle": "Sanctuary",
       "artist": "",
@@ -2401,7 +2440,7 @@
     },
     {
       "id": "Vp_ErcSYL2o",
-      "playlistIndex": 184,
+      "playlistIndex": 187,
       "title": "Moonbow",
       "rawTitle": "Moonbow",
       "artist": "",
@@ -2414,7 +2453,7 @@
     },
     {
       "id": "_8Gyye3NQRs",
-      "playlistIndex": 185,
+      "playlistIndex": 188,
       "title": "Resonance",
       "rawTitle": "Resonance",
       "artist": "",
@@ -2427,7 +2466,7 @@
     },
     {
       "id": "J5NftM8cRag",
-      "playlistIndex": 186,
+      "playlistIndex": 189,
       "title": "Entertain Me",
       "rawTitle": "Entertain Me",
       "artist": "",
@@ -2440,7 +2479,7 @@
     },
     {
       "id": "wPvKkJbHHzM",
-      "playlistIndex": 187,
+      "playlistIndex": 190,
       "title": "Universe",
       "rawTitle": "Universe",
       "artist": "",
@@ -2453,7 +2492,7 @@
     },
     {
       "id": "RmYCOm4ehKs",
-      "playlistIndex": 188,
+      "playlistIndex": 191,
       "title": "Save Your Tears",
       "rawTitle": "Save Your Tears",
       "artist": "",
@@ -2466,7 +2505,7 @@
     },
     {
       "id": "eZLQP6AUpus",
-      "playlistIndex": 189,
+      "playlistIndex": 192,
       "title": "HOWLING",
       "rawTitle": "HOWLING",
       "artist": "",
@@ -2479,7 +2518,7 @@
     },
     {
       "id": "gIctOTbDQRM",
-      "playlistIndex": 190,
+      "playlistIndex": 193,
       "title": "ROCK THE BOAT",
       "rawTitle": "ROCK THE BOAT",
       "artist": "",
@@ -2492,7 +2531,7 @@
     },
     {
       "id": "wAdUATabyt0",
-      "playlistIndex": 191,
+      "playlistIndex": 194,
       "title": "GALA",
       "rawTitle": "GALA",
       "artist": "",
@@ -2505,7 +2544,7 @@
     },
     {
       "id": "0qr0Q2OIsKc",
-      "playlistIndex": 192,
+      "playlistIndex": 195,
       "title": "HYPNOTIZE",
       "rawTitle": "HYPNOTIZE",
       "artist": "",
@@ -2518,7 +2557,7 @@
     },
     {
       "id": "v_j8LbOSY2c",
-      "playlistIndex": 193,
+      "playlistIndex": 196,
       "title": "CHẲNG AI VẬY",
       "rawTitle": "CHẲNG AI VẬY",
       "artist": "",
@@ -2531,7 +2570,7 @@
     },
     {
       "id": "rT_rOXCeZhQ",
-      "playlistIndex": 194,
+      "playlistIndex": 197,
       "title": "Chạy Theo Em",
       "rawTitle": "Chạy Theo Em",
       "artist": "",
@@ -2544,7 +2583,7 @@
     },
     {
       "id": "0gGIxsbeotw",
-      "playlistIndex": 195,
+      "playlistIndex": 198,
       "title": "DANCING IN THE DARK",
       "rawTitle": "DANCING IN THE DARK",
       "artist": "",
@@ -2557,7 +2596,7 @@
     },
     {
       "id": "IEPqhYRS9Yo",
-      "playlistIndex": 196,
+      "playlistIndex": 199,
       "title": "Tình Thật Tình Mơ",
       "rawTitle": "Tình Thật Tình Mơ",
       "artist": "",
@@ -2570,7 +2609,7 @@
     },
     {
       "id": "ajhCoiKn11c",
-      "playlistIndex": 197,
+      "playlistIndex": 200,
       "title": "Qua Khung Cửa Sổ",
       "rawTitle": "Qua Khung Cửa Sổ",
       "artist": "",
@@ -2583,7 +2622,7 @@
     },
     {
       "id": "pon2PA0Wms8",
-      "playlistIndex": 198,
+      "playlistIndex": 201,
       "title": "Mirror",
       "rawTitle": "Mirror",
       "artist": "",
@@ -2596,7 +2635,7 @@
     },
     {
       "id": "jPoBYHF6nBU",
-      "playlistIndex": 199,
+      "playlistIndex": 202,
       "title": "Ngại ngùng gì mà không yêu",
       "rawTitle": "Ngại ngùng gì mà không yêu",
       "artist": "",
@@ -2609,7 +2648,7 @@
     },
     {
       "id": "o-LDo4X7sTQ",
-      "playlistIndex": 200,
+      "playlistIndex": 203,
       "title": "SAY (feat. T.R.I)",
       "rawTitle": "SAY (feat. T.R.I)",
       "artist": "",
@@ -2622,7 +2661,7 @@
     },
     {
       "id": "L41wLJHB5Io",
-      "playlistIndex": 201,
+      "playlistIndex": 204,
       "title": "Internet Love",
       "rawTitle": "Internet Love",
       "artist": "",
@@ -2635,7 +2674,7 @@
     },
     {
       "id": "EyIBAvA3LaA",
-      "playlistIndex": 202,
+      "playlistIndex": 205,
       "title": "Hư không",
       "rawTitle": "Hư không",
       "artist": "",
@@ -2648,7 +2687,7 @@
     },
     {
       "id": "JirmTsIuSgA",
-      "playlistIndex": 203,
+      "playlistIndex": 206,
       "title": "Trôi",
       "rawTitle": "Trôi",
       "artist": "",
@@ -2661,7 +2700,7 @@
     },
     {
       "id": "o8_3bLG4QFA",
-      "playlistIndex": 204,
+      "playlistIndex": 207,
       "title": "Đoạn Đường Sao Băng",
       "rawTitle": "Đoạn Đường Sao Băng",
       "artist": "",
@@ -2674,7 +2713,7 @@
     },
     {
       "id": "ipU2EPmGwrs",
-      "playlistIndex": 205,
+      "playlistIndex": 208,
       "title": "Giấc Mộng",
       "rawTitle": "Giấc Mộng",
       "artist": "",
@@ -2687,7 +2726,7 @@
     },
     {
       "id": "SKkP_M8snAU",
-      "playlistIndex": 206,
+      "playlistIndex": 209,
       "title": "H In My Arms",
       "rawTitle": "H In My Arms",
       "artist": "",
@@ -2700,7 +2739,7 @@
     },
     {
       "id": "SkSSImPeQ2w",
-      "playlistIndex": 207,
+      "playlistIndex": 210,
       "title": "Em Không Cô Đơn",
       "rawTitle": "Em Không Cô Đơn",
       "artist": "",
@@ -2713,7 +2752,7 @@
     },
     {
       "id": "BF6fVn_fSXg",
-      "playlistIndex": 208,
+      "playlistIndex": 211,
       "title": "Em Có Nghe",
       "rawTitle": "Em Có Nghe",
       "artist": "",
@@ -2726,7 +2765,7 @@
     },
     {
       "id": "zYm3EjfGe4w",
-      "playlistIndex": 209,
+      "playlistIndex": 212,
       "title": "Lời Yêu Ngây Dại",
       "rawTitle": "Lời Yêu Ngây Dại",
       "artist": "",
@@ -2739,7 +2778,7 @@
     },
     {
       "id": "rPUirc9-eAc",
-      "playlistIndex": 210,
+      "playlistIndex": 213,
       "title": "Ký Sự Ngọt Ngào",
       "rawTitle": "Ký Sự Ngọt Ngào",
       "artist": "",
@@ -2752,7 +2791,7 @@
     },
     {
       "id": "hrm6nPqewHQ",
-      "playlistIndex": 211,
+      "playlistIndex": 214,
       "title": "Waiting For You",
       "rawTitle": "Waiting For You",
       "artist": "",
@@ -2765,7 +2804,7 @@
     },
     {
       "id": "TD7hBpbF83s",
-      "playlistIndex": 212,
+      "playlistIndex": 215,
       "title": "Lạ Lùng",
       "rawTitle": "Lạ Lùng",
       "artist": "",
@@ -2778,7 +2817,7 @@
     },
     {
       "id": "r-ZSRyOV7ms",
-      "playlistIndex": 213,
+      "playlistIndex": 216,
       "title": "ĐÃ TỪNG",
       "rawTitle": "ĐÃ TỪNG",
       "artist": "",
@@ -2791,7 +2830,7 @@
     },
     {
       "id": "mGizm54VZeA",
-      "playlistIndex": 214,
+      "playlistIndex": 217,
       "title": "NGÀY MÂY ĐEN",
       "rawTitle": "NGÀY MÂY ĐEN",
       "artist": "",
@@ -2804,7 +2843,7 @@
     },
     {
       "id": "Kx4dmjbOaSU",
-      "playlistIndex": 215,
+      "playlistIndex": 218,
       "title": "giá như",
       "rawTitle": "giá như",
       "artist": "",
@@ -2817,7 +2856,7 @@
     },
     {
       "id": "h1oOfwKf6dc",
-      "playlistIndex": 216,
+      "playlistIndex": 219,
       "title": "nhạt-fine",
       "rawTitle": "nhạt-fine",
       "artist": "",
@@ -2830,7 +2869,7 @@
     },
     {
       "id": "7u4g483WTzw",
-      "playlistIndex": 217,
+      "playlistIndex": 220,
       "title": "Đừng Làm Trái Tim Anh Đau",
       "rawTitle": "Đừng Làm Trái Tim Anh Đau",
       "artist": "",
@@ -2843,7 +2882,7 @@
     },
     {
       "id": "U8flKaD8nNI",
-      "playlistIndex": 218,
+      "playlistIndex": 221,
       "title": "Em có",
       "rawTitle": "Em có",
       "artist": "",
@@ -2856,7 +2895,7 @@
     },
     {
       "id": "wrfIDsHmYDo",
-      "playlistIndex": 219,
+      "playlistIndex": 222,
       "title": "Tiếng trong đêm",
       "rawTitle": "Tiếng trong đêm",
       "artist": "",
@@ -2869,7 +2908,7 @@
     },
     {
       "id": "mboD-wQpx_Y",
-      "playlistIndex": 220,
+      "playlistIndex": 223,
       "title": "Ngỏ Lời",
       "rawTitle": "Ngỏ Lời",
       "artist": "",
@@ -2882,7 +2921,7 @@
     },
     {
       "id": "TehjWpfS6fs",
-      "playlistIndex": 221,
+      "playlistIndex": 224,
       "title": "Nếu Anh Là Em (feat. Hứa Kim Tuyền)",
       "rawTitle": "Nếu Anh Là Em (feat. Hứa Kim Tuyền)",
       "artist": "",
@@ -2895,7 +2934,7 @@
     },
     {
       "id": "Y-PIOtOyah4",
-      "playlistIndex": 222,
+      "playlistIndex": 225,
       "title": "Bầu Trời Mới",
       "rawTitle": "Bầu Trời Mới",
       "artist": "",
@@ -2908,7 +2947,7 @@
     },
     {
       "id": "UoXllQoqEBY",
-      "playlistIndex": 223,
+      "playlistIndex": 226,
       "title": "Chúng Ta Của Tương Lai",
       "rawTitle": "Chúng Ta Của Tương Lai",
       "artist": "",
@@ -2921,7 +2960,7 @@
     },
     {
       "id": "XFLxisOIenY",
-      "playlistIndex": 224,
+      "playlistIndex": 227,
       "title": "Her Summer",
       "rawTitle": "Her Summer",
       "artist": "",
@@ -2934,7 +2973,7 @@
     },
     {
       "id": "VVxxats9s9E",
-      "playlistIndex": 225,
+      "playlistIndex": 228,
       "title": "nữ siêu anh hùng",
       "rawTitle": "nữ siêu anh hùng",
       "artist": "",
@@ -2947,7 +2986,7 @@
     },
     {
       "id": "B3ontOIesik",
-      "playlistIndex": 226,
+      "playlistIndex": 229,
       "title": "Xóa",
       "rawTitle": "Xóa",
       "artist": "",
@@ -2960,7 +2999,7 @@
     },
     {
       "id": "CzUBGkAOOrA",
-      "playlistIndex": 227,
+      "playlistIndex": 230,
       "title": "SAIROI",
       "rawTitle": "SAIROI",
       "artist": "",
@@ -2973,7 +3012,7 @@
     },
     {
       "id": "yyREzOBShYw",
-      "playlistIndex": 228,
+      "playlistIndex": 231,
       "title": "Missed Call",
       "rawTitle": "Missed Call",
       "artist": "",
@@ -2986,7 +3025,7 @@
     },
     {
       "id": "7250RgRT6NM",
-      "playlistIndex": 229,
+      "playlistIndex": 232,
       "title": "Nghĩ Nhiều",
       "rawTitle": "Nghĩ Nhiều",
       "artist": "",
@@ -2999,7 +3038,7 @@
     },
     {
       "id": "xW1B58Q8bes",
-      "playlistIndex": 230,
+      "playlistIndex": 233,
       "title": "Tại Sao Em Buông",
       "rawTitle": "Tại Sao Em Buông",
       "artist": "",
@@ -3012,7 +3051,7 @@
     },
     {
       "id": "kvQOfM503co",
-      "playlistIndex": 231,
+      "playlistIndex": 234,
       "title": "'đôi giày không vừa size (hơi chật một chút)' - Hứa Kim Tuyền x Orange (valentine 2024) | Official",
       "rawTitle": "'đôi giày không vừa size (hơi chật một chút)' - Hứa Kim Tuyền x Orange (valentine 2024) | Official",
       "artist": "",
@@ -3025,7 +3064,7 @@
     },
     {
       "id": "22opdLbDgM8",
-      "playlistIndex": 232,
+      "playlistIndex": 235,
       "title": "Có Em Là Nhà",
       "rawTitle": "Có Em Là Nhà",
       "artist": "",
@@ -3038,7 +3077,7 @@
     },
     {
       "id": "hq5Umtw5DUo",
-      "playlistIndex": 233,
+      "playlistIndex": 236,
       "title": "Công Tử Văn Thơ",
       "rawTitle": "Công Tử Văn Thơ",
       "artist": "",
@@ -3051,7 +3090,7 @@
     },
     {
       "id": "mEo5iHQifts",
-      "playlistIndex": 234,
+      "playlistIndex": 237,
       "title": "Lá Ngọc Cành Vàng",
       "rawTitle": "Lá Ngọc Cành Vàng",
       "artist": "",
@@ -3064,7 +3103,7 @@
     },
     {
       "id": "fLqpi_Xar1k",
-      "playlistIndex": 235,
+      "playlistIndex": 238,
       "title": "mọi câu hát đều viết về anh",
       "rawTitle": "mọi câu hát đều viết về anh",
       "artist": "",
@@ -3077,7 +3116,7 @@
     },
     {
       "id": "p6svsVZoBD0",
-      "playlistIndex": 236,
+      "playlistIndex": 239,
       "title": "Vẫn Không Phải Là Anh",
       "rawTitle": "Vẫn Không Phải Là Anh",
       "artist": "",
@@ -3090,7 +3129,7 @@
     },
     {
       "id": "t6vDcxh4i34",
-      "playlistIndex": 237,
+      "playlistIndex": 240,
       "title": "Berlin",
       "rawTitle": "Berlin",
       "artist": "",
@@ -3103,7 +3142,7 @@
     },
     {
       "id": "ag-qqyxlnIM",
-      "playlistIndex": 238,
+      "playlistIndex": 241,
       "title": "Có Đâu Ai Ngờ",
       "rawTitle": "Có Đâu Ai Ngờ",
       "artist": "",
@@ -3116,7 +3155,7 @@
     },
     {
       "id": "eom52-J91hA",
-      "playlistIndex": 239,
+      "playlistIndex": 242,
       "title": "THÁC NÌNG",
       "rawTitle": "THÁC NÌNG",
       "artist": "",
@@ -3129,7 +3168,7 @@
     },
     {
       "id": "eXMH7sCC80g",
-      "playlistIndex": 240,
+      "playlistIndex": 243,
       "title": "tâm",
       "rawTitle": "tâm",
       "artist": "",
@@ -3142,7 +3181,7 @@
     },
     {
       "id": "96wNIQGvJDQ",
-      "playlistIndex": 241,
+      "playlistIndex": 244,
       "title": "ĐẾN LÚC NÀY THÌ...",
       "rawTitle": "ĐẾN LÚC NÀY THÌ...",
       "artist": "",
@@ -3155,7 +3194,7 @@
     },
     {
       "id": "fgZfIyDwOuA",
-      "playlistIndex": 242,
+      "playlistIndex": 245,
       "title": "NGỪI ĐẸP ƠII",
       "rawTitle": "NGỪI ĐẸP ƠII",
       "artist": "",
@@ -3168,7 +3207,7 @@
     },
     {
       "id": "hpNUnNyR_00",
-      "playlistIndex": 243,
+      "playlistIndex": 246,
       "title": "Chìm Sâu",
       "rawTitle": "Chìm Sâu",
       "artist": "",
@@ -3181,7 +3220,7 @@
     },
     {
       "id": "1FrAhRiTpoM",
-      "playlistIndex": 244,
+      "playlistIndex": 247,
       "title": "BƯỚC ĐI/NÁN LẠI?",
       "rawTitle": "BƯỚC ĐI/NÁN LẠI?",
       "artist": "",
@@ -3194,7 +3233,7 @@
     },
     {
       "id": "HXzRlUL1cF0",
-      "playlistIndex": 245,
+      "playlistIndex": 248,
       "title": "có hẹn với thanh xuân",
       "rawTitle": "có hẹn với thanh xuân",
       "artist": "",
@@ -3207,7 +3246,7 @@
     },
     {
       "id": "QvcJlR-DRyI",
-      "playlistIndex": 246,
+      "playlistIndex": 249,
       "title": "Heyyy",
       "rawTitle": "Heyyy",
       "artist": "",
@@ -3220,7 +3259,7 @@
     },
     {
       "id": "ax1LIOVf6jQ",
-      "playlistIndex": 247,
+      "playlistIndex": 250,
       "title": "TIẾC CHO EM",
       "rawTitle": "TIẾC CHO EM",
       "artist": "",
@@ -3233,7 +3272,7 @@
     },
     {
       "id": "WJzcYucNHG8",
-      "playlistIndex": 248,
+      "playlistIndex": 251,
       "title": "KHÔNG VẤN ĐỀ",
       "rawTitle": "KHÔNG VẤN ĐỀ",
       "artist": "",
@@ -3246,7 +3285,7 @@
     },
     {
       "id": "QgmPY8Ub_2Y",
-      "playlistIndex": 249,
+      "playlistIndex": 252,
       "title": "KIỆT TÁC",
       "rawTitle": "KIỆT TÁC",
       "artist": "",
@@ -3259,7 +3298,7 @@
     },
     {
       "id": "1pViYfm63bA",
-      "playlistIndex": 250,
+      "playlistIndex": 253,
       "title": "THÓI HƯ",
       "rawTitle": "THÓI HƯ",
       "artist": "",
@@ -3272,7 +3311,7 @@
     },
     {
       "id": "Xb2IOOCHAUM",
-      "playlistIndex": 251,
+      "playlistIndex": 254,
       "title": "Sẽ Quên Em Nhanh Thôi (feat. Rhymastic)",
       "rawTitle": "Sẽ Quên Em Nhanh Thôi (feat. Rhymastic)",
       "artist": "",
@@ -3285,7 +3324,7 @@
     },
     {
       "id": "nOX7dG0Usvg",
-      "playlistIndex": 252,
+      "playlistIndex": 255,
       "title": "ロールプレイングゲーム",
       "rawTitle": "ロールプレイングゲーム",
       "artist": "",
@@ -3298,7 +3337,7 @@
     },
     {
       "id": "O48gok_FLCg",
-      "playlistIndex": 253,
+      "playlistIndex": 256,
       "title": "Orange",
       "rawTitle": "Orange",
       "artist": "",
@@ -3311,7 +3350,7 @@
     },
     {
       "id": "7RaWyp74P_c",
-      "playlistIndex": 254,
+      "playlistIndex": 257,
       "title": "Kyokiranbu",
       "rawTitle": "Kyokiranbu",
       "artist": "",
@@ -3324,7 +3363,7 @@
     },
     {
       "id": "EiJai4FVWYA",
-      "playlistIndex": 255,
+      "playlistIndex": 258,
       "title": "Tegami - Haikei Jyugo No Kimie",
       "rawTitle": "Tegami - Haikei Jyugo No Kimie",
       "artist": "",
@@ -3337,7 +3376,7 @@
     },
     {
       "id": "LlSkhXQ4lv4",
-      "playlistIndex": 256,
+      "playlistIndex": 259,
       "title": "真心に奏",
       "rawTitle": "真心に奏",
       "artist": "",
@@ -3350,7 +3389,7 @@
     },
     {
       "id": "73qSpLDDS-0",
-      "playlistIndex": 257,
+      "playlistIndex": 260,
       "title": "カノン",
       "rawTitle": "カノン",
       "artist": "",
@@ -3363,7 +3402,7 @@
     },
     {
       "id": "Wi5HVLnaBvk",
-      "playlistIndex": 258,
+      "playlistIndex": 261,
       "title": "シンデレラ・ハネムーン（スピードアップバージョン）",
       "rawTitle": "シンデレラ・ハネムーン（スピードアップバージョン）",
       "artist": "",
@@ -3376,7 +3415,7 @@
     },
     {
       "id": "BcO-8KtgVfM",
-      "playlistIndex": 259,
+      "playlistIndex": 262,
       "title": "Sabotage",
       "rawTitle": "Sabotage",
       "artist": "",
@@ -3389,7 +3428,7 @@
     },
     {
       "id": "aPWqr60gycI",
-      "playlistIndex": 260,
+      "playlistIndex": 263,
       "title": "Melissa",
       "rawTitle": "Melissa",
       "artist": "",
@@ -3402,7 +3441,7 @@
     },
     {
       "id": "C_zTh11VEuE",
-      "playlistIndex": 261,
+      "playlistIndex": 264,
       "title": "Precious",
       "rawTitle": "Precious",
       "artist": "",
@@ -3415,7 +3454,7 @@
     },
     {
       "id": "kLM05yHbEMQ",
-      "playlistIndex": 262,
+      "playlistIndex": 265,
       "title": "Toryanse",
       "rawTitle": "Toryanse",
       "artist": "",
@@ -3428,7 +3467,7 @@
     },
     {
       "id": "rgNdeflYdYw",
-      "playlistIndex": 263,
+      "playlistIndex": 266,
       "title": "たぶん",
       "rawTitle": "たぶん",
       "artist": "",
@@ -3441,7 +3480,7 @@
     },
     {
       "id": "2lwVThXSaxs",
-      "playlistIndex": 264,
+      "playlistIndex": 267,
       "title": "Leo",
       "rawTitle": "Leo",
       "artist": "",
@@ -3454,7 +3493,7 @@
     },
     {
       "id": "iVDKoddj0Xg",
-      "playlistIndex": 265,
+      "playlistIndex": 268,
       "title": "Raison Detre",
       "rawTitle": "Raison Detre",
       "artist": "",
@@ -3467,7 +3506,7 @@
     },
     {
       "id": "saDmN2f3HI0",
-      "playlistIndex": 266,
+      "playlistIndex": 269,
       "title": "Grand Escape (feat. Toko Miura)",
       "rawTitle": "Grand Escape (feat. Toko Miura)",
       "artist": "",
@@ -3480,7 +3519,7 @@
     },
     {
       "id": "Ty23LnIH4oA",
-      "playlistIndex": 267,
+      "playlistIndex": 270,
       "title": "Far Away",
       "rawTitle": "Far Away",
       "artist": "",
@@ -3493,7 +3532,7 @@
     },
     {
       "id": "7g8m3JNgMTM",
-      "playlistIndex": 268,
+      "playlistIndex": 271,
       "title": "Tokyo Calling",
       "rawTitle": "Tokyo Calling",
       "artist": "",
@@ -3506,7 +3545,7 @@
     },
     {
       "id": "0ifKJ_oNfpQ",
-      "playlistIndex": 269,
+      "playlistIndex": 272,
       "title": "wo ai ni",
       "rawTitle": "wo ai ni",
       "artist": "",
@@ -3519,7 +3558,7 @@
     },
     {
       "id": "JuXjhN4OsZc",
-      "playlistIndex": 270,
+      "playlistIndex": 273,
       "title": "Hazukashiika Seishunwa",
       "rawTitle": "Hazukashiika Seishunwa",
       "artist": "",
@@ -3532,7 +3571,7 @@
     },
     {
       "id": "-41g2NmbHUM",
-      "playlistIndex": 271,
+      "playlistIndex": 274,
       "title": "Landscape",
       "rawTitle": "Landscape",
       "artist": "",
@@ -3545,7 +3584,7 @@
     },
     {
       "id": "ZqU2nATDJ40",
-      "playlistIndex": 272,
+      "playlistIndex": 275,
       "title": "風",
       "rawTitle": "風",
       "artist": "",
@@ -3558,7 +3597,7 @@
     },
     {
       "id": "v1RW9645Lwo",
-      "playlistIndex": 273,
+      "playlistIndex": 276,
       "title": "Pink Blue",
       "rawTitle": "Pink Blue",
       "artist": "",
@@ -3571,7 +3610,7 @@
     },
     {
       "id": "8TYzGVG2pAw",
-      "playlistIndex": 274,
+      "playlistIndex": 277,
       "title": "ヌエドリ",
       "rawTitle": "ヌエドリ",
       "artist": "",
@@ -3584,7 +3623,7 @@
     },
     {
       "id": "H8XSYuoss78",
-      "playlistIndex": 275,
+      "playlistIndex": 278,
       "title": "風の記憶",
       "rawTitle": "風の記憶",
       "artist": "",
@@ -3597,7 +3636,7 @@
     },
     {
       "id": "fOyFPqEuGXs",
-      "playlistIndex": 276,
+      "playlistIndex": 279,
       "title": "Arigatou",
       "rawTitle": "Arigatou",
       "artist": "",
@@ -3610,7 +3649,7 @@
     },
     {
       "id": "Rq65VlRhvMs",
-      "playlistIndex": 277,
+      "playlistIndex": 280,
       "title": "Happy End",
       "rawTitle": "Happy End",
       "artist": "",
@@ -3623,7 +3662,7 @@
     },
     {
       "id": "yQQM1JFzjt4",
-      "playlistIndex": 278,
+      "playlistIndex": 281,
       "title": "鳥籠 -in this cage-",
       "rawTitle": "鳥籠 -in this cage-",
       "artist": "",
@@ -3636,7 +3675,7 @@
     },
     {
       "id": "Gcs7sk8DIpo",
-      "playlistIndex": 279,
+      "playlistIndex": 282,
       "title": "理燃-コトワリ-",
       "rawTitle": "理燃-コトワリ-",
       "artist": "",
@@ -3649,7 +3688,7 @@
     },
     {
       "id": "CMZRJb1jxzE",
-      "playlistIndex": 280,
+      "playlistIndex": 283,
       "title": "Fantasy",
       "rawTitle": "Fantasy",
       "artist": "",
@@ -3662,7 +3701,7 @@
     },
     {
       "id": "wzslO9QbDAQ",
-      "playlistIndex": 281,
+      "playlistIndex": 284,
       "title": "Mela!",
       "rawTitle": "Mela!",
       "artist": "",
@@ -3675,7 +3714,7 @@
     },
     {
       "id": "JoN9NG_3zOw",
-      "playlistIndex": 282,
+      "playlistIndex": 285,
       "title": "Character",
       "rawTitle": "Character",
       "artist": "",
@@ -3688,7 +3727,7 @@
     },
     {
       "id": "GFxUqRja66Y",
-      "playlistIndex": 283,
+      "playlistIndex": 286,
       "title": "月曜日の憂鬱",
       "rawTitle": "月曜日の憂鬱",
       "artist": "",
@@ -3701,7 +3740,7 @@
     },
     {
       "id": "uG1XLo2meGA",
-      "playlistIndex": 284,
+      "playlistIndex": 287,
       "title": "ただいま",
       "rawTitle": "ただいま",
       "artist": "",
@@ -3714,7 +3753,7 @@
     },
     {
       "id": "VR7XSvW_9gA",
-      "playlistIndex": 285,
+      "playlistIndex": 288,
       "title": "Shinkai",
       "rawTitle": "Shinkai",
       "artist": "",
@@ -3727,7 +3766,7 @@
     },
     {
       "id": "1ms0tHiAVQw",
-      "playlistIndex": 286,
+      "playlistIndex": 289,
       "title": "灯火のまにまに",
       "rawTitle": "灯火のまにまに",
       "artist": "",
@@ -3740,7 +3779,7 @@
     },
     {
       "id": "LC3wmUW7KHY",
-      "playlistIndex": 287,
+      "playlistIndex": 290,
       "title": "戦刃幻夢",
       "rawTitle": "戦刃幻夢",
       "artist": "",
@@ -3753,7 +3792,7 @@
     },
     {
       "id": "UP2eN81ngF0",
-      "playlistIndex": 288,
+      "playlistIndex": 291,
       "title": "恋するフォーチュンクッキー",
       "rawTitle": "恋するフォーチュンクッキー",
       "artist": "",
@@ -3766,7 +3805,7 @@
     },
     {
       "id": "n0FWlMWVMBg",
-      "playlistIndex": 289,
+      "playlistIndex": 292,
       "title": "LET'S START WW3",
       "rawTitle": "LET'S START WW3",
       "artist": "",
@@ -3779,7 +3818,7 @@
     },
     {
       "id": "T9xeQoG9-J8",
-      "playlistIndex": 290,
+      "playlistIndex": 293,
       "title": "HAVE A NICE DAY",
       "rawTitle": "HAVE A NICE DAY",
       "artist": "",
